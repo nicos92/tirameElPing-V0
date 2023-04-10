@@ -54,6 +54,9 @@ public class TirameElPingApp extends Application {
 
     public static void main(String[] args) {
         launch();
+        TirameElPingController tirameElPingController = new TirameElPingController();
+        tirameElPingController.radioButton();
+
 
     }
 }
