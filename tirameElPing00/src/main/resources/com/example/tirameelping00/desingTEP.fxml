@@ -72,7 +72,7 @@
                         </HBox>
                         <AnchorPane fx:id="ventanaPing" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
                            <children>
-                              <Label layoutX="70.0" layoutY="109.0" text="Direccion IP o URL:  ">
+                              <Label fx:id="labelIp" layoutX="70.0" layoutY="109.0" text="Direccion IP o URL:  ">
                                  <font>
                                     <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                  </font>
@@ -87,7 +87,7 @@
                                     <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXCheckBox layoutX="70.0" layoutY="330.0" text="Guardar Ping en archivo .txt">
+                              <JFXCheckBox fx:id="pingEnTxt" layoutX="70.0" layoutY="330.0" text="Guardar Ping en archivo .txt">
                                  <font>
                                     <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                  </font>
@@ -97,7 +97,7 @@
                                     <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXButton fx:id="btnDetener" disable="true" layoutX="435.0" layoutY="447.0" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
+                              <JFXButton fx:id="btnDetener" disable="true" layoutX="435.0" layoutY="447.0" onMouseClicked="#onBtnDetener" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -105,7 +105,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </JFXButton>
-                              <JFXButton fx:id="btnIniciar" layoutX="147.0" layoutY="447.0" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">
+                              <JFXButton fx:id="btnIniciar" layoutX="147.0" layoutY="447.0" onMouseClicked="#onBtnIniciar" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -113,7 +113,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </JFXButton>
-                              <JFXCheckBox layoutX="70.0" layoutY="275.0" text="Nombre de host de destino (-a)">
+                              <JFXCheckBox fx:id="host_a" layoutX="70.0" layoutY="275.0" text="Nombre de host de destino (-a)">
                                  <font>
                                     <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                  </font>
@@ -131,7 +131,7 @@
                                     <ToggleGroup fx:id="pingCanti" />
                                  </toggleGroup>
                               </JFXRadioButton>
-                              <JFXRadioButton layoutX="56.0" layoutY="218.0" text="Cantidad de peticiones (-n)" toggleGroup="$pingCanti">
+                              <JFXRadioButton fx:id="radBtn_n" layoutX="56.0" layoutY="218.0" text="Cantidad de peticiones (-n)" toggleGroup="$pingCanti">
                                  <font>
                                     <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                  </font>

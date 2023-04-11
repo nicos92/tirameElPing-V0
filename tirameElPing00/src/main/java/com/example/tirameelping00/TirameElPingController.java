@@ -2,9 +2,7 @@ package com.example.tirameelping00;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
@@ -21,6 +19,12 @@ public class TirameElPingController {
     private Button btnIpInfo;
 
     @FXML
+    private Button btnIniciar;
+
+    @FXML
+    private Button btnDetener;
+
+    @FXML
     private AnchorPane ventanaPing;
 
     @FXML
@@ -30,10 +34,26 @@ public class TirameElPingController {
     private AnchorPane ventanaIpInfo;
 
     @FXML
+    private Label labelIp;
+
+    @FXML
+    private TextField txtIP;
+
+    @FXML
     private RadioButton radBtn_t;
 
     @FXML
+    private RadioButton radBtn_n;
+
+    @FXML
     private TextField txtCantPet;
+
+    @FXML
+    private CheckBox host_a;
+
+    @FXML
+    private CheckBox pingEnTxt;
+
 
 
     public void onPing(){
@@ -66,6 +86,21 @@ public class TirameElPingController {
 
 
     }
+
+    public void onBtnIniciar(){
+        btnIniciar.setDisable(true);
+        btnDetener.setDisable(false);
+        desactVentPing(true);
+
+    }
+
+    public void onBtnDetener(){
+        btnIniciar.setDisable(false);
+        btnDetener.setDisable(true);
+
+        desactVentPing(false);
+
+    }
     public void exitButton(){
 
         System.exit(0);
@@ -78,6 +113,17 @@ public class TirameElPingController {
             txtCantPet.setDisable(true);
 
         }
+    }
+
+    private void desactVentPing(boolean b) {
+
+        labelIp.setDisable(b);
+        txtIP.setDisable(b);
+        radBtn_t.setDisable(b);
+        radBtn_n.setDisable(b);
+        txtCantPet.setDisable(b);
+        host_a.setDisable(b);
+        pingEnTxt.setDisable(b);
     }
 
 
