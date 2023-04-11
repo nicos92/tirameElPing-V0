@@ -24,23 +24,12 @@
                      <children>
                         <HBox fx:id="hboxsup" alignment="CENTER" prefHeight="100.0" prefWidth="488.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" AnchorPane.bottomAnchor="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <JFXButton fx:id="btnPing" onMouseClicked="#onPing" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" text="Ping">
+                              <JFXButton fx:id="btnPing" onMouseClicked="#onPing" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #bebebe; -fx-background-radius: 10;" text="Ping">
                                  <font>
                                     <Font name="Noto Sans SemiCondensed Black" size="18.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets bottom="2.0" left="4.0" right="2.0" top="2.0" />
-                                 </HBox.margin>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </JFXButton>
-                              <JFXButton fx:id="btnTxtSalida" onMouseClicked="#onTxtSalida" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #bebebe; -fx-background-radius: 10;" text="Txt Salida">
-                                 <font>
-                                    <Font name="Noto Sans SemiCondensed Black" size="18.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                  </HBox.margin>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -70,14 +59,14 @@
                               </JFXButton>
                            </children>
                         </HBox>
-                        <AnchorPane fx:id="ventanaPing" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
+                        <AnchorPane fx:id="ventanaPing" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
                            <children>
                               <Label fx:id="labelIp" layoutX="70.0" layoutY="109.0" text="Direccion IP o URL:  ">
                                  <font>
                                     <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                  </font>
                               </Label>
-                              <Text layoutX="245.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monitorear IP">
+                              <Text layoutX="270.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ejecutar Ping">
                                  <font>
                                     <Font name="Noto Sans SemiCondensed ExtraBold" size="27.0" />
                                  </font>
@@ -97,7 +86,7 @@
                                     <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXButton fx:id="btnDetener" disable="true" layoutX="435.0" layoutY="447.0" onMouseClicked="#onBtnDetener" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
+                              <JFXButton fx:id="btnDetener" disable="true" layoutX="420.0" layoutY="447.0" onMouseClicked="#onBtnDetener" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -123,7 +112,7 @@
                                     <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXRadioButton fx:id="radBtn_t" layoutX="56.0" layoutY="172.0" onAction="#radioButton" selected="true" text="Ping Constante (-t)">
+                              <JFXRadioButton fx:id="radBtn_t" layoutX="56.0" layoutY="172.0" onMouseClicked="#radioButton" selected="true" text="Ping Constante (-t)">
                                  <font>
                                     <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                  </font>
@@ -136,6 +125,14 @@
                                     <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                  </font>
                               </JFXRadioButton>
+                              <JFXButton fx:id="btnTxtSalida" layoutX="258.0" layoutY="447.0" onMouseClicked="#onTxtSalida" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #bebebe; -fx-background-radius: 10;" text="Ver Registro">
+                                 <font>
+                                    <Font name="Noto Sans SemiCondensed Black" size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </JFXButton>
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="ventanaTxtSalida" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
@@ -164,6 +161,23 @@
                                     <Font name="Noto Sans SemiCondensed" size="14.0" />
                                  </font>
                               </TextArea>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="ventanaBienv" layoutX="30.0" layoutY="30.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
+                           <children>
+                              <Text layoutX="122.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenido a Tirame el Ping!">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Text>
+                              <JFXButton fx:id="btnIniciarPing" layoutX="272.0" layoutY="213.0" onMouseClicked="#onPing" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #41b4d3; -fx-background-radius: 10;" text="Iniciar Ping" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </JFXButton>
                            </children>
                         </AnchorPane>
                      </children>

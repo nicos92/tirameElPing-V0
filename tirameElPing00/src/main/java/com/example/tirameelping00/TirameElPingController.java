@@ -25,6 +25,9 @@ public class TirameElPingController {
     private Button btnDetener;
 
     @FXML
+    private AnchorPane ventanaBienv;
+
+    @FXML
     private AnchorPane ventanaPing;
 
     @FXML
@@ -58,17 +61,19 @@ public class TirameElPingController {
 
     public void onPing(){
         ventanaPing.setVisible(true);
-        btnPing.setStyle("" );
+        btnPing.setStyle("-fx-background-color: #41b4d3; -fx-background-radius: 10" );
         btnTxtSalida.setStyle("-fx-background-color: #bebebe; -fx-background-radius: 10" );
         btnIpInfo.setStyle("-fx-background-color: #bebebe; -fx-background-radius: 10" );
+        ventanaBienv.setVisible(false);
         ventanaTxtSalida.setVisible(false);
         ventanaIpInfo.setVisible(false);
         txtIP.requestFocus();
+        radioButton();
     }
 
     public void onTxtSalida(){
         ventanaTxtSalida.setVisible(true);
-        btnTxtSalida.setStyle("");
+        btnTxtSalida.setStyle("-fx-background-color: #41b4d3; -fx-background-radius: 10");
         btnPing.setStyle("-fx-background-color: #bebebe; -fx-background-radius: 10" );
         btnIpInfo.setStyle("-fx-background-color: #bebebe; -fx-background-radius: 10" );
         ventanaPing.setVisible(false);
@@ -78,7 +83,7 @@ public class TirameElPingController {
 
     public void onIpInfo(){
         ventanaIpInfo.setVisible(true);
-        btnIpInfo.setStyle("");
+        btnIpInfo.setStyle("-fx-background-color: #41b4d3; -fx-background-radius: 10");
         btnPing.setStyle("-fx-background-color: #bebebe; -fx-background-radius: 10" );
         btnTxtSalida.setStyle("-fx-background-color: #bebebe; -fx-background-radius: 10" );
 
