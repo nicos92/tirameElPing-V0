@@ -123,7 +123,7 @@
                                     <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                  </font>
                               </JFXTextField>
-                              <JFXRadioButton fx:id="radBtn_t" layoutX="56.0" layoutY="172.0" selected="true" text="Ping Constante (-t)">
+                              <JFXRadioButton fx:id="radBtn_t" layoutX="56.0" layoutY="172.0" onAction="#radioButton" selected="true" text="Ping Constante (-t)">
                                  <font>
                                     <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                  </font>
@@ -131,7 +131,7 @@
                                     <ToggleGroup fx:id="pingCanti" />
                                  </toggleGroup>
                               </JFXRadioButton>
-                              <JFXRadioButton fx:id="radBtn_n" layoutX="56.0" layoutY="218.0" text="Cantidad de peticiones (-n)" toggleGroup="$pingCanti">
+                              <JFXRadioButton fx:id="radBtn_n" layoutX="56.0" layoutY="218.0" onMouseClicked="#radioButton" text="Cantidad de peticiones (-n)" toggleGroup="$pingCanti">
                                  <font>
                                     <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                  </font>

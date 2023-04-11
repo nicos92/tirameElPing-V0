@@ -40,7 +40,6 @@ public class TirameElPingApp extends Application {
         });
 
 
-
         Scene scene = new Scene(root);
         stage.setTitle("Tirame El Ping");
         stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("imgs/rj45.png"))));

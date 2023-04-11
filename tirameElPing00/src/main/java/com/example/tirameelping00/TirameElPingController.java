@@ -63,6 +63,7 @@ public class TirameElPingController {
         btnIpInfo.setStyle("-fx-background-color: #bebebe; -fx-background-radius: 10" );
         ventanaTxtSalida.setVisible(false);
         ventanaIpInfo.setVisible(false);
+        txtIP.requestFocus();
     }
 
     public void onTxtSalida(){
@@ -109,10 +110,8 @@ public class TirameElPingController {
     }
 
     public void radioButton(){
-        if(radBtn_t.isSelected()){
-            txtCantPet.setDisable(true);
+        txtCantPet.setDisable(radBtn_t.isSelected());
 
-        }
     }
 
     private void desactVentPing(boolean b) {
