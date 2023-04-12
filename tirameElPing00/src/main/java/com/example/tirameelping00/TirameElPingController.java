@@ -84,17 +84,13 @@ public class TirameElPingController {
     public  void ejecutarPing() {
         try {
             String ip = txtIP.getText();
-
             String pingCmd = "ping" + selectRadioBtn() + ip;
-
             Runtime r = Runtime.getRuntime();
             Process p = r.exec(pingCmd);
-
             soloPing(p, ip);
             /*if (accion) {
                 setPingTxt( ip, notify, p);
             }*/
-
         } catch (Exception n){
             System.out.println("ERROR ejecutar Ping: " + n.getMessage());
         }
@@ -102,16 +98,8 @@ public class TirameElPingController {
 
     private  void soloPing(Process p, String ip){
         Runnable run = new EjecutarPingHilo(p, ip);
-
         thread = new Thread(run);
-
-
         thread.start();
-
-
-
-
-
     }
 
     public void onPing(){
@@ -168,15 +156,11 @@ public class TirameElPingController {
         thread.interrupt();
         btnIniciar.setDisable(false);
         btnDetener.setDisable(true);
-
         desactVentPing(false);
-
     }
     public void exitButton(){
-
         System.exit(0);
         Platform.exit();
-
     }
 
     public void radioButton(){

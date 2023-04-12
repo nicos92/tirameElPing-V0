@@ -37,6 +37,7 @@ public class EjecutarPingHilo implements Runnable{
                 System.out.println( inputLine );
                 //detener = onBtnDetener();
             }
+
         }catch (Exception e){
             System.out.println("Error Run: " + e.getMessage());
         }
@@ -53,7 +54,6 @@ public class EjecutarPingHilo implements Runnable{
         //service.postNotification("Some title", "A message", DesktopNotify.FAIL, DesktopNotify.LEFT_TO_RIGHT, 2000L, "light");
 
         if (inputLine.contains("Error") || inputLine.contains("agotado")){
-            System.out.println("Error");
             service.postNotification("Fallo en la Red", "revise la IP: " + ip, DesktopNotify.FAIL, DesktopNotify.LEFT_TO_RIGHT, 2000L, "light");
             //DesktopNotify.showDesktopMessage("Fallo en la Red", "revise la IP: " + ip, DesktopNotify.FAIL, 2000L);
             return true;
@@ -64,6 +64,11 @@ public class EjecutarPingHilo implements Runnable{
 
             //DesktopNotify.showDesktopMessage("Conexion establecida", "conexion establecida con la IP: " + ip, DesktopNotify.SUCCESS, 5000L);
             return false;
+        }
+
+        if( inputLine.contains("inaccesible")){
+            service.postNotification(("Inaccesible"), "No se Puede Acceder a la Direccion: " + ip,
+                    DesktopNotify.WARNING, DesktopNotify.LEFT_TO_RIGHT, 5000L, "light");
         }
         return notify;
     }
