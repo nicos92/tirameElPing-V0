@@ -22,6 +22,8 @@ public class TirameElPingController {
 
     private Thread thread;
 
+    private EjecutarPingHilo run;
+
     @FXML
     private TextArea txtAreaSalida;
 
@@ -91,15 +93,22 @@ public class TirameElPingController {
             /*if (accion) {
                 setPingTxt( ip, notify, p);
             }*/
+            System.out.println("hola ejecuitar Ping");
         } catch (Exception n){
             System.out.println("ERROR ejecutar Ping: " + n.getMessage());
         }
+        System.out.println("chau");
     }
 
     private  void soloPing(Process p, String ip){
-        Runnable run = new EjecutarPingHilo(p, ip);
+        run = new EjecutarPingHilo(p, ip);
         thread = new Thread(run);
         thread.start();
+
+        if (run.getBool()) {
+            onBtnDetener();
+        }
+
     }
 
     public void onPing(){
