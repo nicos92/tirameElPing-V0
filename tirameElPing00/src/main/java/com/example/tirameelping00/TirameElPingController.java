@@ -81,7 +81,13 @@ public class TirameElPingController {
     private TextArea txtIpInfo;
 
 
+    public TextArea getTxtAreaSalida() {
+        return txtAreaSalida;
+    }
 
+    public void setTxtAreaSalida(TextArea txtAreaSalida) {
+        this.txtAreaSalida = txtAreaSalida;
+    }
 
     public  void ejecutarPing() {
         try {
@@ -93,11 +99,9 @@ public class TirameElPingController {
             /*if (accion) {
                 setPingTxt( ip, notify, p);
             }*/
-            System.out.println("hola ejecuitar Ping");
         } catch (Exception n){
             System.out.println("ERROR ejecutar Ping: " + n.getMessage());
         }
-        System.out.println("chau");
     }
 
     private  void soloPing(Process p, String ip){
@@ -148,17 +152,13 @@ public class TirameElPingController {
     public void onBtnIniciar(){
 
         try{
-            System.out.println( txtIP.getText() + " " + selectRadioBtn());
-
             btnDetener.setDisable(false);
             desactVentPing(true);
             btnIniciar.setDisable(true);
-
         }catch (Exception e){
             System.out.println("Error onBtnIniciar: " + e.getMessage());
         }
         ejecutarPing();
-
     }
 
     public void onBtnDetener(){

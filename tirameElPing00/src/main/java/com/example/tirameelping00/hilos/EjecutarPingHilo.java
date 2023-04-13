@@ -1,5 +1,6 @@
 package com.example.tirameelping00.hilos;
 
+import com.example.tirameelping00.notify.Notificacion;
 import ds.desktop.notify.DesktopNotify;
 import ds.desktop.notify.service.NotifyService;
 
@@ -44,7 +45,7 @@ public class EjecutarPingHilo implements Runnable{
                 String hora = String.valueOf(LocalDateTime.now().getHour());
                 String min = String.valueOf(LocalDateTime.now().getMinute());
                 String seg = String.valueOf(LocalDateTime.now().getSecond());
-                notify = notificacion(notify, inputLine, ip);
+                notify = sendNotificacion(notify, inputLine, ip);
                 textArea.add(inputLine + " \n");
                 String txt = LocalDate.now().getYear() + "-" + LocalDate.now().getMonth() + "-" + LocalDate.now().getDayOfMonth() + " . " + hora + ":" + min + ":" + seg + "  " + inputLine + " \n";
 
@@ -72,34 +73,27 @@ public class EjecutarPingHilo implements Runnable{
         return textArea;
     }
 
-    private  boolean notificacion(boolean notify, String inputLine, String ip){
+    private  boolean sendNotificacion(boolean notify, String inputLine, String ip){
 
-        NotifyService service = NotifyService.get();
-        //service.postNotification("Some title", "A message", DesktopNotify.FAIL, DesktopNotify.LEFT_TO_RIGHT, 2000L, "light");
+        Notificacion notificacion = new Notificacion();
 
         if (inputLine.contains("Error") || inputLine.contains("agotado")){
-            service.postNotification("Fallo en la Red", "revise la IP: " + ip, DesktopNotify.FAIL, DesktopNotify.LEFT_TO_RIGHT, 2000L, "light");
-            //DesktopNotify.showDesktopMessage("Fallo en la Red", "revise la IP: " + ip, DesktopNotify.FAIL, 2000L);
+            notificacion.sendNotifyFail(ip);
             return true;
         }
-
         if ( inputLine.contains("tiempo") && notify){
-            service.postNotification("Conexion establecida", "Con la IP: " + ip, DesktopNotify.SUCCESS, DesktopNotify.LEFT_TO_RIGHT, 5000L, "light");
-
-            //DesktopNotify.showDesktopMessage("Conexion establecida", "conexion establecida con la IP: " + ip, DesktopNotify.SUCCESS, 5000L);
+            notificacion.sendNotifyOk(ip);
             return false;
         }
-
         if( inputLine.contains("inaccesible")){
-            service.postNotification(("Inaccesible"), "No se Puede Acceder a la Direccion: " + ip,
-                    DesktopNotify.WARNING, DesktopNotify.LEFT_TO_RIGHT, 5000L, "light");
+            notificacion.sendNotifyInsccesible(ip);
         }
         return notify;
     }
 
     private  File getNameFile(){
         int cont = 0;
-        File ruta = new File("K:\\");
+        File ruta = new File("D:\\");
         String[] nombres = ruta.list();
         assert nombres != null;
         String[] newName;
@@ -112,7 +106,7 @@ public class EjecutarPingHilo implements Runnable{
             }
         }
         cont++;
-        return new File("K:\\tirameElPing (" + cont + ").txt");
+        return new File("D:\\tirameElPing (" + cont + ").txt");
     }
 
 
