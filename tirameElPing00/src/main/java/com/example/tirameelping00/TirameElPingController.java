@@ -5,16 +5,14 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.paint.Color;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
+import java.net.InetAddress;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 
 public class TirameElPingController {
@@ -218,24 +216,39 @@ public class TirameElPingController {
 
     public  void ipConfigAll() {
         try {
-            String pingCmd = "ipconfig";
-            Runtime r = Runtime.getRuntime();
-            Process p = r.exec(pingCmd);
-            ejecutarIpConfig(p);
+            List<String> miIpList  = new ArrayList<>();
+            miIpList.add("Dirección IPv4: " + InetAddress.getLocalHost().getHostAddress());
+            miIpList.add("Host Name: " + InetAddress.getLocalHost().getHostName());
+            miIpList.add("Canonical Host Name: " + InetAddress.getLocalHost().getCanonicalHostName());
+
+            try
+            {
+                URL url_name = new URL("http://myexternalip.com/raw");
+
+                BufferedReader sc =
+                        new BufferedReader(new InputStreamReader(url_name.openStream()));
+
+                // reads system IPAddress
+                miIpList.add("Mi IP Publica: " + sc.readLine().trim());
+            }
+            catch (Exception e)
+            {
+                miIpList.add("Mi IP Publica: " + "No se puede obtener");
+            }
+            for (String data :
+                    miIpList) {
+                txtIpInfo.setText( txtIpInfo.getText() + " \n "+ data);
+            }
+
+
         } catch (Exception n){
-            System.out.println("EERRORR: " + n.getMessage());
+            System.out.println("ERROR : " + n.getMessage());
         }
+
+
     }
 
-    private  void ejecutarIpConfig(Process p) throws IOException {
-        BufferedReader lector = new BufferedReader(new InputStreamReader(p.getInputStream(), StandardCharsets.ISO_8859_1));
-        String inputLine;
-        txtIpInfo.setText("");
-        while ((inputLine = lector.readLine()) != null )
-        {
-            txtIpInfo.setText( txtIpInfo.getText() + " \n "+ inputLine);
-        }
-    }
+
 
 
 
