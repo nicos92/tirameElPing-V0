@@ -1,8 +1,8 @@
 package com.example.tirameelping00.hilos;
 
 import com.example.tirameelping00.notify.Notificacion;
-import ds.desktop.notify.DesktopNotify;
-import ds.desktop.notify.service.NotifyService;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -13,65 +13,70 @@ import java.util.List;
 
 public class EjecutarPingHilo implements Runnable{
 
+
+    private final TextArea txtAreaSalida;
     private final Process process;
-    private final List<String> textArea;
     private final String ip;
+    private final TextField txtRutaArchivo;
+    private final boolean bool;
 
-    private  boolean bool;
 
-
-    public EjecutarPingHilo(Process p, String ip){
-        process = p;
+    public EjecutarPingHilo(Process p, String ip, boolean selected, TextArea txtAreaSalida, TextField txtRutaArchivo){
+        this.process = p;
         this.ip = ip;
-        textArea = new ArrayList<>();
-        bool = false;
+        this.bool = selected;
+        this.txtAreaSalida = txtAreaSalida;
+        this.txtRutaArchivo = txtRutaArchivo;
     }
     @Override
     public void run() {
 
-        File file = getNameFile();
-        BufferedReader lector = new BufferedReader(new InputStreamReader(process.getInputStream()));
-        String inputLine;
-        boolean notify = true;
-        List<String> array = new ArrayList<>();
+
         try{
+            txtAreaSalida.setText("");
+            BufferedReader lector = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String inputLine;
+            boolean notify = true;
+            List<String> array = new ArrayList<>();
+
+            File file = null;
+            if (bool) {
+                file = new File(getNameFile());
+                txtRutaArchivo.setText(getNameFile());
+            }
 
             while ((inputLine = lector.readLine()) != null && !Thread.currentThread().isInterrupted()){
-
-                System.out.println( inputLine );
-
-                BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
-                PrintWriter out = new PrintWriter(bw);
                 String hora = String.valueOf(LocalDateTime.now().getHour());
                 String min = String.valueOf(LocalDateTime.now().getMinute());
                 String seg = String.valueOf(LocalDateTime.now().getSecond());
-                notify = sendNotificacion(notify, inputLine, ip);
-                textArea.add(inputLine + " \n");
-                String txt = LocalDate.now().getYear() + "-" + LocalDate.now().getMonth() + "-" + LocalDate.now().getDayOfMonth() + " . " + hora + ":" + min + ":" + seg + "  " + inputLine + " \n";
 
-                array.add(txt);
+                String txt =
+                        LocalDate.now().getYear() + "-" + LocalDate.now().getMonth() + "-" + LocalDate.now().getDayOfMonth() + " . " + hora + ":" + min + ":" + seg + "  " + inputLine + "\n";
+                System.out.println( txt );
 
-                for (String text : array) {
-                    out.write(text);
+
+                if (bool){
+                    array.add(txt);
+                    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
+                    PrintWriter out = new PrintWriter(bw);
+                    for (String text : array) {
+                        out.write(text);
+                    }
+                    out.close();
                 }
 
-                out.close();
-            }
+                txtAreaSalida.setText( txtAreaSalida.getText() + txt );
 
+                notify = sendNotificacion(notify, inputLine, ip);
+            }
         }catch (Exception e){
             System.out.println("Error Run: " + e.getMessage());
         }
-        bool = true;
 
     }
 
-    public boolean getBool(){
-        return bool;
-    }
 
-    public List<String> getTextArea(){
-        return textArea;
-    }
+
 
     private  boolean sendNotificacion(boolean notify, String inputLine, String ip){
 
@@ -91,7 +96,7 @@ public class EjecutarPingHilo implements Runnable{
         return notify;
     }
 
-    private  File getNameFile(){
+    private  String getNameFile(){
         int cont = 0;
         File ruta = new File("D:\\");
         String[] nombres = ruta.list();
@@ -106,7 +111,7 @@ public class EjecutarPingHilo implements Runnable{
             }
         }
         cont++;
-        return new File("D:\\tirameElPing (" + cont + ").txt");
+        return "D:\\tirameElPing (" + cont + ").txt";
     }
 
 
