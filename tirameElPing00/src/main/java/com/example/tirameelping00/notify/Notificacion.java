@@ -26,4 +26,9 @@ public class Notificacion {
                 DesktopNotify.WARNING, DesktopNotify.LEFT_TO_RIGHT, 5000L, "light");
 
     }
+
+    public void sendEndNotify() {
+        service.postNotification("Fin de Ping", "", DesktopNotify.INFORMATION, DesktopNotify.LEFT_TO_RIGHT, 5000L,
+                "light");
+    }
 }

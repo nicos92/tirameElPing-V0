@@ -1,6 +1,7 @@
 package com.example.tirameelping00;
 
 import com.example.tirameelping00.hilos.EjecutarPingHilo;
+import com.example.tirameelping00.notify.Notificacion;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -19,6 +20,8 @@ public class TirameElPingController {
 
 
     private Thread thread;
+
+    private Notificacion notificacion = new Notificacion();
 
     @FXML
     private ProgressIndicator progress;
@@ -98,6 +101,7 @@ public class TirameElPingController {
         ventanaTxtSalida.setVisible(false);
         ventanaIpInfo.setVisible(false);
         txtIP.requestFocus();
+        txtIP.toBack();
         radioButton();
     }
 
@@ -137,6 +141,7 @@ public class TirameElPingController {
         }
         ejecutarPing();
         progress.setVisible(true);
+        onTxtSalida();
     }
 
     public  void ejecutarPing() {
@@ -147,7 +152,8 @@ public class TirameElPingController {
             Runtime r = Runtime.getRuntime();
             Process p = r.exec(pingCmd);
             System.out.println("ping en  txt: " + pingEnTxt.isSelected());
-            EjecutarPingHilo runClass = new EjecutarPingHilo(p, ip, pingEnTxt.isSelected(), txtAreaSalida, txtRutaArchivo);
+            EjecutarPingHilo runClass = new EjecutarPingHilo(p, ip, pingEnTxt.isSelected(), txtAreaSalida,
+                    txtRutaArchivo);
             thread = new Thread(runClass);
             thread.start();
 
@@ -166,6 +172,7 @@ public class TirameElPingController {
         progress.setVisible(false);
         desactVentPing(false);
         txtError.setText("");
+        notificacion.sendEndNotify();
     }
     public void exitButton(){
         System.exit(0);
@@ -218,6 +225,7 @@ public class TirameElPingController {
 
     public  void ipConfigAll() {
         try {
+            txtIpInfo.setText("");
             List<String> miIpList  = new ArrayList<>();
             miIpList.add("Dirección IPv4: " + InetAddress.getLocalHost().getHostAddress());
             miIpList.add("Host Name: " + InetAddress.getLocalHost().getHostName());

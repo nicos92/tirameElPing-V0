@@ -28,6 +28,8 @@ public class EjecutarPingHilo implements Runnable{
         this.txtAreaSalida = txtAreaSalida;
         this.txtRutaArchivo = txtRutaArchivo;
     }
+
+
     @Override
     public void run() {
 
@@ -92,6 +94,9 @@ public class EjecutarPingHilo implements Runnable{
         }
         if( inputLine.contains("inaccesible")){
             notificacion.sendNotifyInsccesible(ip);
+        }
+        if (inputLine.contains("Paquetes")) {
+            notificacion.sendEndNotify();
         }
         return notify;
     }
