@@ -1,7 +1,8 @@
 package com.example.tirameelping00;
 
+import com.example.tirameelping00.detencion.Detener;
 import com.example.tirameelping00.hilos.EjecutarPingHilo;
-import com.example.tirameelping00.notify.Notificacion;
+import com.example.tirameelping00.ventana.DesactVentPing;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -21,7 +22,6 @@ public class TirameElPingController {
 
     private Thread thread;
 
-    private Notificacion notificacion = new Notificacion();
 
     @FXML
     private ProgressIndicator progress;
@@ -30,8 +30,6 @@ public class TirameElPingController {
 
     @FXML
     private Button btnPing;
-    @FXML
-    private Button btnTxtSalida;
 
     @FXML
     private Button btnIpInfo;
@@ -93,6 +91,8 @@ public class TirameElPingController {
 
 
 
+
+
     public void onPing(){
         ventanaPing.setVisible(true);
         btnPing.setStyle("-fx-background-color: #41b4d3; -fx-background-radius: 10" );
@@ -130,18 +130,25 @@ public class TirameElPingController {
 
     public void onBtnIniciar(){
 
-        try{
-            btnDetener.setDisable(false);
-            desactVentPing(true);
-            btnIniciar.setDisable(true);
-            txtError.setText("");
-
-        }catch (Exception e){
-            System.out.println("Error onBtnIniciar: " + e.getMessage());
-        }
-        ejecutarPing();
+        btnIniciar.setDisable(true);
+        btnDetener.setDisable(false);
         progress.setVisible(true);
+        txtError.setText("");
+
+        desactVentPing(true);
+        ejecutarPing();
         onTxtSalida();
+    }
+
+    public void onBtnDetener(){
+        btnIniciar.setDisable(false);
+        btnDetener.setDisable(true);
+        progress.setVisible(false);
+        txtError.setText("");
+
+        thread.interrupt();
+        desactVentPing(false);
+
     }
 
     public  void ejecutarPing() {
@@ -152,8 +159,10 @@ public class TirameElPingController {
             Runtime r = Runtime.getRuntime();
             Process p = r.exec(pingCmd);
             System.out.println("ping en  txt: " + pingEnTxt.isSelected());
+            Detener detener = new Detener(btnIniciar,btnDetener, progress, txtError);
+            DesactVentPing desactPing = new DesactVentPing(labelIp,txtIP,radBtn_Prueba,radBtn_t,radBtn_n,txtCantPet, host_a,pingEnTxt);
             EjecutarPingHilo runClass = new EjecutarPingHilo(p, ip, pingEnTxt.isSelected(), txtAreaSalida,
-                    txtRutaArchivo);
+                    txtRutaArchivo, detener, desactPing);
             thread = new Thread(runClass);
             thread.start();
 
@@ -165,15 +174,7 @@ public class TirameElPingController {
 
 
 
-    public void onBtnDetener(){
-        thread.interrupt();
-        btnIniciar.setDisable(false);
-        btnDetener.setDisable(true);
-        progress.setVisible(false);
-        desactVentPing(false);
-        txtError.setText("");
-        notificacion.sendEndNotify();
-    }
+
     public void exitButton(){
         System.exit(0);
         Platform.exit();

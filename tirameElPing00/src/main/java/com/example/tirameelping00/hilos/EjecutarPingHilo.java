@@ -1,13 +1,14 @@
 package com.example.tirameelping00.hilos;
 
+import com.example.tirameelping00.detencion.Detener;
+import com.example.tirameelping00.fechaYhora.FechaYhora;
 import com.example.tirameelping00.notify.Notificacion;
+import com.example.tirameelping00.ventana.DesactVentPing;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,13 +21,18 @@ public class EjecutarPingHilo implements Runnable{
     private final TextField txtRutaArchivo;
     private final boolean bool;
 
+    private final Detener detener;
+    private final DesactVentPing desactVentPing;
 
-    public EjecutarPingHilo(Process p, String ip, boolean selected, TextArea txtAreaSalida, TextField txtRutaArchivo){
+
+    public EjecutarPingHilo(Process p, String ip, boolean selected, TextArea txtAreaSalida, TextField txtRutaArchivo, Detener detener, DesactVentPing desactVentPing){
         this.process = p;
         this.ip = ip;
         this.bool = selected;
         this.txtAreaSalida = txtAreaSalida;
         this.txtRutaArchivo = txtRutaArchivo;
+        this.detener = detener;
+        this.desactVentPing = desactVentPing;
     }
 
 
@@ -41,6 +47,7 @@ public class EjecutarPingHilo implements Runnable{
             boolean notify = true;
             List<String> array = new ArrayList<>();
 
+
             File file = null;
             if (bool) {
                 file = new File(getNameFile());
@@ -48,12 +55,9 @@ public class EjecutarPingHilo implements Runnable{
             }
 
             while ((inputLine = lector.readLine()) != null && !Thread.currentThread().isInterrupted()){
-                String hora = String.valueOf(LocalDateTime.now().getHour());
-                String min = String.valueOf(LocalDateTime.now().getMinute());
-                String seg = String.valueOf(LocalDateTime.now().getSecond());
 
-                String txt =
-                        LocalDate.now().getYear() + "-" + LocalDate.now().getMonth() + "-" + LocalDate.now().getDayOfMonth() + " . " + hora + ":" + min + ":" + seg + "  " + inputLine + "\n";
+                FechaYhora fechaYhora = new FechaYhora();
+                String txt = fechaYhora + " " + inputLine + " \n ";
                 System.out.println( txt );
 
 
@@ -71,6 +75,8 @@ public class EjecutarPingHilo implements Runnable{
 
                 notify = sendNotificacion(notify, inputLine, ip);
             }
+            detener.sendBtnDetener();
+            desactVentPing.desactItemsPing(false);
         }catch (Exception e){
             System.out.println("Error Run: " + e.getMessage());
         }
@@ -103,7 +109,7 @@ public class EjecutarPingHilo implements Runnable{
 
     private  String getNameFile(){
         int cont = 0;
-        File ruta = new File("D:\\");
+        File ruta = new File("K:\\");
         String[] nombres = ruta.list();
         assert nombres != null;
         String[] newName;
@@ -116,7 +122,7 @@ public class EjecutarPingHilo implements Runnable{
             }
         }
         cont++;
-        return "D:\\tirameElPing (" + cont + ").txt";
+        return "K:\\tirameElPing (" + cont + ").txt";
     }
 
 
