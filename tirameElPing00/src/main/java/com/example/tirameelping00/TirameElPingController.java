@@ -5,6 +5,7 @@ import com.example.tirameelping00.hilos.EjecutarPingHilo;
 import com.example.tirameelping00.ventana.DesactVentPing;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -15,9 +16,10 @@ import java.net.InetAddress;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 
-public class TirameElPingController {
+public class TirameElPingController implements Initializable {
 
 
     private Thread thread;
@@ -89,10 +91,6 @@ public class TirameElPingController {
     @FXML
     private Text txtError;
 
-
-
-
-
     public void onPing(){
         ventanaPing.setVisible(true);
         btnPing.setStyle("-fx-background-color: #41b4d3; -fx-background-radius: 10" );
@@ -111,7 +109,6 @@ public class TirameElPingController {
         btnIpInfo.setStyle("-fx-background-color: #bebebe; -fx-background-radius: 10" );
         ventanaPing.setVisible(false);
         ventanaIpInfo.setVisible(false);
-
     }
 
     public void onIpInfo(){
@@ -121,11 +118,7 @@ public class TirameElPingController {
         ventanaIpInfo.setVisible(true);
         btnIpInfo.setStyle("-fx-background-color: #41b4d3; -fx-background-radius: 10");
         btnPing.setStyle("-fx-background-color: #bebebe; -fx-background-radius: 10" );
-
-
         ipConfigAll();
-
-
     }
 
     public void onBtnIniciar(){
@@ -162,9 +155,10 @@ public class TirameElPingController {
             Detener detener = new Detener(btnIniciar,btnDetener, progress, txtError);
             DesactVentPing desactPing = new DesactVentPing(labelIp,txtIP,radBtn_Prueba,radBtn_t,radBtn_n,txtCantPet, host_a,pingEnTxt);
             EjecutarPingHilo runClass = new EjecutarPingHilo(p, ip, pingEnTxt.isSelected(), txtAreaSalida,
-                    txtRutaArchivo, detener, desactPing);
+                    txtRutaArchivo, detener, desactPing, thread);
             thread = new Thread(runClass);
             thread.start();
+
 
         } catch (Exception n){
             System.out.println("ERROR ejecutar Ping: " + n.getMessage());
@@ -182,7 +176,6 @@ public class TirameElPingController {
 
     public void radioButton(){
         txtCantPet.setDisable(radBtn_t.isSelected() || radBtn_Prueba.isSelected());
-
     }
 
     public String selectRadioBtn(){
@@ -192,7 +185,6 @@ public class TirameElPingController {
         if (radBtn_n.isSelected()){
             return " -n " + cantPeticiones();
         }
-
         return " ";
     }
 
@@ -235,10 +227,8 @@ public class TirameElPingController {
             try
             {
                 URL url_name = new URL("http://myexternalip.com/raw");
-
                 BufferedReader sc =
                         new BufferedReader(new InputStreamReader(url_name.openStream()));
-
                 // reads system IPAddress
                 miIpList.add("IP Publica: " + sc.readLine().trim());
             }
@@ -246,22 +236,14 @@ public class TirameElPingController {
             {
                 miIpList.add("IP Publica: " + "No se puede obtener");
             }
-            for (String data :
-                    miIpList) {
+            for (String data : miIpList) {
                 txtIpInfo.setText( txtIpInfo.getText() + " \n "+ data);
             }
-
-
         } catch (Exception n){
             System.out.println("ERROR : " + n.getMessage());
         }
-
-
     }
-
-
-
-
-
-
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+    }
 }

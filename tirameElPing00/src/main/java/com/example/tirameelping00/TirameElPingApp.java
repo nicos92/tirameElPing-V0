@@ -43,7 +43,8 @@ public class TirameElPingApp extends Application {
         Scene scene = new Scene(root);
         stage.setTitle("Tirame El Ping");
         stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("imgs/rj45.png"))));
-        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.initStyle(StageStyle.DECORATED);
+        stage.setResizable(false);
         scene.setFill(Color.TRANSPARENT);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toString());
         stage.setScene(scene);

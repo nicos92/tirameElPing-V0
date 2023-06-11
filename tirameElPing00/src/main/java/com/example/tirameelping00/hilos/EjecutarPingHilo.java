@@ -3,7 +3,9 @@ package com.example.tirameelping00.hilos;
 import com.example.tirameelping00.detencion.Detener;
 import com.example.tirameelping00.fechaYhora.FechaYhora;
 import com.example.tirameelping00.notify.Notificacion;
+import com.example.tirameelping00.sonido.Sonido;
 import com.example.tirameelping00.ventana.DesactVentPing;
+import javafx.application.Platform;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -21,11 +23,15 @@ public class EjecutarPingHilo implements Runnable{
     private final TextField txtRutaArchivo;
     private final boolean bool;
 
+    private final Thread thread;
+
+    private  Sonido sonido;
     private final Detener detener;
     private final DesactVentPing desactVentPing;
 
 
-    public EjecutarPingHilo(Process p, String ip, boolean selected, TextArea txtAreaSalida, TextField txtRutaArchivo, Detener detener, DesactVentPing desactVentPing){
+
+    public EjecutarPingHilo(Process p, String ip, boolean selected, TextArea txtAreaSalida, TextField txtRutaArchivo, Detener detener, DesactVentPing desactVentPing, Thread thread){
         this.process = p;
         this.ip = ip;
         this.bool = selected;
@@ -33,35 +39,34 @@ public class EjecutarPingHilo implements Runnable{
         this.txtRutaArchivo = txtRutaArchivo;
         this.detener = detener;
         this.desactVentPing = desactVentPing;
+        this.thread = thread;
+
+        sonido = new Sonido();
+
     }
 
 
     @Override
     public void run() {
-
-
         try{
             txtAreaSalida.setText("");
             BufferedReader lector = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String inputLine;
             boolean notify = true;
             List<String> array = new ArrayList<>();
-
-
             File file = null;
             if (bool) {
                 file = new File(getNameFile());
                 txtRutaArchivo.setText(getNameFile());
             }
 
-            while ((inputLine = lector.readLine()) != null && !Thread.currentThread().isInterrupted()){
+            while ((inputLine = lector.readLine()) != null && !Thread.currentThread().isInterrupted()) {
 
                 FechaYhora fechaYhora = new FechaYhora();
                 String txt = fechaYhora + " " + inputLine + " \n ";
-                System.out.println( txt );
+                System.out.println(txt);
 
-
-                if (bool){
+                if (bool) {
                     array.add(txt);
                     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
                     PrintWriter out = new PrintWriter(bw);
@@ -71,12 +76,17 @@ public class EjecutarPingHilo implements Runnable{
                     out.close();
                 }
 
-                txtAreaSalida.setText( txtAreaSalida.getText() + txt );
+                txtAreaSalida.setText(txtAreaSalida.getText() + txt);
 
                 notify = sendNotificacion(notify, inputLine, ip);
+
             }
+
+            //thread.interrupt();
+            sonido.closeSonido();
             detener.sendBtnDetener();
             desactVentPing.desactItemsPing(false);
+
         }catch (Exception e){
             System.out.println("Error Run: " + e.getMessage());
         }
@@ -92,6 +102,7 @@ public class EjecutarPingHilo implements Runnable{
 
         if (inputLine.contains("Error") || inputLine.contains("agotado")){
             notificacion.sendNotifyFail(ip);
+            sonido.reproducir();
             return true;
         }
         if ( inputLine.contains("tiempo") && notify){
