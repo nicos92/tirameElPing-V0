@@ -219,13 +219,10 @@
                                              </opaqueInsets>
                                           </JFXTextField>
                                           <Separator prefWidth="20.0" visible="false" />
-                                          <JFXRadioButton fx:id="radBtn_t1" onMouseClicked="#radioButton" text="(-t)">
+                                          <JFXRadioButton fx:id="radBtn_t1" text="(-t)">
                                              <font>
                                                 <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                              </font>
-                                             <toggleGroup>
-                                                <ToggleGroup fx:id="pingCanti1" />
-                                             </toggleGroup>
                                           </JFXRadioButton>
                                           <Separator prefWidth="20.0" visible="false" />
                                           <JFXButton fx:id="btnIniciar1" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">
@@ -266,13 +263,10 @@
                                              </opaqueInsets>
                                           </JFXTextField>
                                           <Separator prefWidth="20.0" visible="false" />
-                                          <JFXRadioButton fx:id="radBtn_t2" onMouseClicked="#radioButton" text="(-t)">
+                                          <JFXRadioButton fx:id="radBtn_t2" text="(-t)">
                                              <font>
                                                 <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                              </font>
-                                             <toggleGroup>
-                                                <ToggleGroup fx:id="pingCanti11" />
-                                             </toggleGroup>
                                           </JFXRadioButton>
                                           <Separator prefWidth="20.0" visible="false" />
                                           <JFXButton fx:id="btnIniciar2" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">
@@ -313,13 +307,10 @@
                                              </opaqueInsets>
                                           </JFXTextField>
                                           <Separator prefWidth="20.0" visible="false" />
-                                          <JFXRadioButton fx:id="radBtn_t3" onMouseClicked="#radioButton" text="(-t)">
+                                          <JFXRadioButton fx:id="radBtn_t3" text="(-t)">
                                              <font>
                                                 <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                              </font>
-                                             <toggleGroup>
-                                                <ToggleGroup fx:id="pingCanti12" />
-                                             </toggleGroup>
                                           </JFXRadioButton>
                                           <Separator prefWidth="20.0" visible="false" />
                                           <JFXButton fx:id="btnIniciar3" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">
@@ -360,13 +351,10 @@
                                              </opaqueInsets>
                                           </JFXTextField>
                                           <Separator prefWidth="20.0" visible="false" />
-                                          <JFXRadioButton fx:id="radBtn_t4" onMouseClicked="#radioButton" text="(-t)">
+                                          <JFXRadioButton fx:id="radBtn_t4" text="(-t)">
                                              <font>
                                                 <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                              </font>
-                                             <toggleGroup>
-                                                <ToggleGroup fx:id="pingCanti13" />
-                                             </toggleGroup>
                                           </JFXRadioButton>
                                           <Separator prefWidth="20.0" visible="false" />
                                           <JFXButton fx:id="btnIniciar4" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">
@@ -407,13 +395,10 @@
                                              </opaqueInsets>
                                           </JFXTextField>
                                           <Separator prefWidth="20.0" visible="false" />
-                                          <JFXRadioButton fx:id="radBtn_t5" onMouseClicked="#radioButton" text="(-t)">
+                                          <JFXRadioButton fx:id="radBtn_t5" text="(-t)">
                                              <font>
                                                 <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                              </font>
-                                             <toggleGroup>
-                                                <ToggleGroup fx:id="pingCanti14" />
-                                             </toggleGroup>
                                           </JFXRadioButton>
                                           <Separator prefWidth="20.0" visible="false" />
                                           <JFXButton fx:id="btnIniciar5" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">
@@ -454,13 +439,10 @@
                                              </opaqueInsets>
                                           </JFXTextField>
                                           <Separator prefWidth="20.0" visible="false" />
-                                          <JFXRadioButton fx:id="radBtn_t6" onMouseClicked="#radioButton" text="(-t)">
+                                          <JFXRadioButton fx:id="radBtn_t6" text="(-t)">
                                              <font>
                                                 <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                              </font>
-                                             <toggleGroup>
-                                                <ToggleGroup fx:id="pingCanti141" />
-                                             </toggleGroup>
                                           </JFXRadioButton>
                                           <Separator prefWidth="20.0" visible="false" />
                                           <JFXButton fx:id="btnIniciar6" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">

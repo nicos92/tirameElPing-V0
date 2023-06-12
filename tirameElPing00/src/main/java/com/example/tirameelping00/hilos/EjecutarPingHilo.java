@@ -39,11 +39,8 @@ public class EjecutarPingHilo implements Runnable{
         this.detener = detener;
         this.desactVentPing = desactVentPing;
         this.thread = thread;
-
         sonido = new Sonido();
-
     }
-
 
     @Override
     public void run() {
@@ -91,9 +88,6 @@ public class EjecutarPingHilo implements Runnable{
         }
 
     }
-
-
-
 
     private  boolean sendNotificacion(boolean notify, String inputLine, String ip){
 

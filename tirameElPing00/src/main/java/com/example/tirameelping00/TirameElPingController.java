@@ -14,7 +14,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.scene.input.MouseEvent;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.InetAddress;
@@ -64,6 +63,31 @@ public class TirameElPingController implements Initializable {
 
     @FXML
     private Button btnIniciar6;*/
+
+    @FXML
+    private TextField txtIP1;
+    @FXML
+    private TextField txtIP2;
+    @FXML
+    private TextField txtIP3;
+    @FXML
+    private TextField txtIP4;
+    @FXML
+    private TextField txtIP5;
+    @FXML
+    private TextField txtIP6;
+    @FXML
+    private RadioButton radBtn_t1;
+    @FXML
+    private RadioButton radBtn_t2;
+    @FXML
+    private RadioButton radBtn_t3;
+    @FXML
+    private RadioButton radBtn_t4;
+    @FXML
+    private RadioButton radBtn_t5;
+    @FXML
+    private RadioButton radBtn_t6;
 
     @FXML
     private Button btnDetener;
@@ -249,20 +273,69 @@ public class TirameElPingController implements Initializable {
 
     }
 
-    public void altaThreads(){
+    public  void ejecutarMultiPing(String IP) {
+        try {
 
-        int id = threads.size()+1;
-        MiHilo miHilo = new MiHilo(id);
-        threads.add(miHilo);
-        System.out.println(miHilo);
-        for (MiHilo hilo : threads) {
-            System.out.println(hilo.getId());
+
+            String pingCmd = "ping" + IP;
+            Runtime r = Runtime.getRuntime();
+            Process p = r.exec(pingCmd);
+
+            Detener detener = new Detener(btnIniciar,btnDetener, progress, txtError);
+            DesactVentPing desactPing = new DesactVentPing(labelIp,txtIP,radBtn_Prueba,radBtn_t,radBtn_n,txtCantPet, host_a,pingEnTxt);
+            EjecutarPingHilo runClass = new EjecutarPingHilo(p, IP, pingEnTxt.isSelected(), txtAreaSalida,
+                    txtRutaArchivo, detener, desactPing, thread);
+            thread = new Thread(runClass);
+            thread.start();
+
+
+        } catch (Exception n){
+            System.out.println("ERROR ejecutar Ping: " + n.getMessage());
         }
 
     }
 
+    public void altaThreads(int id){
+        boolean flag = false;
+        for (MiHilo hilo : threads) {
+            if (hilo.getId() != id){
+                    flag = true;
+            }
+        }
 
+        if (flag){
+            MiHilo miHilo = new MiHilo(id);
+            threads.add(miHilo);
+        }
 
+        switch (id){
+            case 1 -> {
+                String space = radBtn_t1.isSelected() ? " -t " : " ";
+                ejecutarMultiPing(space + txtIP1.getText());
+            }
+            case 2 -> {
+                String space = radBtn_t2.isSelected() ? " -t " : " ";
+                ejecutarMultiPing(space + txtIP2.getText());
+            }
+            case 3 -> {
+                String space = radBtn_t3.isSelected() ? " -t " : " ";
+                ejecutarMultiPing(space + txtIP3.getText());
+            }
+            case 4 -> {
+                String space = radBtn_t4.isSelected() ? " -t " : " ";
+                ejecutarMultiPing(space + txtIP4.getText());
+            }
+            case 5 -> {
+                String space = radBtn_t5.isSelected() ? " -t " : " ";
+                ejecutarMultiPing(space + txtIP5.getText());
+            }
+            case 6 -> {
+                String space = radBtn_t6.isSelected() ? " -t " : " ";
+                ejecutarMultiPing(space + txtIP6.getText());
+            }
+        }
+
+    }
 
     public void exitButton(){
         System.exit(0);
@@ -342,10 +415,32 @@ public class TirameElPingController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }
 
-    public void btnIniciarMultiPing(MouseEvent mouseEvent) {
+    public void btnIniciarMultiPing(javafx.scene.input.MouseEvent mouseEvent) {
 
-        System.out.println(mouseEvent.getSource().hashCode());
-        altaThreads();
+        System.out.println(mouseEvent.getSource());
+
+        String event = mouseEvent.getSource().toString();
+
+        if (event.contains("btnIniciar1")){
+            altaThreads(1);
+        }
+        if (event.contains("btnIniciar2")){
+            altaThreads(2);
+        }
+        if (event.contains("btnIniciar3")){
+            altaThreads(3);
+        }
+        if (event.contains("btnIniciar4")){
+            altaThreads(4);
+        }
+        if (event.contains("btnIniciar5")){
+            altaThreads(5);
+        }
+        if (event.contains("btnIniciar6")){
+            altaThreads(6);
+        }
+
+
 
     }
 }
