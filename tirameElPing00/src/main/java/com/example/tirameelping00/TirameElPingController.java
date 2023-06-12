@@ -8,20 +8,20 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import javafx.scene.input.MouseEvent;
-
-//import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.InetAddress;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 
@@ -47,7 +47,7 @@ public class TirameElPingController implements Initializable {
     @FXML
     private Button btnIniciar;
 
-    @FXML
+/*    @FXML
     private Button btnIniciar1;
 
     @FXML
@@ -63,7 +63,7 @@ public class TirameElPingController implements Initializable {
     private Button btnIniciar5;
 
     @FXML
-    private Button btnIniciar6;
+    private Button btnIniciar6;*/
 
     @FXML
     private Button btnDetener;
@@ -127,8 +127,34 @@ public class TirameElPingController implements Initializable {
     private Button btnMultiPing;
 
     @FXML
+    private ImageView close;
+
+    @FXML
+    private ImageView minus;
+
+    @FXML
     private void onMinimize(){
         ((Stage) base1.getScene().getWindow()).setIconified(true);
+    }
+
+    public void enteredImageMinus(){
+        Image image1 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("imgs/icons8-minus-64.png")));
+        minus.setImage(image1);
+    }
+
+    public void exitedImageMinus(){
+        Image image1 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("imgs/icons8-minus-sign-96.png")));
+        minus.setImage(image1);
+    }
+
+    public void enteredImageClose(){
+        Image image1 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("imgs/icons8-close-48.png")));
+        close.setImage(image1);
+    }
+
+    public void exitedImageClose(){
+        Image image1 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("imgs/icons8-close-48 (2).png")));
+        close.setImage(image1);
     }
 
     public void onPing(){
@@ -229,8 +255,8 @@ public class TirameElPingController implements Initializable {
         MiHilo miHilo = new MiHilo(id);
         threads.add(miHilo);
         System.out.println(miHilo);
-        for (int i=0; i< threads.size();i++) {
-            System.out.println(threads.get(i).getId());
+        for (MiHilo hilo : threads) {
+            System.out.println(hilo.getId());
         }
 
     }

@@ -5,7 +5,6 @@ import com.example.tirameelping00.fechaYhora.FechaYhora;
 import com.example.tirameelping00.notify.Notificacion;
 import com.example.tirameelping00.sonido.Sonido;
 import com.example.tirameelping00.ventana.DesactVentPing;
-import javafx.application.Platform;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -25,7 +24,7 @@ public class EjecutarPingHilo implements Runnable{
 
     private final Thread thread;
 
-    private  Sonido sonido;
+    private final Sonido sonido;
     private final Detener detener;
     private final DesactVentPing desactVentPing;
 
@@ -83,7 +82,7 @@ public class EjecutarPingHilo implements Runnable{
             }
 
             //thread.interrupt();
-            sonido.closeSonido();
+            //sonido.closeSonido();
             detener.sendBtnDetener();
             desactVentPing.desactItemsPing(false);
 
@@ -111,6 +110,7 @@ public class EjecutarPingHilo implements Runnable{
         }
         if( inputLine.contains("inaccesible")){
             notificacion.sendNotifyInsccesible(ip);
+            sonido.reproducir();
         }
         if (inputLine.contains("Paquetes")) {
             notificacion.sendEndNotify();
