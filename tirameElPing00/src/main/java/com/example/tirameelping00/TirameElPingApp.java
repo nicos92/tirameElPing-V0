@@ -39,16 +39,20 @@ public class TirameElPingApp extends Application {
             stage.setY(event.getScreenY() - yOffset);
         });
 
+        try{
+            Scene scene = new Scene(root);
+            stage.setTitle("Tirame El Ping");
+            stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("imgs/rj45.png"))));
+            stage.initStyle(StageStyle.TRANSPARENT);
+            stage.setResizable(false);
+            scene.setFill(Color.TRANSPARENT);
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toString());
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            System.out.println("ERROR start: " + e.getMessage());
+        }
 
-        Scene scene = new Scene(root);
-        stage.setTitle("Tirame El Ping");
-        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("imgs/rj45.png"))));
-        stage.initStyle(StageStyle.DECORATED);
-        stage.setResizable(false);
-        scene.setFill(Color.TRANSPARENT);
-        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toString());
-        stage.setScene(scene);
-        stage.show();
     }
 
 
