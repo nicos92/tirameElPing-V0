@@ -36,6 +36,8 @@ public class TirameElPingController implements Initializable {
     private ProgressIndicator progress;
 
 
+    @FXML
+    private Button btnRegPing;
 
     @FXML
     private Button btnPing;
@@ -183,9 +185,11 @@ public class TirameElPingController implements Initializable {
 
     public void onPing(){
         ventanaPing.setVisible(true);
-        btnPing.setStyle("-fx-background-color: #41b4d3; -fx-background-radius: 10" );
-        btnIpInfo.setStyle("-fx-background-color: #bebebe; -fx-background-radius: 10" );
-        btnMultiPing.setStyle("-fx-background-color: #bebebe; -fx-background-radius: 10" );
+        btnPing.setStyle("-fx-background-color: #ffffff; -fx-border-color: black; -fx-border-width: 0px 2px 0px 2px;" );
+        btnIpInfo.setStyle("-fx-background-color: #D0D0D0; -fx-border-color: black; -fx-border-width: 0px 2px 0px 2px;" );
+        btnMultiPing.setStyle("-fx-background-color: #D0D0D0;  -fx-border-color: black; -fx-border-width: 0px 2px 0px" +
+                " 0px;" );
+        btnRegPing.setStyle("-fx-background-color: #D0D0D0; ;" );
         ventanaBienv.setVisible(false);
         ventanaTxtSalida.setVisible(false);
         ventanaIpInfo.setVisible(false);
@@ -196,9 +200,11 @@ public class TirameElPingController implements Initializable {
     }
     public void onMultiPing(){
         ventanaPing.setVisible(false);
-        btnMultiPing.setStyle("-fx-background-color: #41b4d3; -fx-background-radius: 10" );
-        btnIpInfo.setStyle("-fx-background-color: #bebebe; -fx-background-radius: 10" );
-        btnPing.setStyle("-fx-background-color: #bebebe; -fx-background-radius: 10" );
+        btnMultiPing.setStyle("-fx-background-color: #ffffff;  -fx-border-color: black; -fx-border-width: 0px 2px 0px" +
+                " 0px;" );
+        btnIpInfo.setStyle("-fx-background-color: #D0D0D0;  -fx-border-color: black; -fx-border-width: 0px 2px 0px 2px;" );
+        btnPing.setStyle("-fx-background-color: #D0D0D0;  -fx-border-color: black; -fx-border-width: 0px 2px 0px 2px;" );
+        btnRegPing.setStyle("-fx-background-color: #D0D0D0; " );
         ventanaBienv.setVisible(false);
         ventanaTxtSalida.setVisible(false);
         ventanaIpInfo.setVisible(false);
@@ -209,8 +215,11 @@ public class TirameElPingController implements Initializable {
 
     public void onTxtSalida(){
         ventanaTxtSalida.setVisible(true);
-        btnPing.setStyle("-fx-background-color: #bebebe; -fx-background-radius: 10" );
-        btnIpInfo.setStyle("-fx-background-color: #bebebe; -fx-background-radius: 10" );
+        btnRegPing.setStyle("-fx-background-color: #ffffff; " );
+        btnPing.setStyle("-fx-background-color: #D0D0D0;  -fx-border-color: black; -fx-border-width: 0px 2px 0px 2px;" );
+        btnIpInfo.setStyle("-fx-background-color: #D0D0D0;  -fx-border-color: black; -fx-border-width: 0px 2px 0px 2px;");
+        btnMultiPing.setStyle("-fx-background-color: #D0D0D0;  -fx-border-color: black; -fx-border-width: 0px 2px 0px" +
+                " 0px;" );
         ventanaPing.setVisible(false);
         ventanaIpInfo.setVisible(false);
         ventanaMultiPing.setVisible(false);
@@ -222,8 +231,11 @@ public class TirameElPingController implements Initializable {
         ventanaBienv.setVisible(false);
         ventanaMultiPing.setVisible(false);
         ventanaIpInfo.setVisible(true);
-        btnIpInfo.setStyle("-fx-background-color: #41b4d3; -fx-background-radius: 10");
-        btnPing.setStyle("-fx-background-color: #bebebe; -fx-background-radius: 10" );
+        btnIpInfo.setStyle("-fx-background-color: #ffffff;  -fx-border-color: black; -fx-border-width: 0px 2px 0px 2px;");
+        btnPing.setStyle("-fx-background-color: #D0D0D0;  -fx-border-color: black; -fx-border-width: 0px 2px 0px 2px;" );
+        btnMultiPing.setStyle("-fx-background-color: #D0D0D0;  -fx-border-color: black; -fx-border-width: 0px 2px 0px" +
+                " 0px;" );
+        btnRegPing.setStyle("-fx-background-color: #D0D0D0; " );
         ipConfigAll();
     }
 
@@ -281,8 +293,13 @@ public class TirameElPingController implements Initializable {
             Runtime r = Runtime.getRuntime();
             Process p = r.exec(pingCmd);
 
+            // detiene el proceso
             Detener detener = new Detener(btnIniciar,btnDetener, progress, txtError);
+
+            // desactiva los elementos
             DesactVentPing desactPing = new DesactVentPing(labelIp,txtIP,radBtn_Prueba,radBtn_t,radBtn_n,txtCantPet, host_a,pingEnTxt);
+
+            // ejecuta el hilo
             EjecutarPingHilo runClass = new EjecutarPingHilo(p, IP, pingEnTxt.isSelected(), txtAreaSalida,
                     txtRutaArchivo, detener, desactPing, thread);
             thread = new Thread(runClass);
