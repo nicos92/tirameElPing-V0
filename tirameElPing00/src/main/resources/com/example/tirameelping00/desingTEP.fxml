@@ -11,6 +11,7 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -20,7 +21,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="700.0" style="-fx-background-color: #Efeffb; -fx-background-radius: 15;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tirameelping00.TirameElPingController">
+<AnchorPane fx:id="mainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="700.0" style="-fx-background-color: #Efeffb; -fx-background-radius: 15;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tirameelping00.TirameElPingController">
    <children>
       <AnchorPane fx:id="base1" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="700.0" style="-fx-background-color: #ffffff; -fx-background-radius: 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
          <children>
@@ -30,9 +31,10 @@
                      <children>
                         <AnchorPane fx:id="base4" layoutX="1.0" layoutY="1.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-background-radius: 0;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
                            <children>
-                              <HBox fx:id="hboxsup" alignment="CENTER" prefHeight="100.0" prefWidth="488.0" style="-fx-background-color: #D0D0D0;" AnchorPane.bottomAnchor="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <HBox fx:id="hboxsup" alignment="CENTER" prefHeight="100.0" prefWidth="488.0" style="-fx-background-color: #E8e8e8;" AnchorPane.bottomAnchor="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <JFXButton fx:id="btnPing" onMouseClicked="#onPing" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #D0D0D0; -fx-border-color: black; -fx-border-width: 0px 2px 0px 2px;" text="Ping">
+                                    <Line endX="-97.70710754394531" endY="-39.97669982910156" layoutX="1.0" layoutY="1.0" rotate="-6.0" startX="-100.19038391113281" startY="-12.739243507385254" stroke="WHITE" />
+                                    <JFXButton fx:id="btnPing" focusTraversable="false" onMouseClicked="#onPing" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: TRANSPARENT; -fx-border-color: TRANSPARENT;" text="Ping">
                                        <font>
                                           <Font name="System Bold" size="18.0" />
                                        </font>
@@ -43,7 +45,8 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </JFXButton>
-                                    <JFXButton fx:id="btnRegPing" onMouseClicked="#onTxtSalida" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #D0D0D0;" text="Reg. Ping">
+                                    <Line endX="-97.70710754394531" endY="-39.97669982910156" layoutX="1.0" layoutY="1.0" rotate="-6.0" startX="-100.19038391113281" startY="-12.739243507385254" stroke="WHITE" />
+                                    <JFXButton fx:id="btnRegPing" focusTraversable="false" onMouseClicked="#onTxtSalida" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: TRANSPARENT; -fx-border-color: TRANSPARENT;" text="Reg. Ping">
                                        <font>
                                           <Font name="System Bold" size="18.0" />
                                        </font>
@@ -51,7 +54,8 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </JFXButton>
-                                    <JFXButton fx:id="btnIpInfo" onMouseClicked="#onIpInfo" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #D0D0D0; -fx-border-color: black; -fx-border-width: 0px 2px 0px 2px;" text="IP Info">
+                                    <Line endX="-97.70710754394531" endY="-39.97669982910156" layoutX="1.0" layoutY="1.0" rotate="-6.0" startX="-100.19038391113281" startY="-12.739243507385254" stroke="WHITE" />
+                                    <JFXButton fx:id="btnIpInfo" focusTraversable="false" onMouseClicked="#onIpInfo" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: TRANSPARENT;" text="IP Info">
                                        <font>
                                           <Font name="System Bold" size="18.0" />
                                        </font>
@@ -62,7 +66,8 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </JFXButton>
-                                    <JFXButton fx:id="btnMultiPing" onMouseClicked="#onMultiPing" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #D0D0D0; -fx-border-color: black; -fx-border-width: 0px 2px 0px 0px;" text="Multi-Ping">
+                                    <Line endX="-97.70710754394531" endY="-39.97669982910156" layoutX="1.0" layoutY="1.0" rotate="-6.0" startX="-100.19038391113281" startY="-12.739243507385254" stroke="WHITE" />
+                                    <JFXButton fx:id="btnMultiPing" focusTraversable="false" onMouseClicked="#onMultiPing" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: TRANSPARENT; -fx-border-color: TRANSPARENT;" text="Multi-Ping">
                                        <font>
                                           <Font name="System Bold" size="18.0" />
                                        </font>
@@ -73,20 +78,21 @@
                                           <Insets />
                                        </HBox.margin>
                                     </JFXButton>
+                                    <Line endX="-97.70710754394531" endY="-39.97669982910156" layoutX="1.0" layoutY="1.0" rotate="-6.0" startX="-100.19038391113281" startY="-12.739243507385254" stroke="WHITE" />
                                  </children>
                               </HBox>
                               <AnchorPane fx:id="ventanaPing" layoutY="45.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
                                  <children>
-                                    <Label fx:id="labelIp" layoutX="70.0" layoutY="109.0" text="Direccion IP:  ">
-                                       <font>
-                                          <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
-                                       </font>
-                                    </Label>
                                     <Text layoutX="270.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ejecutar Ping">
                                        <font>
                                           <Font name="Noto Sans SemiCondensed ExtraBold" size="27.0" />
                                        </font>
                                     </Text>
+                                    <Label fx:id="labelIp" layoutX="70.0" layoutY="109.0" text="Direccion IP:  ">
+                                       <font>
+                                          <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
+                                       </font>
+                                    </Label>
                                     <JFXTextField fx:id="txtIP" alignment="CENTER" focusColor="#018001" layoutX="231.0" layoutY="101.0" prefHeight="26.0" prefWidth="276.0" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.1.1" unFocusColor="#c9c9c9">
                                        <font>
                                           <Font name="System Bold" size="18.0" />
@@ -95,6 +101,34 @@
                                           <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                                        </opaqueInsets>
                                     </JFXTextField>
+                                    <JFXRadioButton fx:id="radBtn_Prueba" layoutX="56.0" layoutY="156.0" onMouseClicked="#radioButton" selected="true" text="Ping de Prueba">
+                                       <font>
+                                          <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
+                                       </font>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="pingCanti" />
+                                       </toggleGroup>
+                                    </JFXRadioButton>
+                                    <JFXRadioButton fx:id="radBtn_t" layoutX="56.0" layoutY="199.0" onMouseClicked="#radioButton" text="Ping Constante (-t)" toggleGroup="$pingCanti">
+                                       <font>
+                                          <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
+                                       </font>
+                                    </JFXRadioButton>
+                                    <JFXRadioButton fx:id="radBtn_n" layoutX="56.0" layoutY="245.0" onMouseClicked="#radioButton" text="Cantidad de peticiones (-n)" toggleGroup="$pingCanti">
+                                       <font>
+                                          <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
+                                       </font>
+                                    </JFXRadioButton>
+                                    <JFXTextField fx:id="txtCantPet" alignment="CENTER" focusColor="#4ada3a" layoutX="333.0" layoutY="231.0" prefHeight="39.0" prefWidth="232.0" promptText="Cantidad de peticiones" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;">
+                                       <font>
+                                          <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <JFXCheckBox fx:id="host_a" layoutX="70.0" layoutY="302.0" text="Nombre de host de destino (-a)">
+                                       <font>
+                                          <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
+                                       </font>
+                                    </JFXCheckBox>
                                     <JFXCheckBox fx:id="pingEnTxt" layoutX="70.0" layoutY="357.0" text="Guardar Ping en archivo .txt">
                                        <font>
                                           <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
@@ -105,14 +139,6 @@
                                           <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                        </font>
                                     </JFXTextField>
-                                    <JFXButton fx:id="btnDetener" disable="true" layoutX="420.0" layoutY="474.0" onMouseClicked="#onBtnDetener" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE" AnchorPane.rightAnchor="150.0">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </JFXButton>
                                     <JFXButton fx:id="btnIniciar" layoutX="147.0" layoutY="474.0" onMouseClicked="#onBtnIniciar" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE" AnchorPane.leftAnchor="150.0">
                                        <font>
                                           <Font size="18.0" />
@@ -121,29 +147,6 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </JFXButton>
-                                    <JFXCheckBox fx:id="host_a" layoutX="70.0" layoutY="302.0" text="Nombre de host de destino (-a)">
-                                       <font>
-                                          <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
-                                       </font>
-                                    </JFXCheckBox>
-                                    <JFXTextField fx:id="txtCantPet" alignment="CENTER" focusColor="#4ada3a" layoutX="333.0" layoutY="231.0" prefHeight="39.0" prefWidth="232.0" promptText="Cantidad de peticiones" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;">
-                                       <font>
-                                          <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
-                                       </font>
-                                    </JFXTextField>
-                                    <JFXRadioButton fx:id="radBtn_t" layoutX="56.0" layoutY="199.0" onMouseClicked="#radioButton" text="Ping Constante (-t)">
-                                       <font>
-                                          <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
-                                       </font>
-                                       <toggleGroup>
-                                          <ToggleGroup fx:id="pingCanti" />
-                                       </toggleGroup>
-                                    </JFXRadioButton>
-                                    <JFXRadioButton fx:id="radBtn_n" layoutX="56.0" layoutY="245.0" onMouseClicked="#radioButton" text="Cantidad de peticiones (-n)" toggleGroup="$pingCanti">
-                                       <font>
-                                          <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
-                                       </font>
-                                    </JFXRadioButton>
                                     <JFXButton fx:id="btnTxtSalida" layoutX="274.0" layoutY="474.0" onMouseClicked="#onTxtSalida" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #bebebe; -fx-background-radius: 10;" text="Ver Registro">
                                        <font>
                                           <Font name="Noto Sans SemiCondensed Black" size="18.0" />
@@ -152,11 +155,14 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </JFXButton>
-                                    <JFXRadioButton fx:id="radBtn_Prueba" layoutX="56.0" layoutY="156.0" onMouseClicked="#radioButton" selected="true" text="Ping de Prueba" toggleGroup="$pingCanti">
+                                    <JFXButton fx:id="btnDetener" disable="true" layoutX="420.0" layoutY="474.0" onMouseClicked="#onBtnDetener" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE" AnchorPane.rightAnchor="150.0">
                                        <font>
-                                          <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
+                                          <Font size="18.0" />
                                        </font>
-                                    </JFXRadioButton>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </JFXButton>
                                     <ProgressIndicator fx:id="progress" layoutX="449.0" layoutY="18.0" visible="false" />
                                     <Text fx:id="txtError" fill="#ff2121" layoutX="24.0" layoutY="572.0" strokeType="OUTSIDE" strokeWidth="0.0" textOrigin="CENTER" wrappingWidth="645.9830722808838" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="28.0">
                                        <font>
@@ -207,6 +213,9 @@
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
+                                       <effect>
+                                          <Shadow />
+                                       </effect>
                                     </JFXButton>
                                  </children>
                               </AnchorPane>
@@ -504,7 +513,7 @@
             <Font name="Noto Sans SemiCondensed Black" size="14.0" />
          </font>
       </Text>
-      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="8.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" AnchorPane.leftAnchor="10.0">
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="8.0" layoutY="3.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" AnchorPane.leftAnchor="10.0">
          <image>
             <Image url="@imgs/rj45.png" />
          </image>

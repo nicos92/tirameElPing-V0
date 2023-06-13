@@ -23,6 +23,12 @@ public class Detener {
         this.txtError = txtError;
 
     }
+    public Detener(Button btnIniciar, Button btnDetener, ProgressIndicator progressIndicator) {
+        this.btnIniciar = btnIniciar;
+        this.btnDetener = btnDetener;
+        this.progressIndicator = progressIndicator;
+
+    }
 
     public void sendBtnDetener(){
         btnIniciar.setDisable(false);

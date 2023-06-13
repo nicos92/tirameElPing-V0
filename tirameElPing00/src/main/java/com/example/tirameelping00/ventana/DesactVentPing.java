@@ -7,13 +7,13 @@ import javafx.scene.control.TextField;
 
 public class DesactVentPing {
     private Label labelIp;
-    private TextField txtIP;
-    private RadioButton radBtn_Prueba;
-    private RadioButton radBtn_t;
-    private RadioButton radBtn_n;
-    private TextField txtCantPet;
-    private CheckBox host_a;
-    private CheckBox pingEnTxt;
+    private  TextField txtIP;
+    private  RadioButton radBtn_Prueba;
+    private  RadioButton radBtn_t;
+    private  RadioButton radBtn_n;
+    private  TextField txtCantPet;
+    private  CheckBox host_a;
+    private  CheckBox pingEnTxt;
 
     public DesactVentPing(Label labelIp, TextField txtIP, RadioButton radBtn_Prueba, RadioButton radBtn_t, RadioButton radBtn_n, TextField txtCantPet, CheckBox host_a, CheckBox pingEnTxt) {
         this.labelIp = labelIp;
@@ -24,6 +24,10 @@ public class DesactVentPing {
         this.txtCantPet = txtCantPet;
         this.host_a = host_a;
         this.pingEnTxt = pingEnTxt;
+    }
+
+    public DesactVentPing() {
+
     }
 
     public void desactItemsPing(boolean b) {

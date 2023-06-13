@@ -14,7 +14,7 @@ public class Sonido {
            sonido = AudioSystem.getClip();
 
             // Se carga con un fichero wav
-            sonido.open(AudioSystem.getAudioInputStream(new File("D:\\Users\\n.sandoval\\Documents\\tirameElPing-V0\\tirameElPing00\\src\\main\\resources\\com\\example\\tirameelping00\\Sounds\\alarma.wav")));
+            sonido.open(AudioSystem.getAudioInputStream(new File("P:\\tirameElPing-V0\\tirameElPing00\\src\\main\\resources\\com\\example\\tirameelping00\\Sounds\\alarma.wav")));
 
             // Comienza la reproducción
             sonido.start();

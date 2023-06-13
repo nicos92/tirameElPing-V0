@@ -22,7 +22,7 @@ public class EjecutarPingHilo implements Runnable{
     private final TextField txtRutaArchivo;
     private final boolean bool;
 
-    private final Thread thread;
+
 
     private final Sonido sonido;
     private final Detener detener;
@@ -30,7 +30,7 @@ public class EjecutarPingHilo implements Runnable{
 
 
 
-    public EjecutarPingHilo(Process p, String ip, boolean selected, TextArea txtAreaSalida, TextField txtRutaArchivo, Detener detener, DesactVentPing desactVentPing, Thread thread){
+    public EjecutarPingHilo(Process p, String ip, boolean selected, TextArea txtAreaSalida, TextField txtRutaArchivo, Detener detener, DesactVentPing desactVentPing){
         this.process = p;
         this.ip = ip;
         this.bool = selected;
@@ -38,7 +38,7 @@ public class EjecutarPingHilo implements Runnable{
         this.txtRutaArchivo = txtRutaArchivo;
         this.detener = detener;
         this.desactVentPing = desactVentPing;
-        this.thread = thread;
+
         sonido = new Sonido();
     }
 
@@ -78,8 +78,6 @@ public class EjecutarPingHilo implements Runnable{
 
             }
 
-            //thread.interrupt();
-            //sonido.closeSonido();
             detener.sendBtnDetener();
             desactVentPing.desactItemsPing(false);
 
