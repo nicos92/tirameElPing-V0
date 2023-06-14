@@ -35,9 +35,16 @@ public class Detener {
         btnDetener.setDisable(true);
         progressIndicator.setVisible(false);
         txtError.setText("");
+    }
 
+    public void sendBtnDetenerMulti(){
+        btnIniciar.setDisable(false);
+        btnDetener.setDisable(true);
+        progressIndicator.setVisible(false);
 
     }
+
+
 
 
 }

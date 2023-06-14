@@ -34,7 +34,7 @@
                               <HBox fx:id="hboxsup" alignment="CENTER" prefHeight="100.0" prefWidth="488.0" style="-fx-background-color: #E8e8e8;" AnchorPane.bottomAnchor="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <Line endX="-97.70710754394531" endY="-39.97669982910156" layoutX="1.0" layoutY="1.0" rotate="-6.0" startX="-100.19038391113281" startY="-12.739243507385254" stroke="WHITE" />
-                                    <JFXButton fx:id="btnPing" focusTraversable="false" onMouseClicked="#onPing" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: TRANSPARENT; -fx-border-color: TRANSPARENT;" text="Ping">
+                                    <JFXButton fx:id="btnPing" focusTraversable="false" onMouseClicked="#onVentPing" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: TRANSPARENT; -fx-border-color: TRANSPARENT;" text="Ping">
                                        <font>
                                           <Font name="System Bold" size="18.0" />
                                        </font>
@@ -46,7 +46,7 @@
                                        </cursor>
                                     </JFXButton>
                                     <Line endX="-97.70710754394531" endY="-39.97669982910156" layoutX="1.0" layoutY="1.0" rotate="-6.0" startX="-100.19038391113281" startY="-12.739243507385254" stroke="WHITE" />
-                                    <JFXButton fx:id="btnRegPing" focusTraversable="false" onMouseClicked="#onTxtSalida" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: TRANSPARENT; -fx-border-color: TRANSPARENT;" text="Reg. Ping">
+                                    <JFXButton fx:id="btnRegPing" focusTraversable="false" onMouseClicked="#onVentTxtSalida" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: TRANSPARENT; -fx-border-color: TRANSPARENT;" text="Reg. Ping">
                                        <font>
                                           <Font name="System Bold" size="18.0" />
                                        </font>
@@ -55,7 +55,7 @@
                                        </cursor>
                                     </JFXButton>
                                     <Line endX="-97.70710754394531" endY="-39.97669982910156" layoutX="1.0" layoutY="1.0" rotate="-6.0" startX="-100.19038391113281" startY="-12.739243507385254" stroke="WHITE" />
-                                    <JFXButton fx:id="btnIpInfo" focusTraversable="false" onMouseClicked="#onIpInfo" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: TRANSPARENT;" text="IP Info">
+                                    <JFXButton fx:id="btnIpInfo" focusTraversable="false" onMouseClicked="#onventIpInfo" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: TRANSPARENT;" text="IP Info">
                                        <font>
                                           <Font name="System Bold" size="18.0" />
                                        </font>
@@ -67,7 +67,7 @@
                                        </cursor>
                                     </JFXButton>
                                     <Line endX="-97.70710754394531" endY="-39.97669982910156" layoutX="1.0" layoutY="1.0" rotate="-6.0" startX="-100.19038391113281" startY="-12.739243507385254" stroke="WHITE" />
-                                    <JFXButton fx:id="btnMultiPing" focusTraversable="false" onMouseClicked="#onMultiPing" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: TRANSPARENT; -fx-border-color: TRANSPARENT;" text="Multi-Ping">
+                                    <JFXButton fx:id="btnMultiPing" focusTraversable="false" onMouseClicked="#onVentMultiPing" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: TRANSPARENT; -fx-border-color: TRANSPARENT;" text="Multi-Ping">
                                        <font>
                                           <Font name="System Bold" size="18.0" />
                                        </font>
@@ -147,7 +147,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </JFXButton>
-                                    <JFXButton fx:id="btnTxtSalida" layoutX="274.0" layoutY="474.0" onMouseClicked="#onTxtSalida" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #bebebe; -fx-background-radius: 10;" text="Ver Registro">
+                                    <JFXButton fx:id="btnTxtSalida" layoutX="274.0" layoutY="474.0" onMouseClicked="#onVentTxtSalida" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #bebebe; -fx-background-radius: 10;" text="Ver Registro">
                                        <font>
                                           <Font name="Noto Sans SemiCondensed Black" size="18.0" />
                                        </font>
@@ -206,7 +206,7 @@
                                           <Font name="Noto Sans SemiCondensed Black" size="36.0" />
                                        </font>
                                     </Text>
-                                    <JFXButton fx:id="btnIniciarPing" layoutX="272.0" layoutY="213.0" onMouseClicked="#onPing" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #41b4d3; -fx-background-radius: 10;" text="Iniciar Ping" textAlignment="CENTER">
+                                    <JFXButton fx:id="btnIniciarPing" layoutX="272.0" layoutY="213.0" onMouseClicked="#onVentPing" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #41b4d3; -fx-background-radius: 10;" text="Iniciar Ping" textAlignment="CENTER">
                                        <font>
                                           <Font name="Noto Sans SemiCondensed Black" size="18.0" />
                                        </font>
