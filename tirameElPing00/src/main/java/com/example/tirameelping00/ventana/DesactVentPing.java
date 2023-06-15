@@ -15,6 +15,8 @@ public class DesactVentPing {
     private  CheckBox host_a;
     private  CheckBox pingEnTxt;
 
+    private TextField nomIp;
+
     public DesactVentPing(Label labelIp, TextField txtIP, RadioButton radBtn_Prueba, RadioButton radBtn_t, RadioButton radBtn_n, TextField txtCantPet, CheckBox host_a, CheckBox pingEnTxt) {
         this.labelIp = labelIp;
         this.txtIP = txtIP;
@@ -24,15 +26,17 @@ public class DesactVentPing {
         this.txtCantPet = txtCantPet;
         this.host_a = host_a;
         this.pingEnTxt = pingEnTxt;
+
     }
 
     public DesactVentPing() {
 
     }
 
-    public DesactVentPing(TextField txtIP, RadioButton radBtn) {
+    public DesactVentPing(TextField txtIP, RadioButton radBtn, TextField nomIp) {
         this.txtIP = txtIP;
         this.radBtn_t = radBtn;
+        this.nomIp = nomIp;
     }
 
     public void desactItemsPing(boolean b) {
@@ -50,5 +54,6 @@ public class DesactVentPing {
 
         radBtn_t.setDisable(b);
         txtIP.setDisable(b);
+        nomIp.setDisable(b);
     }
 }

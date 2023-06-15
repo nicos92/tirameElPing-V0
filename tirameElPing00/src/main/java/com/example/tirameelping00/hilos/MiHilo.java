@@ -5,6 +5,7 @@ import com.example.tirameelping00.detencion.Detener;
 import com.example.tirameelping00.notify.Notificacion;
 import com.example.tirameelping00.sonido.Sonido;
 import com.example.tirameelping00.ventana.DesactVentPing;
+import javafx.scene.control.TextField;
 
 import java.io.*;
 
@@ -18,12 +19,15 @@ public class MiHilo implements Runnable{
 
     private final Sonido sonido;
 
-    public MiHilo (Process process, String ip,Detener detener, DesactVentPing desactVentPing){
+    private final String nomIp;
+
+    public MiHilo (Process process, String ip, Detener detener, DesactVentPing desactVentPing, TextField nomIp){
         this.process = process;
         this.ip = ip;
         this.detener = detener;
         this.desactVentPing = desactVentPing;
         this.sonido = new Sonido();
+        this.nomIp = nomIp.getText();
     }
 
     @Override
@@ -33,10 +37,10 @@ public class MiHilo implements Runnable{
             BufferedReader lector = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String inputLine;
             boolean notify = true;
-            int i = 0;
+            //int i = 0;
 
             while ((inputLine = lector.readLine()) != null && !Thread.currentThread().isInterrupted()) {
-                System.out.println( i++ + " " + lector.readLine());
+                //System.out.println( i++ + " " + lector.readLine());
                 notify = sendNotificacion(notify, inputLine, ip);
 
             }
@@ -55,21 +59,21 @@ public class MiHilo implements Runnable{
         Notificacion notificacion = new Notificacion();
 
         if (inputLine.contains("Error") || inputLine.contains("agotado")){
-            notificacion.sendNotifyFail(ip);
+            notificacion.sendNotifyFail(ip, nomIp);
             sonido.reproducirError();
             return true;
         }
         if ( inputLine.contains("tiempo") && notify){
-            notificacion.sendNotifyOk(ip);
+            notificacion.sendNotifyOk(ip, nomIp);
             sonido.reproducirOk();
             return false;
         }
         if( inputLine.contains("inaccesible")){
-            notificacion.sendNotifyInsccesible(ip);
+            notificacion.sendNotifyInsccesible(ip, nomIp);
             sonido.reproducirError();
         }
         if (inputLine.contains("Paquetes")) {
-            notificacion.sendEndNotify();
+            notificacion.sendEndNotify(ip, nomIp);
         }
         return notify;
     }

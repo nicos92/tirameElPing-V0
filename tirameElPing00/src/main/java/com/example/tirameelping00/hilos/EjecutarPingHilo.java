@@ -61,7 +61,7 @@ public class EjecutarPingHilo implements Runnable{
 
                     FechaYhora fechaYhora = new FechaYhora();
                     String txt = fechaYhora + " " + inputLine + " \n ";
-                    System.out.println(txt);
+                    //System.out.println(txt);
 
                     if (bool) {
                         array.add(txt);
@@ -96,21 +96,21 @@ public class EjecutarPingHilo implements Runnable{
         Notificacion notificacion = new Notificacion();
 
         if (inputLine.contains("Error") || inputLine.contains("agotado")){
-            notificacion.sendNotifyFail(ip);
+            notificacion.sendNotifyFail(ip, "");
             sonido.reproducirError();
             return true;
         }
         if ( inputLine.contains("tiempo") && notify){
-            notificacion.sendNotifyOk(ip);
+            notificacion.sendNotifyOk(ip, "");
             sonido.reproducirOk();
             return false;
         }
         if( inputLine.contains("inaccesible")){
-            notificacion.sendNotifyInsccesible(ip);
+            notificacion.sendNotifyInsccesible(ip, "");
             sonido.reproducirError();
         }
         if (inputLine.contains("Paquetes")) {
-            notificacion.sendEndNotify();
+            notificacion.sendEndNotify(ip, "");
         }
         return notify;
     }

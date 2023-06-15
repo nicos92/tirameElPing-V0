@@ -21,7 +21,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="700.0" style="-fx-background-color: #Efeffb; -fx-background-radius: 15;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tirameelping00.TirameElPingController">
+<AnchorPane fx:id="mainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="700.0" style="-fx-background-color: #Efeffb; -fx-background-radius: 15;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tirameelping00.TirameElPingController">
    <children>
       <AnchorPane fx:id="base1" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="700.0" style="-fx-background-color: #ffffff; -fx-background-radius: 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
          <children>
@@ -199,7 +199,7 @@
                                     </TextArea>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane fx:id="ventanaBienv" layoutX="30.0" layoutY="30.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
+                              <AnchorPane fx:id="ventanaBienv" layoutX="30.0" layoutY="30.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
                                  <children>
                                     <Text fx:id="lblBienvenido" layoutX="105.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenido a Tirame el Ping!">
                                        <font>
@@ -219,31 +219,55 @@
                                     </JFXButton>
                                  </children>
                               </AnchorPane>
-                              <VBox fx:id="ventanaMultiPing" layoutX="278.0" layoutY="197.0" prefHeight="200.0" prefWidth="100.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                              <VBox fx:id="ventanaMultiPing" layoutX="278.0" layoutY="197.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
                                  <children>
                                     <Line endX="591.2929077148438" endY="0.2928932309150696" startX="-100.0" />
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label fx:id="labelIp111" text="Direccion IP Nº1:  ">
-                                             <font>
-                                                <Font size="16.0" />
-                                             </font>
-                                          </Label>
-                                          <JFXTextField fx:id="txtIP1" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="124.0" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.1" unFocusColor="#c9c9c9">
-                                             <font>
-                                                <Font name="System Bold" size="18.0" />
-                                             </font>
-                                             <opaqueInsets>
-                                                <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
-                                             </opaqueInsets>
-                                          </JFXTextField>
-                                          <JFXRadioButton fx:id="radBtn_t1" text="(-t)">
+                                          <VBox alignment="CENTER" prefHeight="96.0" prefWidth="151.0">
+                                             <children>
+                                                <Label fx:id="labelIp111" text="Nombre IP Nº1:">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" />
+                                                <JFXTextField fx:id="nomIp1" alignment="CENTER" focusColor="BLACK" prefHeight="30.0" prefWidth="138.0" style="-fx-text-fill: #000000; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="Faena" unFocusColor="#c9c9c9">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                   <opaqueInsets>
+                                                      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                                   </opaqueInsets>
+                                                </JFXTextField>
+                                             </children>
+                                          </VBox>
+                                          <Separator prefWidth="10.0" visible="false" />
+                                          <VBox alignment="CENTER" prefHeight="96.0" prefWidth="151.0">
+                                             <children>
+                                                <Label fx:id="labelIp1111" text="Direccion IP Nº1:  ">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" />
+                                                <JFXTextField fx:id="txtIP1" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="136.0" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.40" unFocusColor="#c9c9c9">
+                                                   <font>
+                                                      <Font name="System Bold" size="16.0" />
+                                                   </font>
+                                                   <opaqueInsets>
+                                                      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                                   </opaqueInsets>
+                                                </JFXTextField>
+                                             </children>
+                                          </VBox>
+                                          <JFXRadioButton fx:id="radBtn_t1" selected="true" text="(-t)">
                                              <font>
                                                 <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                              </font>
                                           </JFXRadioButton>
                                           <Separator prefWidth="10.0" visible="false" />
-                                          <JFXButton fx:id="btnIniciar1" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">
+                                          <JFXButton fx:id="btnIniciar1" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -252,7 +276,7 @@
                                              </cursor>
                                           </JFXButton>
                                           <Separator prefWidth="10.0" visible="false" />
-                                          <JFXButton fx:id="btnDetener1" disable="true" onMouseClicked="#onBtnDetenerMulti" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
+                                          <JFXButton fx:id="btnDetener1" disable="true" onMouseClicked="#onBtnDetenerMulti" prefHeight="50.0" prefWidth="90.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -267,26 +291,50 @@
                                     <Line endX="591.2929077148438" endY="0.2928932309150696" startX="-100.0" />
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label fx:id="labelIp11" text="Direccion IP Nº2:  ">
-                                             <font>
-                                                <Font size="16.0" />
-                                             </font>
-                                          </Label>
-                                          <JFXTextField fx:id="txtIP2" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="124.0" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.2" unFocusColor="#c9c9c9">
-                                             <font>
-                                                <Font name="System Bold" size="18.0" />
-                                             </font>
-                                             <opaqueInsets>
-                                                <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
-                                             </opaqueInsets>
-                                          </JFXTextField>
-                                          <JFXRadioButton fx:id="radBtn_t2" text="(-t)">
+                                          <VBox alignment="CENTER" prefHeight="96.0" prefWidth="151.0">
+                                             <children>
+                                                <Label fx:id="labelIp1112" text="Nombre IP Nº2:">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" />
+                                                <JFXTextField fx:id="nomIp2" alignment="CENTER" focusColor="BLACK" prefHeight="30.0" prefWidth="138.0" style="-fx-text-fill: #000000; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="Despostada" unFocusColor="#c9c9c9">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                   <opaqueInsets>
+                                                      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                                   </opaqueInsets>
+                                                </JFXTextField>
+                                             </children>
+                                          </VBox>
+                                          <Separator prefWidth="10.0" visible="false" />
+                                          <VBox alignment="CENTER" prefHeight="96.0" prefWidth="151.0">
+                                             <children>
+                                                <Label fx:id="labelIp11111" text="Direccion IP Nº1:  ">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" />
+                                                <JFXTextField fx:id="txtIP2" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="136.0" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.44" unFocusColor="#c9c9c9">
+                                                   <font>
+                                                      <Font name="System Bold" size="16.0" />
+                                                   </font>
+                                                   <opaqueInsets>
+                                                      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                                   </opaqueInsets>
+                                                </JFXTextField>
+                                             </children>
+                                          </VBox>
+                                          <JFXRadioButton fx:id="radBtn_t2" selected="true" text="(-t)">
                                              <font>
                                                 <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                              </font>
                                           </JFXRadioButton>
                                           <Separator prefWidth="10.0" visible="false" />
-                                          <JFXButton fx:id="btnIniciar2" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">
+                                          <JFXButton fx:id="btnIniciar2" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -295,7 +343,7 @@
                                              </cursor>
                                           </JFXButton>
                                           <Separator prefWidth="10.0" visible="false" />
-                                          <JFXButton fx:id="btnDetener2" disable="true" onMouseClicked="#onBtnDetenerMulti" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
+                                          <JFXButton fx:id="btnDetener2" disable="true" onMouseClicked="#onBtnDetenerMulti" prefHeight="50.0" prefWidth="90.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -310,26 +358,50 @@
                                     <Line endX="591.2929077148438" endY="0.2928932309150696" startX="-100.0" />
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label fx:id="labelIp12" text="Direccion IP Nº3:  ">
-                                             <font>
-                                                <Font size="16.0" />
-                                             </font>
-                                          </Label>
-                                          <JFXTextField fx:id="txtIP3" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="124.0" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.3" unFocusColor="#c9c9c9">
-                                             <font>
-                                                <Font name="System Bold" size="18.0" />
-                                             </font>
-                                             <opaqueInsets>
-                                                <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
-                                             </opaqueInsets>
-                                          </JFXTextField>
-                                          <JFXRadioButton fx:id="radBtn_t3" text="(-t)">
+                                          <VBox alignment="CENTER" prefHeight="96.0" prefWidth="151.0">
+                                             <children>
+                                                <Label fx:id="labelIp1113" text="Nombre IP Nº3:">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" />
+                                                <JFXTextField fx:id="nomIp3" alignment="CENTER" focusColor="BLACK" prefHeight="30.0" prefWidth="138.0" style="-fx-text-fill: #000000; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="Dinamica" unFocusColor="#c9c9c9">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                   <opaqueInsets>
+                                                      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                                   </opaqueInsets>
+                                                </JFXTextField>
+                                             </children>
+                                          </VBox>
+                                          <Separator prefWidth="10.0" visible="false" />
+                                          <VBox alignment="CENTER" prefHeight="96.0" prefWidth="151.0">
+                                             <children>
+                                                <Label fx:id="labelIp11112" text="Direccion IP Nº3:  ">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" />
+                                                <JFXTextField fx:id="txtIP3" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="136.0" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.47" unFocusColor="#c9c9c9">
+                                                   <font>
+                                                      <Font name="System Bold" size="16.0" />
+                                                   </font>
+                                                   <opaqueInsets>
+                                                      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                                   </opaqueInsets>
+                                                </JFXTextField>
+                                             </children>
+                                          </VBox>
+                                          <JFXRadioButton fx:id="radBtn_t3" selected="true" text="(-t)">
                                              <font>
                                                 <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                              </font>
                                           </JFXRadioButton>
                                           <Separator prefWidth="10.0" visible="false" />
-                                          <JFXButton fx:id="btnIniciar3" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">
+                                          <JFXButton fx:id="btnIniciar3" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -338,7 +410,7 @@
                                              </cursor>
                                           </JFXButton>
                                           <Separator prefWidth="10.0" visible="false" />
-                                          <JFXButton fx:id="btnDetener3" disable="true" onMouseClicked="#onBtnDetenerMulti" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
+                                          <JFXButton fx:id="btnDetener3" disable="true" onMouseClicked="#onBtnDetenerMulti" prefHeight="50.0" prefWidth="90.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -353,26 +425,50 @@
                                     <Line endX="591.2929077148438" endY="0.2928932309150696" startX="-100.0" />
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label fx:id="labelIp13" text="Direccion IP Nº4:  ">
-                                             <font>
-                                                <Font size="16.0" />
-                                             </font>
-                                          </Label>
-                                          <JFXTextField fx:id="txtIP4" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="124.0" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.4" unFocusColor="#c9c9c9">
-                                             <font>
-                                                <Font name="System Bold" size="18.0" />
-                                             </font>
-                                             <opaqueInsets>
-                                                <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
-                                             </opaqueInsets>
-                                          </JFXTextField>
-                                          <JFXRadioButton fx:id="radBtn_t4" text="(-t)">
+                                          <VBox alignment="CENTER" prefHeight="96.0" prefWidth="151.0">
+                                             <children>
+                                                <Label fx:id="labelIp1114" text="Nombre IP Nº4:">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" />
+                                                <JFXTextField fx:id="nomIp4" alignment="CENTER" focusColor="BLACK" prefHeight="30.0" prefWidth="138.0" style="-fx-text-fill: #000000; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="entrada Cuarteo" unFocusColor="#c9c9c9">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                   <opaqueInsets>
+                                                      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                                   </opaqueInsets>
+                                                </JFXTextField>
+                                             </children>
+                                          </VBox>
+                                          <Separator prefWidth="10.0" visible="false" />
+                                          <VBox alignment="CENTER" prefHeight="96.0" prefWidth="151.0">
+                                             <children>
+                                                <Label fx:id="labelIp11113" text="Direccion IP Nº4:  ">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" />
+                                                <JFXTextField fx:id="txtIP4" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="136.0" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.49" unFocusColor="#c9c9c9">
+                                                   <font>
+                                                      <Font name="System Bold" size="16.0" />
+                                                   </font>
+                                                   <opaqueInsets>
+                                                      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                                   </opaqueInsets>
+                                                </JFXTextField>
+                                             </children>
+                                          </VBox>
+                                          <JFXRadioButton fx:id="radBtn_t4" selected="true" text="(-t)">
                                              <font>
                                                 <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                              </font>
                                           </JFXRadioButton>
                                           <Separator prefWidth="10.0" visible="false" />
-                                          <JFXButton fx:id="btnIniciar4" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">
+                                          <JFXButton fx:id="btnIniciar4" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -381,7 +477,7 @@
                                              </cursor>
                                           </JFXButton>
                                           <Separator prefWidth="10.0" visible="false" />
-                                          <JFXButton fx:id="btnDetener4" disable="true" onMouseClicked="#onBtnDetenerMulti" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
+                                          <JFXButton fx:id="btnDetener4" disable="true" onMouseClicked="#onBtnDetenerMulti" prefHeight="50.0" prefWidth="90.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -396,26 +492,50 @@
                                     <Line endX="591.2929077148438" endY="0.2928932309150696" startX="-100.0" />
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label fx:id="labelIp14" text="Direccion IP Nº5:    ">
-                                             <font>
-                                                <Font size="16.0" />
-                                             </font>
-                                          </Label>
-                                          <JFXTextField fx:id="txtIP5" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="124.0" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.5" unFocusColor="#c9c9c9">
-                                             <font>
-                                                <Font name="System Bold" size="18.0" />
-                                             </font>
-                                             <opaqueInsets>
-                                                <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
-                                             </opaqueInsets>
-                                          </JFXTextField>
-                                          <JFXRadioButton fx:id="radBtn_t5" text="(-t)">
+                                          <VBox alignment="CENTER" prefHeight="96.0" prefWidth="151.0">
+                                             <children>
+                                                <Label fx:id="labelIp1115" text="Nombre IP Nº5:">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" />
+                                                <JFXTextField fx:id="nomIp5" alignment="CENTER" focusColor="BLACK" prefHeight="30.0" prefWidth="138.0" style="-fx-text-fill: #000000; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="Temp calidad" unFocusColor="#c9c9c9">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                   <opaqueInsets>
+                                                      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                                   </opaqueInsets>
+                                                </JFXTextField>
+                                             </children>
+                                          </VBox>
+                                          <Separator prefWidth="10.0" visible="false" />
+                                          <VBox alignment="CENTER" prefHeight="96.0" prefWidth="151.0">
+                                             <children>
+                                                <Label fx:id="labelIp11114" text="Direccion IP Nº5: ">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" />
+                                                <JFXTextField fx:id="txtIP5" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="136.0" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.100" unFocusColor="#c9c9c9">
+                                                   <font>
+                                                      <Font name="System Bold" size="16.0" />
+                                                   </font>
+                                                   <opaqueInsets>
+                                                      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                                   </opaqueInsets>
+                                                </JFXTextField>
+                                             </children>
+                                          </VBox>
+                                          <JFXRadioButton fx:id="radBtn_t5" selected="true" text="(-t)">
                                              <font>
                                                 <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                              </font>
                                           </JFXRadioButton>
                                           <Separator prefWidth="10.0" visible="false" />
-                                          <JFXButton fx:id="btnIniciar5" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">
+                                          <JFXButton fx:id="btnIniciar5" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -424,7 +544,7 @@
                                              </cursor>
                                           </JFXButton>
                                           <Separator prefWidth="10.0" visible="false" />
-                                          <JFXButton fx:id="btnDetener5" disable="true" onMouseClicked="#onBtnDetenerMulti" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
+                                          <JFXButton fx:id="btnDetener5" disable="true" onMouseClicked="#onBtnDetenerMulti" prefHeight="50.0" prefWidth="90.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -439,26 +559,50 @@
                                     <Line endX="591.2929077148438" endY="0.2928932309150696" startX="-100.0" />
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label fx:id="labelIp141" text="Direccion IP Nº6:    ">
-                                             <font>
-                                                <Font size="16.0" />
-                                             </font>
-                                          </Label>
-                                          <JFXTextField fx:id="txtIP6" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="124.0" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.6" unFocusColor="#c9c9c9">
-                                             <font>
-                                                <Font name="System Bold" size="18.0" />
-                                             </font>
-                                             <opaqueInsets>
-                                                <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
-                                             </opaqueInsets>
-                                          </JFXTextField>
-                                          <JFXRadioButton fx:id="radBtn_t6" text="(-t)">
+                                          <VBox alignment="CENTER" prefHeight="96.0" prefWidth="151.0">
+                                             <children>
+                                                <Label fx:id="labelIp1116" text="Nombre IP Nº6:">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" />
+                                                <JFXTextField fx:id="nomIp6" alignment="CENTER" focusColor="BLACK" prefHeight="30.0" prefWidth="138.0" style="-fx-text-fill: #000000; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="Camaras" unFocusColor="#c9c9c9">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                   <opaqueInsets>
+                                                      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                                   </opaqueInsets>
+                                                </JFXTextField>
+                                             </children>
+                                          </VBox>
+                                          <Separator prefWidth="10.0" visible="false" />
+                                          <VBox alignment="CENTER" prefHeight="96.0" prefWidth="151.0">
+                                             <children>
+                                                <Label fx:id="labelIp11115" text="Direccion IP Nº6:  ">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" />
+                                                <JFXTextField fx:id="txtIP6" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="136.0" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.150" unFocusColor="#c9c9c9">
+                                                   <font>
+                                                      <Font name="System Bold" size="16.0" />
+                                                   </font>
+                                                   <opaqueInsets>
+                                                      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                                   </opaqueInsets>
+                                                </JFXTextField>
+                                             </children>
+                                          </VBox>
+                                          <JFXRadioButton fx:id="radBtn_t6" selected="true" text="(-t)">
                                              <font>
                                                 <Font name="Noto Sans SemiCondensed ExtraBold" size="18.0" />
                                              </font>
                                           </JFXRadioButton>
                                           <Separator prefWidth="10.0" visible="false" />
-                                          <JFXButton fx:id="btnIniciar6" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">
+                                          <JFXButton fx:id="btnIniciar6" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -467,7 +611,7 @@
                                              </cursor>
                                           </JFXButton>
                                           <Separator prefWidth="10.0" visible="false" />
-                                          <JFXButton fx:id="btnDetener6" disable="true" onMouseClicked="#onBtnDetenerMulti" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
+                                          <JFXButton fx:id="btnDetener6" disable="true" onMouseClicked="#onBtnDetenerMulti" prefHeight="50.0" prefWidth="90.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>

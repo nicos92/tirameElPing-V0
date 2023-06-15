@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Main-Class: com.example.tirameelping00.TirameElPingApp
+Class-Path: javafx-fxml-19.0.2.1-win.jar javafx-controls-19.0.2.1.jar ja
+ vafx-graphics-19.0.2.1-win.jar DS-Desktop-Notify.jar javafx-fxml-19.0.2
+ .1.jar javafx-controls-19.0.2.1-win.jar javafx-graphics-19.0.2.1.jar ja
+ vafx-base-19.0.2.1.jar javafx-base-19.0.2.1-win.jar jfoenix-9.0.0.jar
+
