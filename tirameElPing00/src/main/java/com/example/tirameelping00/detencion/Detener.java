@@ -6,23 +6,10 @@ import javafx.scene.text.Text;
 
 public class Detener {
 
-    private Button btnIniciar;
-    private Button btnDetener;
-    private ProgressIndicator progressIndicator;
+    private final Button btnIniciar;
+    private final Button btnDetener;
+    private final ProgressIndicator progressIndicator;
     private Text txtError;
-
-    private Thread thread;
-
-
-
-
-    public Detener(Thread thread){
-        this.thread = thread;
-    }
-
-    public void threadInterrupt(){
-        thread.interrupt();
-    }
 
     public Detener(Button btnIniciar, Button btnDetener, ProgressIndicator progressIndicator, Text txtError) {
         this.btnIniciar = btnIniciar;

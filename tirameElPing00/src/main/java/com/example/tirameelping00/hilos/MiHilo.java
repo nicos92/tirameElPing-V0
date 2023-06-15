@@ -40,11 +40,17 @@ public class MiHilo implements Runnable{
             //int i = 0;
 
             while ((inputLine = lector.readLine()) != null && !Thread.currentThread().isInterrupted()) {
+                if (sonido.getSonido() != null)sonido.closeSonido();
                 //System.out.println( i++ + " " + lector.readLine());
                 notify = sendNotificacion(notify, inputLine, ip);
 
             }
 
+            if (sonido.getSonido() != null){
+                sonido.closeSonido();
+                System.out.println("hola detener");
+
+            }
             detener.sendBtnDetenerMulti();
             desactVentPing.desactItemsPingMulti(false);
 
@@ -60,16 +66,19 @@ public class MiHilo implements Runnable{
 
         if (inputLine.contains("Error") || inputLine.contains("agotado")){
             notificacion.sendNotifyFail(ip, nomIp);
+
             sonido.reproducirError();
             return true;
         }
         if ( inputLine.contains("tiempo") && notify){
             notificacion.sendNotifyOk(ip, nomIp);
+
             sonido.reproducirOk();
             return false;
         }
         if( inputLine.contains("inaccesible")){
             notificacion.sendNotifyInsccesible(ip, nomIp);
+
             sonido.reproducirError();
         }
         if (inputLine.contains("Paquetes")) {

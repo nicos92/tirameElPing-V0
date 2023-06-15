@@ -7,9 +7,9 @@ import javafx.scene.control.TextField;
 
 public class DesactVentPing {
     private Label labelIp;
-    private  TextField txtIP;
+    private final TextField txtIP;
     private  RadioButton radBtn_Prueba;
-    private  RadioButton radBtn_t;
+    private final RadioButton radBtn_t;
     private  RadioButton radBtn_n;
     private  TextField txtCantPet;
     private  CheckBox host_a;
@@ -29,9 +29,6 @@ public class DesactVentPing {
 
     }
 
-    public DesactVentPing() {
-
-    }
 
     public DesactVentPing(TextField txtIP, RadioButton radBtn, TextField nomIp) {
         this.txtIP = txtIP;
