@@ -33,7 +33,7 @@
                            <children>
                               <HBox fx:id="hboxsup" alignment="CENTER" prefHeight="100.0" prefWidth="488.0" style="-fx-background-color: #E8e8e8;" AnchorPane.bottomAnchor="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Line endX="-97.70710754394531" endY="-39.97669982910156" layoutX="1.0" layoutY="1.0" rotate="-6.0" startX="-100.19038391113281" startY="-12.739243507385254" stroke="WHITE" />
+                                    <Line endX="-97.70710754394531" endY="-39.97669982910156" rotate="-6.0" startX="-100.19038391113281" startY="-12.739243507385254" />
                                     <JFXButton fx:id="btnPing" focusTraversable="false" onMouseClicked="#onVentPing" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: TRANSPARENT; -fx-border-color: TRANSPARENT;" text="Ping">
                                        <font>
                                           <Font name="System Bold" size="18.0" />
@@ -45,7 +45,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </JFXButton>
-                                    <Line endX="-97.70710754394531" endY="-39.97669982910156" layoutX="1.0" layoutY="1.0" rotate="-6.0" startX="-100.19038391113281" startY="-12.739243507385254" stroke="WHITE" />
+                                    <Line endX="-97.70710754394531" endY="-39.97669982910156" rotate="-6.0" startX="-100.19038391113281" startY="-12.739243507385254" />
                                     <JFXButton fx:id="btnRegPing" focusTraversable="false" onMouseClicked="#onVentTxtSalida" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: TRANSPARENT; -fx-border-color: TRANSPARENT;" text="Reg. Ping">
                                        <font>
                                           <Font name="System Bold" size="18.0" />
@@ -54,8 +54,8 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </JFXButton>
-                                    <Line endX="-97.70710754394531" endY="-39.97669982910156" layoutX="1.0" layoutY="1.0" rotate="-6.0" startX="-100.19038391113281" startY="-12.739243507385254" stroke="WHITE" />
-                                    <JFXButton fx:id="btnIpInfo" focusTraversable="false" onMouseClicked="#onventIpInfo" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: TRANSPARENT;" text="IP Info">
+                                    <Line endX="-97.70710754394531" endY="-39.97669982910156" rotate="-6.0" startX="-100.19038391113281" startY="-12.739243507385254" />
+                                    <JFXButton fx:id="btnIpInfo" focusTraversable="false" onMouseClicked="#onVentIpInfo" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: TRANSPARENT;" text="IP Info">
                                        <font>
                                           <Font name="System Bold" size="18.0" />
                                        </font>
@@ -66,7 +66,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </JFXButton>
-                                    <Line endX="-97.70710754394531" endY="-39.97669982910156" layoutX="1.0" layoutY="1.0" rotate="-6.0" startX="-100.19038391113281" startY="-12.739243507385254" stroke="WHITE" />
+                                    <Line endX="-97.70710754394531" endY="-39.97669982910156" rotate="-6.0" startX="-100.19038391113281" startY="-12.739243507385254" />
                                     <JFXButton fx:id="btnMultiPing" focusTraversable="false" onMouseClicked="#onVentMultiPing" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: TRANSPARENT; -fx-border-color: TRANSPARENT;" text="Multi-Ping">
                                        <font>
                                           <Font name="System Bold" size="18.0" />
@@ -78,7 +78,7 @@
                                           <Insets />
                                        </HBox.margin>
                                     </JFXButton>
-                                    <Line endX="-97.70710754394531" endY="-39.97669982910156" layoutX="1.0" layoutY="1.0" rotate="-6.0" startX="-100.19038391113281" startY="-12.739243507385254" stroke="WHITE" />
+                                    <Line endX="-97.70710754394531" endY="-39.97669982910156" rotate="-6.0" startX="-100.19038391113281" startY="-12.739243507385254" />
                                  </children>
                               </HBox>
                               <AnchorPane fx:id="ventanaPing" layoutY="45.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
@@ -229,7 +229,7 @@
                                                 <Font size="16.0" />
                                              </font>
                                           </Label>
-                                          <JFXTextField fx:id="txtIP1" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="124.0" promptText="192.168.0.1" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" unFocusColor="#c9c9c9">
+                                          <JFXTextField fx:id="txtIP1" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="124.0" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.1" unFocusColor="#c9c9c9">
                                              <font>
                                                 <Font name="System Bold" size="18.0" />
                                              </font>
@@ -252,7 +252,7 @@
                                              </cursor>
                                           </JFXButton>
                                           <Separator prefWidth="10.0" visible="false" />
-                                          <JFXButton fx:id="btnDetener1" disable="true" onMouseClicked="#onBtnDetener" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
+                                          <JFXButton fx:id="btnDetener1" disable="true" onMouseClicked="#onBtnDetenerMulti" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -272,7 +272,7 @@
                                                 <Font size="16.0" />
                                              </font>
                                           </Label>
-                                          <JFXTextField fx:id="txtIP2" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="124.0" promptText="192.168.0.2" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" unFocusColor="#c9c9c9">
+                                          <JFXTextField fx:id="txtIP2" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="124.0" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.2" unFocusColor="#c9c9c9">
                                              <font>
                                                 <Font name="System Bold" size="18.0" />
                                              </font>
@@ -295,7 +295,7 @@
                                              </cursor>
                                           </JFXButton>
                                           <Separator prefWidth="10.0" visible="false" />
-                                          <JFXButton fx:id="btnDetener2" disable="true" onMouseClicked="#onBtnDetener" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
+                                          <JFXButton fx:id="btnDetener2" disable="true" onMouseClicked="#onBtnDetenerMulti" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -315,7 +315,7 @@
                                                 <Font size="16.0" />
                                              </font>
                                           </Label>
-                                          <JFXTextField fx:id="txtIP3" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="124.0" promptText="192.168.0.3" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" unFocusColor="#c9c9c9">
+                                          <JFXTextField fx:id="txtIP3" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="124.0" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.3" unFocusColor="#c9c9c9">
                                              <font>
                                                 <Font name="System Bold" size="18.0" />
                                              </font>
@@ -338,7 +338,7 @@
                                              </cursor>
                                           </JFXButton>
                                           <Separator prefWidth="10.0" visible="false" />
-                                          <JFXButton fx:id="btnDetener3" disable="true" onMouseClicked="#onBtnDetener" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
+                                          <JFXButton fx:id="btnDetener3" disable="true" onMouseClicked="#onBtnDetenerMulti" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -358,7 +358,7 @@
                                                 <Font size="16.0" />
                                              </font>
                                           </Label>
-                                          <JFXTextField fx:id="txtIP4" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="124.0" promptText="192.168.0.4" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" unFocusColor="#c9c9c9">
+                                          <JFXTextField fx:id="txtIP4" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="124.0" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.4" unFocusColor="#c9c9c9">
                                              <font>
                                                 <Font name="System Bold" size="18.0" />
                                              </font>
@@ -381,7 +381,7 @@
                                              </cursor>
                                           </JFXButton>
                                           <Separator prefWidth="10.0" visible="false" />
-                                          <JFXButton fx:id="btnDetener4" disable="true" onMouseClicked="#onBtnDetener" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
+                                          <JFXButton fx:id="btnDetener4" disable="true" onMouseClicked="#onBtnDetenerMulti" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -401,7 +401,7 @@
                                                 <Font size="16.0" />
                                              </font>
                                           </Label>
-                                          <JFXTextField fx:id="txtIP5" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="124.0" promptText="192.168.0.5" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" unFocusColor="#c9c9c9">
+                                          <JFXTextField fx:id="txtIP5" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="124.0" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.5" unFocusColor="#c9c9c9">
                                              <font>
                                                 <Font name="System Bold" size="18.0" />
                                              </font>
@@ -424,7 +424,7 @@
                                              </cursor>
                                           </JFXButton>
                                           <Separator prefWidth="10.0" visible="false" />
-                                          <JFXButton fx:id="btnDetener5" disable="true" onMouseClicked="#onBtnDetener" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
+                                          <JFXButton fx:id="btnDetener5" disable="true" onMouseClicked="#onBtnDetenerMulti" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -444,7 +444,7 @@
                                                 <Font size="16.0" />
                                              </font>
                                           </Label>
-                                          <JFXTextField fx:id="txtIP6" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="124.0" promptText="192.168.0.6" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" unFocusColor="#c9c9c9">
+                                          <JFXTextField fx:id="txtIP6" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="124.0" style="-fx-text-fill: #018001; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.6" unFocusColor="#c9c9c9">
                                              <font>
                                                 <Font name="System Bold" size="18.0" />
                                              </font>
@@ -467,7 +467,7 @@
                                              </cursor>
                                           </JFXButton>
                                           <Separator prefWidth="10.0" visible="false" />
-                                          <JFXButton fx:id="btnDetener6" disable="true" onMouseClicked="#onBtnDetener" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
+                                          <JFXButton fx:id="btnDetener6" disable="true" onMouseClicked="#onBtnDetenerMulti" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener" textFill="WHITE">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>

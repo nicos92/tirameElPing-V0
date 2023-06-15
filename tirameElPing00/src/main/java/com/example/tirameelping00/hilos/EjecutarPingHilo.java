@@ -5,8 +5,11 @@ import com.example.tirameelping00.fechaYhora.FechaYhora;
 import com.example.tirameelping00.notify.Notificacion;
 import com.example.tirameelping00.sonido.Sonido;
 import com.example.tirameelping00.ventana.DesactVentPing;
+import javafx.scene.control.Button;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -25,19 +28,16 @@ public class EjecutarPingHilo implements Runnable{
     private final Detener detener;
     private final DesactVentPing desactVentPing;
 
-    private  final Thread thread;
 
 
-
-    public EjecutarPingHilo(Process p, String ip, boolean selected, TextArea txtAreaSalida, TextField txtRutaArchivo, Detener detener, DesactVentPing desactVentPing,Thread thread){
+    public EjecutarPingHilo(Process p, String ip, boolean selected, TextArea txtAreaSalida, TextField txtRutaArchivo, DesactVentPing desactVentPing, Button btnIniciar, Button btnDetener, ProgressIndicator progress, Text txtError){
         this.process = p;
         this.ip = ip;
         this.bool = selected;
         this.txtAreaSalida = txtAreaSalida;
         this.txtRutaArchivo = txtRutaArchivo;
-        this.detener = detener;
+        this.detener = new Detener(btnIniciar,btnDetener,progress, txtError);
         this.desactVentPing = desactVentPing;
-        this.thread = thread;
         sonido = new Sonido();
     }
 
@@ -57,28 +57,33 @@ public class EjecutarPingHilo implements Runnable{
 
             while ((inputLine = lector.readLine()) != null && !Thread.currentThread().isInterrupted()) {
 
-                FechaYhora fechaYhora = new FechaYhora();
-                String txt = fechaYhora + " " + inputLine + " \n ";
-                System.out.println(txt);
 
-                if (bool) {
-                    array.add(txt);
-                    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
-                    PrintWriter out = new PrintWriter(bw);
-                    for (String text : array) {
-                        out.write(text);
+
+                    FechaYhora fechaYhora = new FechaYhora();
+                    String txt = fechaYhora + " " + inputLine + " \n ";
+                    System.out.println(txt);
+
+                    if (bool) {
+                        array.add(txt);
+                        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
+                        PrintWriter out = new PrintWriter(bw);
+                        for (String text : array) {
+                            out.write(text);
+                        }
+                        out.close();
                     }
-                    out.close();
-                }
 
-                txtAreaSalida.setText(txtAreaSalida.getText() + txt);
+                    txtAreaSalida.setText(txtAreaSalida.getText() + txt);
 
-                notify = sendNotificacion(notify, inputLine, ip);
+                    notify = sendNotificacion(notify, inputLine, ip);
+
+
+
 
             }
-
             detener.sendBtnDetener();
             desactVentPing.desactItemsPing(false);
+            Thread.currentThread().interrupt();
 
         }catch (IOException e){
             System.out.println("Error Run: " + e.getMessage());
@@ -92,16 +97,17 @@ public class EjecutarPingHilo implements Runnable{
 
         if (inputLine.contains("Error") || inputLine.contains("agotado")){
             notificacion.sendNotifyFail(ip);
-            sonido.reproducir();
+            sonido.reproducirError();
             return true;
         }
         if ( inputLine.contains("tiempo") && notify){
             notificacion.sendNotifyOk(ip);
+            sonido.reproducirOk();
             return false;
         }
         if( inputLine.contains("inaccesible")){
             notificacion.sendNotifyInsccesible(ip);
-            sonido.reproducir();
+            sonido.reproducirError();
         }
         if (inputLine.contains("Paquetes")) {
             notificacion.sendEndNotify();

@@ -11,9 +11,17 @@ public class Detener {
     private ProgressIndicator progressIndicator;
     private Text txtError;
 
+    private Thread thread;
 
-    public Detener(){
 
+
+
+    public Detener(Thread thread){
+        this.thread = thread;
+    }
+
+    public void threadInterrupt(){
+        thread.interrupt();
     }
 
     public Detener(Button btnIniciar, Button btnDetener, ProgressIndicator progressIndicator, Text txtError) {
@@ -21,6 +29,7 @@ public class Detener {
         this.btnDetener = btnDetener;
         this.progressIndicator = progressIndicator;
         this.txtError = txtError;
+
 
     }
     public Detener(Button btnIniciar, Button btnDetener, ProgressIndicator progressIndicator) {
@@ -35,6 +44,7 @@ public class Detener {
         btnDetener.setDisable(true);
         progressIndicator.setVisible(false);
         txtError.setText("");
+
     }
 
     public void sendBtnDetenerMulti(){

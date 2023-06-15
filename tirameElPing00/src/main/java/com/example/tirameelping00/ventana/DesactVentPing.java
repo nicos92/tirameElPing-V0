@@ -30,6 +30,11 @@ public class DesactVentPing {
 
     }
 
+    public DesactVentPing(TextField txtIP, RadioButton radBtn) {
+        this.txtIP = txtIP;
+        this.radBtn_t = radBtn;
+    }
+
     public void desactItemsPing(boolean b) {
         labelIp.setDisable(b);
         txtIP.setDisable(b);
@@ -39,5 +44,11 @@ public class DesactVentPing {
         txtCantPet.setDisable(b);
         host_a.setDisable(b);
         pingEnTxt.setDisable(b);
+    }
+
+    public void desactItemsPingMulti(boolean b) {
+
+        radBtn_t.setDisable(b);
+        txtIP.setDisable(b);
     }
 }

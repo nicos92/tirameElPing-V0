@@ -2,25 +2,21 @@ package com.example.tirameelping00.hilos;
 
 
 import com.example.tirameelping00.detencion.Detener;
-import com.example.tirameelping00.fechaYhora.FechaYhora;
 import com.example.tirameelping00.notify.Notificacion;
 import com.example.tirameelping00.sonido.Sonido;
 import com.example.tirameelping00.ventana.DesactVentPing;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class MiHilo implements Runnable{
 
-    private  Integer id;
-    private Process process;
-    private  String ip;
-    private  Detener detener;
-    private DesactVentPing desactVentPing;
+    private final Process process;
+    private  final String ip;
+    private final Detener detener;
+    private final DesactVentPing desactVentPing;
 
-    private Sonido sonido;
+    private final Sonido sonido;
 
     public MiHilo (Process process, String ip,Detener detener, DesactVentPing desactVentPing){
         this.process = process;
@@ -30,30 +26,6 @@ public class MiHilo implements Runnable{
         this.sonido = new Sonido();
     }
 
-
-    public void addParametros(  Process process, String ip, Detener detener, DesactVentPing desactVentPing) {
-        this.process = process;
-        this.ip = ip;
-        this.detener = detener;
-        this.desactVentPing = desactVentPing;
-    }
-
-    @Override
-    public String toString() {
-        return "MiHilo{" +
-                "id=" + id +
-                '}';
-    }
-
-    public MiHilo(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-
     @Override
     public void run() {
 
@@ -61,17 +33,16 @@ public class MiHilo implements Runnable{
             BufferedReader lector = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String inputLine;
             boolean notify = true;
-
-
+            int i = 0;
 
             while ((inputLine = lector.readLine()) != null && !Thread.currentThread().isInterrupted()) {
-
+                System.out.println( i++ + " " + lector.readLine());
                 notify = sendNotificacion(notify, inputLine, ip);
 
             }
 
-            detener.sendBtnDetener();
-            desactVentPing.desactItemsPing(false);
+            detener.sendBtnDetenerMulti();
+            desactVentPing.desactItemsPingMulti(false);
 
         }catch (IOException e){
             System.out.println("Error Run: " + e.getMessage());
@@ -85,16 +56,17 @@ public class MiHilo implements Runnable{
 
         if (inputLine.contains("Error") || inputLine.contains("agotado")){
             notificacion.sendNotifyFail(ip);
-            sonido.reproducir();
+            sonido.reproducirError();
             return true;
         }
         if ( inputLine.contains("tiempo") && notify){
             notificacion.sendNotifyOk(ip);
+            sonido.reproducirOk();
             return false;
         }
         if( inputLine.contains("inaccesible")){
             notificacion.sendNotifyInsccesible(ip);
-            sonido.reproducir();
+            sonido.reproducirError();
         }
         if (inputLine.contains("Paquetes")) {
             notificacion.sendEndNotify();
