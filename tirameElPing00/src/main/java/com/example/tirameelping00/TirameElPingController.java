@@ -384,8 +384,29 @@ public class TirameElPingController implements Initializable {
     }
 
     public void exitButton(){
-        System.exit(0);
+
+
+        closeThreadProcess();
         Platform.exit();
+
+        System.exit(0);
+    }
+
+    private void closeThreadProcess() {
+        int i = 0;
+        for (Thread t : threads){
+            if (t != null){
+                t.interrupt();
+
+            }
+        }
+        i=0;
+        for (Process p: p){
+            if (p != null){
+                p.destroy();
+
+            }
+        }
     }
 
     public void radioButton(){
@@ -404,8 +425,7 @@ public class TirameElPingController implements Initializable {
 
     public String cantPeticiones(){
         try{
-            System.out.println("Cantidad de Peticiones: " + txtCantPet.getText());
-            System.out.println(txtCantPet.getText().hashCode());
+
             if (txtCantPet.getText().hashCode() == 0){
                 return  " ";
             }

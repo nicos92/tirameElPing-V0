@@ -40,15 +40,16 @@ public class MiHilo implements Runnable{
             //int i = 0;
 
             while ((inputLine = lector.readLine()) != null && !Thread.currentThread().isInterrupted()) {
+
                 if (sonido.getSonido() != null)sonido.closeSonido();
-                //System.out.println( i++ + " " + lector.readLine());
+
                 notify = sendNotificacion(notify, inputLine, ip);
 
             }
 
             if (sonido.getSonido() != null){
                 sonido.closeSonido();
-                System.out.println("hola detener");
+
 
             }
             detener.sendBtnDetenerMulti();

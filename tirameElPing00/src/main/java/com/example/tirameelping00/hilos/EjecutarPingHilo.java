@@ -57,11 +57,11 @@ public class EjecutarPingHilo implements Runnable{
             }
 
             while ((inputLine = lector.readLine()) != null && !Thread.currentThread().isInterrupted()) {
-                    if (sonido.getSonido() != null)sonido.closeSonido();
+
 
                     FechaYhora fechaYhora = new FechaYhora();
                     String txt = fechaYhora + " " + inputLine + " \n ";
-                    //System.out.println(txt);
+
                     if (bool) {
                         array.add(txt);
                         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
@@ -72,13 +72,13 @@ public class EjecutarPingHilo implements Runnable{
                         out.close();
                     }
                     txtAreaSalida.setText(txtAreaSalida.getText() + txt);
-                    notify = sendNotificacion(notify, inputLine, ip);
+                if (sonido.getSonido() != null)sonido.closeSonido();
+
+                notify = sendNotificacion(notify, inputLine, ip);
 
             }
             if (sonido.getSonido() != null){
                 sonido.closeSonido();
-                System.out.println("hola detener");
-
             }
             detener.sendBtnDetener();
             desactVentPing.desactItemsPing(false);
@@ -95,8 +95,6 @@ public class EjecutarPingHilo implements Runnable{
 
         if (inputLine.contains("Error") || inputLine.contains("agotado")){
             notificacion.sendNotifyFail(ip, "");
-            System.out.println("error noti");
-
             sonido.reproducirError();
             return true;
         }

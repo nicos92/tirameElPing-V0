@@ -21,7 +21,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="700.0" style="-fx-background-color: #Efeffb; -fx-background-radius: 15;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tirameelping00.TirameElPingController">
+<AnchorPane fx:id="mainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="700.0" style="-fx-background-color: #Efeffb; -fx-background-radius: 15;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tirameelping00.TirameElPingController">
    <children>
       <AnchorPane fx:id="base1" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="700.0" style="-fx-background-color: #ffffff; -fx-background-radius: 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
          <children>
@@ -285,7 +285,7 @@
                                              </cursor>
                                           </JFXButton>
                                           <Separator prefWidth="10.0" visible="false" />
-                                          <ProgressIndicator fx:id="progress1" visible="false" />
+                                          <ProgressIndicator fx:id="progress1" prefHeight="40.0" prefWidth="40.0" visible="false" />
                                        </children>
                                     </HBox>
                                     <Line endX="591.2929077148438" endY="0.2928932309150696" startX="-100.0" />
@@ -352,7 +352,7 @@
                                              </cursor>
                                           </JFXButton>
                                           <Separator prefWidth="10.0" visible="false" />
-                                          <ProgressIndicator fx:id="progress2" visible="false" />
+                                          <ProgressIndicator fx:id="progress2" prefHeight="40.0" prefWidth="40.0" visible="false" />
                                        </children>
                                     </HBox>
                                     <Line endX="591.2929077148438" endY="0.2928932309150696" startX="-100.0" />
@@ -419,7 +419,7 @@
                                              </cursor>
                                           </JFXButton>
                                           <Separator prefWidth="10.0" visible="false" />
-                                          <ProgressIndicator fx:id="progress3" visible="false" />
+                                          <ProgressIndicator fx:id="progress3" prefHeight="40.0" prefWidth="40.0" visible="false" />
                                        </children>
                                     </HBox>
                                     <Line endX="591.2929077148438" endY="0.2928932309150696" startX="-100.0" />
@@ -486,7 +486,7 @@
                                              </cursor>
                                           </JFXButton>
                                           <Separator prefWidth="10.0" visible="false" />
-                                          <ProgressIndicator fx:id="progress4" visible="false" />
+                                          <ProgressIndicator fx:id="progress4" prefHeight="40.0" prefWidth="40.0" visible="false" />
                                        </children>
                                     </HBox>
                                     <Line endX="591.2929077148438" endY="0.2928932309150696" startX="-100.0" />
@@ -553,7 +553,7 @@
                                              </cursor>
                                           </JFXButton>
                                           <Separator prefWidth="10.0" visible="false" />
-                                          <ProgressIndicator fx:id="progress5" visible="false" />
+                                          <ProgressIndicator fx:id="progress5" prefHeight="40.0" prefWidth="40.0" visible="false" />
                                        </children>
                                     </HBox>
                                     <Line endX="591.2929077148438" endY="0.2928932309150696" startX="-100.0" />
@@ -620,7 +620,7 @@
                                              </cursor>
                                           </JFXButton>
                                           <Separator prefWidth="10.0" visible="false" />
-                                          <ProgressIndicator fx:id="progress6" visible="false" />
+                                          <ProgressIndicator fx:id="progress6" prefHeight="40.0" prefWidth="40.0" visible="false" />
                                        </children>
                                     </HBox>
                                  </children>
