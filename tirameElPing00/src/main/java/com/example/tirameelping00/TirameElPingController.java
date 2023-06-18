@@ -14,7 +14,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -31,8 +30,8 @@ public class TirameElPingController implements Initializable {
 
     private Runtime r;
 
-    private final Process[] p = new Process[7];
-    private final Thread[] threads = new Thread[7];
+    static private  final Process[] p = new Process[7];
+    static private final Thread[] threads = new Thread[7];
 
     @FXML
     private ProgressIndicator progress;
@@ -191,9 +190,6 @@ public class TirameElPingController implements Initializable {
     private Text txtError;
 
     @FXML
-    private AnchorPane base1;
-
-    @FXML
     private VBox ventanaMultiPing;
 
     @FXML
@@ -206,10 +202,11 @@ public class TirameElPingController implements Initializable {
     private ImageView minus;
 
 
-    @FXML
+/*    @FXML
     private void onMinimize(){
+
         ((Stage) base1.getScene().getWindow()).setIconified(true);
-    }
+    }*/
 
     public void enteredImageMinus(){
         Image image1 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("imgs/icons8-minus-64.png")));
@@ -383,7 +380,7 @@ public class TirameElPingController implements Initializable {
 
     }
 
-    public void exitButton(){
+    static public void exitButton(){
 
 
         closeThreadProcess();
@@ -392,15 +389,15 @@ public class TirameElPingController implements Initializable {
         System.exit(0);
     }
 
-    private void closeThreadProcess() {
-        int i = 0;
+    static public void closeThreadProcess() {
+
         for (Thread t : threads){
             if (t != null){
                 t.interrupt();
 
             }
         }
-        i=0;
+
         for (Process p: p){
             if (p != null){
                 p.destroy();

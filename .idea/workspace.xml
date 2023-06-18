@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7ba270de-41d9-4436-931b-16e476f3e39e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/tirameElPing00/FXTrayIcon.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/DS_Desktop_Notify.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jfoenix_9_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/tirameElPing-V0.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tirameElPing00/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tirameElPing00/.idea/artifacts/tirameElPing00_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tirameElPing00/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tirameElPing00/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tirameElPing00/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tirameElPing00/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tirameElPing00/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tirameElPing00/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tirameElPing00/src/main/java/com/example/tirameelping00/TirameElPingApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/tirameElPing00/src/main/java/com/example/tirameelping00/TirameElPingApp.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="2RLobH1BNmkydXRxdtaQmF2o8WL" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7ba270de-41d9-4436-931b-16e476f3e39e" name="Changes" comment="" />
+      <created>1687038792389</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1687038792389</updated>
+    </task>
+    <servers />
+  </component>
+</project>
