@@ -4,12 +4,11 @@ import com.example.tirameelping00.detencion.Detener;
 import com.example.tirameelping00.hilos.EjecutarPingHilo;
 import com.example.tirameelping00.hilos.MiHilo;
 import com.example.tirameelping00.ventana.DesactVentPing;
+import ds.desktop.notify.DesktopNotify;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -21,7 +20,6 @@ import java.net.InetAddress;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 
@@ -195,12 +193,6 @@ public class TirameElPingController implements Initializable {
     @FXML
     private Button btnMultiPing;
 
-    @FXML
-    private ImageView close;
-
-    @FXML
-    private ImageView minus;
-
 
 /*    @FXML
     private void onMinimize(){
@@ -208,7 +200,7 @@ public class TirameElPingController implements Initializable {
         ((Stage) base1.getScene().getWindow()).setIconified(true);
     }*/
 
-    public void enteredImageMinus(){
+    /*    public void enteredImageMinus(){
         Image image1 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("imgs/icons8-minus-64.png")));
         minus.setImage(image1);
     }
@@ -226,11 +218,11 @@ public class TirameElPingController implements Initializable {
     public void exitedImageClose(){
         Image image1 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("imgs/close2.png")));
         close.setImage(image1);
-    }
+    }*/
 
     public void onVentPing(){
         ventanaPing.setVisible(true);
-        btnPing.setStyle("-fx-background-color: #ffffff;  -fx-border-color: #00af13; -fx-border-width: 0px 0px 3px 0px;" );
+        btnPing.setStyle("-fx-background-color: #333333;  -fx-border-color: #00af13; -fx-border-width: 0px 0px 3px 0px;" );
         btnIpInfo.setStyle("-fx-background-color: #D0D0D0; -fx-background-color: transparent; -fx-border-color: transparent; " );
         btnMultiPing.setStyle("-fx-background-color: #D0D0D0; -fx-background-color: transparent; -fx-border-color: transparent;" );
         btnRegPing.setStyle("-fx-background-color: #D0D0D0;  -fx-background-color: transparent; -fx-border-color: transparent;" );
@@ -246,7 +238,7 @@ public class TirameElPingController implements Initializable {
     }
     public void onVentMultiPing(){
         ventanaPing.setVisible(false);
-        btnMultiPing.setStyle("-fx-background-color: #ffffff;   -fx-border-color: #00af13; -fx-border-width: 0px 0px 3px 0px;" );
+        btnMultiPing.setStyle("-fx-background-color: #333333;   -fx-border-color: #00af13; -fx-border-width: 0px 0px 3px 0px;" );
         btnIpInfo.setStyle("-fx-background-color: #D0D0D0;  -fx-background-color: transparent; -fx-border-color: transparent;" );
         btnPing.setStyle("-fx-background-color: #D0D0D0;  -fx-background-color: transparent; -fx-border-color: transparent;" );
         btnRegPing.setStyle("-fx-background-color: #D0D0D0;  -fx-background-color: transparent; -fx-border-color: transparent;" );
@@ -260,7 +252,7 @@ public class TirameElPingController implements Initializable {
 
     public void onVentTxtSalida(){
         ventanaTxtSalida.setVisible(true);
-        btnRegPing.setStyle("-fx-background-color: #ffffff;   -fx-border-color: #00af13; -fx-border-width: 0px 0px 3px 0px;" );
+        btnRegPing.setStyle("-fx-background-color: #333333;   -fx-border-color: #00af13; -fx-border-width: 0px 0px 3px 0px;" );
         btnPing.setStyle("-fx-background-color: #D0D0D0; -fx-background-color: transparent; -fx-border-color: transparent;" );
         btnIpInfo.setStyle("-fx-background-color: #D0D0D0;  -fx-background-color: transparent; -fx-border-color: transparent;");
         btnMultiPing.setStyle("-fx-background-color: #D0D0D0; -fx-background-color: transparent; -fx-border-color: transparent;" );
@@ -276,7 +268,7 @@ public class TirameElPingController implements Initializable {
         ventanaBienv.setVisible(false);
         ventanaMultiPing.setVisible(false);
         ventanaIpInfo.setVisible(true);
-        btnIpInfo.setStyle("-fx-background-color: #ffffff; -fx-border-color: #00af13; -fx-border-width: 0px 0px 3px 0px;");
+        btnIpInfo.setStyle("-fx-background-color: #333333; -fx-border-color: #00af13; -fx-border-width: 0px 0px 3px 0px;");
         btnPing.setStyle("-fx-background-color: #D0D0D0;  -fx-background-color: transparent; -fx-border-color: transparent;" );
         btnMultiPing.setStyle("-fx-background-color: #D0D0D0; -fx-background-color: transparent; -fx-border-color: transparent;" );
         btnRegPing.setStyle("-fx-background-color: #D0D0D0;  -fx-background-color: transparent; -fx-border-color: transparent;" );
@@ -297,17 +289,16 @@ public class TirameElPingController implements Initializable {
 
     public void onBtnDetener() {
 
-            btnIniciar.setDisable(false);
-            btnDetener.setDisable(true);
-            progress.setVisible(false);
-            txtError.setText("");
-            p[0].destroy();
-            threads[0].interrupt();
-            desactVentPing(false);
+        btnIniciar.setDisable(false);
+        btnDetener.setDisable(true);
+        progress.setVisible(false);
+        txtError.setText("");
+        p[0].destroy();
+        threads[0].interrupt();
+        desactVentPing(false);
 
     }
 
-    @Deprecated(since="18")
     public  void ejecutarPing() {
         try {
 
@@ -331,11 +322,9 @@ public class TirameElPingController implements Initializable {
         }
     }
 
-    @Deprecated(since="18")
     public  void ejecutarMultiPing(int id, TextField _txtIP, Button _btnIniciar, Button _btnDetener,
                                    ProgressIndicator _progress, RadioButton _radBtn, TextField _nomIp) {
         try {
-
 
             if (threads[id] != null) threads[id].interrupt();
             // prepara el comando CMD
@@ -344,9 +333,7 @@ public class TirameElPingController implements Initializable {
             String pingCmd = "ping " + ip + _t;
              r = Runtime.getRuntime();
              p[id] = r.exec(pingCmd);
-
-
-
+             
             // detiene el proceso
             /*Detener detener = new Detener(btnIniciar,btnDetener, progress, txtError);*/
             Detener detener = new Detener( _btnIniciar, _btnDetener, _progress);
@@ -476,8 +463,9 @@ public class TirameElPingController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        btnIniciarPing.setOnAction(a -> onVentPing());
-/*        txtIP.setOnAction(a -> onBtnIniciar());
+        /*btnIniciarPing.setOnAction(a -> onVentPing());
+        btnMultiPing.requestFocus();
+        txtIP.setOnAction(a -> onBtnIniciar());
         btnIniciar.setOnAction(a -> onBtnIniciar());
         btnDetener.setOnAction(a -> onBtnDetener());*/
     }

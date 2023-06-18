@@ -2,13 +2,11 @@ package com.example.tirameelping00;
 
 import com.dustinredmond.fxtrayicon.FXTrayIcon;
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -38,7 +36,7 @@ public class TirameElPingApp extends Application {
         // By default the FXTrayIcon's tooltip will be the parent stage's title, that we used in the constructor
         // This method can override this
         trayIcon.setTrayIconTooltip("Tirame el Ping!");
-        
+
         // We can also nest menus, below is an Options menu with sub-items
         //MenuItem menuOptions = new MenuItem("Options");
 
