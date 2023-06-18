@@ -11,9 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="da0e1111-269e-4332-9eaa-00729bcedd97" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/TirameElPingApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/TirameElPingApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/tirameElPing00.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/tirameElPing00.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/TirameElPingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/TirameElPingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/notify/Notificacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/notify/Notificacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/hilos/EjecutarPingHilo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/hilos/EjecutarPingHilo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/desingTEP.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/desingTEP.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

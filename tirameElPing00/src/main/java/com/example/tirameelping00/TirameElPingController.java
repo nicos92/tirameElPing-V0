@@ -230,7 +230,6 @@ public class TirameElPingController implements Initializable {
         ventanaTxtSalida.setVisible(false);
         ventanaIpInfo.setVisible(false);
         ventanaMultiPing.setVisible(false);
-        txtIP.requestFocus();
         txtIP.toBack();
         radioButton();
 
@@ -333,7 +332,7 @@ public class TirameElPingController implements Initializable {
             String pingCmd = "ping " + ip + _t;
              r = Runtime.getRuntime();
              p[id] = r.exec(pingCmd);
-             
+
             // detiene el proceso
             /*Detener detener = new Detener(btnIniciar,btnDetener, progress, txtError);*/
             Detener detener = new Detener( _btnIniciar, _btnDetener, _progress);
@@ -463,11 +462,12 @@ public class TirameElPingController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        /*btnIniciarPing.setOnAction(a -> onVentPing());
-        btnMultiPing.requestFocus();
-        txtIP.setOnAction(a -> onBtnIniciar());
-        btnIniciar.setOnAction(a -> onBtnIniciar());
-        btnDetener.setOnAction(a -> onBtnDetener());*/
+
+        btnPing.setOnAction(a -> onVentPing());
+
+        btnMultiPing.setOnAction(a -> onVentMultiPing());
+        btnIpInfo.setOnAction(a -> onVentIpInfo());
+        btnRegPing.setOnAction(a -> onVentTxtSalida());
     }
 
     public void btnIniciarMultiPing(MouseEvent mouseEvent) {

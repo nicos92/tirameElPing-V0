@@ -71,6 +71,7 @@ public class EjecutarPingHilo implements Runnable{
                         }
                         out.close();
                     }
+
                     txtAreaSalida.setText(txtAreaSalida.getText() + txt);
                 if (sonido.getSonido() != null)sonido.closeSonido();
 
