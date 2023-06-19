@@ -40,6 +40,9 @@ public class TirameElPingApp extends Application {
         // We can also nest menus, below is an Options menu with sub-items
         //MenuItem menuOptions = new MenuItem("Options");
 
+        MenuItem iniciarTodo = new MenuItem("Iniciar Todo");
+        iniciarTodo.setOnAction(e -> System.out.println("nada por ahora"));
+
         MenuItem detenerTodo = new MenuItem("Detener Todo");
         detenerTodo.setOnAction(e -> closeThreadProcess());
 
@@ -49,7 +52,7 @@ public class TirameElPingApp extends Application {
 
 
         //trayIcon.addMenuItem(miOff);
-        trayIcon.addMenuItems(detenerTodo, miOff);
+        trayIcon.addMenuItems(iniciarTodo, detenerTodo, miOff);
 
 
         /*

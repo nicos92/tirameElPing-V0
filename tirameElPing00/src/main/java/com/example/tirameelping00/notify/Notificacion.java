@@ -17,7 +17,6 @@ public class Notificacion {
     public void sendNotifyInsccesible(String ip, String nomIp){
         DesktopNotify.showDesktopMessage("Inaccesible a: " + nomIp.toUpperCase(), "No se Puede Acceder a la Direccion: " + ip,
                 DesktopNotify.WARNING, 6000L);
-
     }
 
     public void sendEndNotify(String ip, String nomIp) {

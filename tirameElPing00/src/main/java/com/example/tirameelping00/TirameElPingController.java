@@ -5,6 +5,7 @@ import com.example.tirameelping00.hilos.EjecutarPingHilo;
 import com.example.tirameelping00.hilos.MiHilo;
 import com.example.tirameelping00.ventana.DesactVentPing;
 import ds.desktop.notify.DesktopNotify;
+import ds.desktop.notify.NotifyTheme;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,6 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.InetAddress;
 import java.net.URL;
@@ -32,10 +34,16 @@ public class TirameElPingController implements Initializable {
     static private final Thread[] threads = new Thread[7];
 
     @FXML
-    private ProgressIndicator progress;
+    private Button btnIniciarTodo;
 
     @FXML
-    private Button btnIniciarPing;
+    private Button btnDetenerTodo;
+
+
+
+    @FXML
+    private ProgressIndicator progress;
+
 
     @FXML
     private Button btnRegPing;
@@ -222,7 +230,7 @@ public class TirameElPingController implements Initializable {
 
     public void onVentPing(){
         ventanaPing.setVisible(true);
-        btnPing.setStyle("-fx-background-color: #333333;  -fx-border-color: #00af13; -fx-border-width: 0px 0px 3px 0px;" );
+        btnPing.setStyle("-fx-background-color: #ffffff;  -fx-border-color: #00af13; -fx-border-width: 0px 0px 3px 0px;" );
         btnIpInfo.setStyle("-fx-background-color: #D0D0D0; -fx-background-color: transparent; -fx-border-color: transparent; " );
         btnMultiPing.setStyle("-fx-background-color: #D0D0D0; -fx-background-color: transparent; -fx-border-color: transparent;" );
         btnRegPing.setStyle("-fx-background-color: #D0D0D0;  -fx-background-color: transparent; -fx-border-color: transparent;" );
@@ -237,7 +245,7 @@ public class TirameElPingController implements Initializable {
     }
     public void onVentMultiPing(){
         ventanaPing.setVisible(false);
-        btnMultiPing.setStyle("-fx-background-color: #333333;   -fx-border-color: #00af13; -fx-border-width: 0px 0px 3px 0px;" );
+        btnMultiPing.setStyle("-fx-background-color: #ffffff;   -fx-border-color: #00af13; -fx-border-width: 0px 0px 3px 0px;" );
         btnIpInfo.setStyle("-fx-background-color: #D0D0D0;  -fx-background-color: transparent; -fx-border-color: transparent;" );
         btnPing.setStyle("-fx-background-color: #D0D0D0;  -fx-background-color: transparent; -fx-border-color: transparent;" );
         btnRegPing.setStyle("-fx-background-color: #D0D0D0;  -fx-background-color: transparent; -fx-border-color: transparent;" );
@@ -251,7 +259,7 @@ public class TirameElPingController implements Initializable {
 
     public void onVentTxtSalida(){
         ventanaTxtSalida.setVisible(true);
-        btnRegPing.setStyle("-fx-background-color: #333333;   -fx-border-color: #00af13; -fx-border-width: 0px 0px 3px 0px;" );
+        btnRegPing.setStyle("-fx-background-color: #ffffff;   -fx-border-color: #00af13; -fx-border-width: 0px 0px 3px 0px;" );
         btnPing.setStyle("-fx-background-color: #D0D0D0; -fx-background-color: transparent; -fx-border-color: transparent;" );
         btnIpInfo.setStyle("-fx-background-color: #D0D0D0;  -fx-background-color: transparent; -fx-border-color: transparent;");
         btnMultiPing.setStyle("-fx-background-color: #D0D0D0; -fx-background-color: transparent; -fx-border-color: transparent;" );
@@ -267,7 +275,7 @@ public class TirameElPingController implements Initializable {
         ventanaBienv.setVisible(false);
         ventanaMultiPing.setVisible(false);
         ventanaIpInfo.setVisible(true);
-        btnIpInfo.setStyle("-fx-background-color: #333333; -fx-border-color: #00af13; -fx-border-width: 0px 0px 3px 0px;");
+        btnIpInfo.setStyle("-fx-background-color: #ffffff; -fx-border-color: #00af13; -fx-border-width: 0px 0px 3px 0px;");
         btnPing.setStyle("-fx-background-color: #D0D0D0;  -fx-background-color: transparent; -fx-border-color: transparent;" );
         btnMultiPing.setStyle("-fx-background-color: #D0D0D0; -fx-background-color: transparent; -fx-border-color: transparent;" );
         btnRegPing.setStyle("-fx-background-color: #D0D0D0;  -fx-background-color: transparent; -fx-border-color: transparent;" );
@@ -325,6 +333,8 @@ public class TirameElPingController implements Initializable {
                                    ProgressIndicator _progress, RadioButton _radBtn, TextField _nomIp) {
         try {
 
+            desactFilaMultiPing(_nomIp, _txtIP,_radBtn, _btnIniciar, _btnDetener, _progress);
+
             if (threads[id] != null) threads[id].interrupt();
             // prepara el comando CMD
             String _t = _radBtn.isSelected() ? " -t " : " ";
@@ -350,11 +360,22 @@ public class TirameElPingController implements Initializable {
         } catch (Exception n){
             System.out.println("ERROR ejecutar Multi Ping: " + n.getMessage());
         }
+    }
 
+    public void iniciarTodoMultiPing() {
+        try {
+            for( int i = 1; i < threads.length; i++){
+                Thread.sleep(100);
+                if (threads[i] == null || !threads[i].isAlive()  ){
+                    altaHilos(i);
+                }
+            }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void altaHilos(int id){
-
         switch (id){
             case 1 -> ejecutarMultiPing(id, txtIP1, btnIniciar1, btnDetener1, progress1, radBtn_t1, nomIp1);
             case 2 -> ejecutarMultiPing(id, txtIP2, btnIniciar2, btnDetener2, progress2, radBtn_t2, nomIp2);
@@ -363,34 +384,28 @@ public class TirameElPingController implements Initializable {
             case 5 -> ejecutarMultiPing(id, txtIP5, btnIniciar5, btnDetener5, progress5, radBtn_t5, nomIp5);
             case 6 -> ejecutarMultiPing(id, txtIP6, btnIniciar6, btnDetener6, progress6, radBtn_t6, nomIp6);
         }
-
     }
 
     static public void exitButton(){
-
-
         closeThreadProcess();
         Platform.exit();
-
         System.exit(0);
     }
 
     static public void closeThreadProcess() {
-
         for (Thread t : threads){
             if (t != null){
                 t.interrupt();
-
             }
         }
-
         for (Process p: p){
             if (p != null){
                 p.destroy();
-
             }
         }
     }
+
+
 
     public void radioButton(){
         txtCantPet.setDisable(radBtn_t.isSelected() || radBtn_Prueba.isSelected());
@@ -434,35 +449,37 @@ public class TirameElPingController implements Initializable {
     }
 
     public  void ipConfigAll() {
-        try {
-            txtIpInfo.setText("");
-            List<String> miIpList  = new ArrayList<>();
-            miIpList.add("Dirección IPv4: " + InetAddress.getLocalHost().getHostAddress());
-            miIpList.add("Host Name: " + InetAddress.getLocalHost().getHostName());
-            miIpList.add("Canonical Host Name: " + InetAddress.getLocalHost().getCanonicalHostName());
 
-            try
-            {
-                URL url_name = new URL("http://myexternalip.com/raw");
-                BufferedReader sc =
-                        new BufferedReader(new InputStreamReader(url_name.openStream()));
-                // reads system IPAddress
-                miIpList.add("IP Publica: " + sc.readLine().trim());
+        try {
+            if (txtIpInfo.getText().equals("")){
+                List<String> miIpList  = new ArrayList<>();
+
+                miIpList.add("Dirección IPv4: " + InetAddress.getLocalHost().getHostAddress());
+
+            miIpList.add("Host Name: " + InetAddress.getLocalHost().getHostName());
+                miIpList.add("Canonical Host Name: " + InetAddress.getLocalHost().getCanonicalHostName());
+
+
+                    URL url_name = new URL("http://myexternalip.com/raw");
+                    BufferedReader sc =
+                            new BufferedReader(new InputStreamReader(url_name.openStream()));
+                    // reads system IPAddress
+                    miIpList.add("IP Publica: " + sc.readLine().trim());
+
+
+                for (String data : miIpList) {
+                    txtIpInfo.setText( txtIpInfo.getText() + " \n "+ data);
+                }
             }
-            catch (Exception e)
-            {
-                miIpList.add("IP Publica: " + "No se puede obtener");
-            }
-            for (String data : miIpList) {
-                txtIpInfo.setText( txtIpInfo.getText() + " \n "+ data);
-            }
-        } catch (Exception n){
-            System.out.println("ERROR : " + n.getMessage());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+
+
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        DesktopNotify.setDefaultTheme(NotifyTheme.Light);
         btnPing.setOnAction(a -> onVentPing());
 
         btnMultiPing.setOnAction(a -> onVentMultiPing());
@@ -470,63 +487,37 @@ public class TirameElPingController implements Initializable {
         btnRegPing.setOnAction(a -> onVentTxtSalida());
     }
 
+    public void desactFilaMultiPing(TextField _nomIp, TextField _txtIP, RadioButton _radBtn, Button _btnIniciar, Button _btnDetener, ProgressIndicator _progress){
+        _nomIp.setDisable(true);
+        _txtIP.setDisable(true);
+        _radBtn.setDisable(true);
+        _btnIniciar.setDisable(true);
+        _btnDetener.setDisable(false);
+        _progress.setVisible(true);
+    }
+
+
     public void btnIniciarMultiPing(MouseEvent mouseEvent) {
 
         String event = mouseEvent.getSource().toString();
 
         if (event.contains("btnIniciar1")){
             altaHilos(1);
-            nomIp1.setDisable(true);
-            txtIP1.setDisable(true);
-            radBtn_t1.setDisable(true);
-            btnIniciar1.setDisable(true);
-            btnDetener1.setDisable(false);
-            progress1.setVisible(true);
         }
         if (event.contains("btnIniciar2")){
             altaHilos(2);
-            nomIp2.setDisable(true);
-            txtIP2.setDisable(true);
-            radBtn_t2.setDisable(true);
-            btnIniciar2.setDisable(true);
-            btnDetener2.setDisable(false);
-            progress2.setVisible(true);
         }
         if (event.contains("btnIniciar3")){
             altaHilos(3);
-            nomIp3.setDisable(true);
-            txtIP3.setDisable(true);
-            radBtn_t3.setDisable(true);
-            btnIniciar3.setDisable(true);
-            btnDetener3.setDisable(false);
-            progress3.setVisible(true);
         }
         if (event.contains("btnIniciar4")){
             altaHilos(4);
-            nomIp4.setDisable(true);
-            txtIP4.setDisable(true);
-            radBtn_t4.setDisable(true);
-            btnIniciar4.setDisable(true);
-            btnDetener4.setDisable(false);
-            progress4.setVisible(true);
         }
         if (event.contains("btnIniciar5")){
             altaHilos(5);
-            nomIp5.setDisable(true);
-            txtIP5.setDisable(true);
-            radBtn_t5.setDisable(true);
-            btnIniciar5.setDisable(true);
-            btnDetener5.setDisable(false);
-            progress5.setVisible(true);
         }
         if (event.contains("btnIniciar6")){
             altaHilos(6);
-            nomIp6.setDisable(true);
-            txtIP6.setDisable(true);
-            radBtn_t6.setDisable(true);
-            btnIniciar6.setDisable(true);
-            btnDetener6.setDisable(false);
-            progress6.setVisible(true);
         }
 
     }
