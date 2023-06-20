@@ -28,9 +28,6 @@ public class EjecutarPingHilo implements Runnable{
     private final Detener detener;
     private final DesactVentPing desactVentPing;
 
-
-
-
     public EjecutarPingHilo(Process p, String ip, boolean selected, TextArea txtAreaSalida, TextField txtRutaArchivo, DesactVentPing desactVentPing, Button btnIniciar, Button btnDetener, ProgressIndicator progress, Text txtError){
         this.process = p;
         this.ip = ip;
@@ -73,6 +70,7 @@ public class EjecutarPingHilo implements Runnable{
                     }
 
                     txtAreaSalida.setText(txtAreaSalida.getText() + txt);
+                    System.out.println(txtAreaSalida.getTooltip());
                 if (sonido.getSonido() != null)sonido.closeSonido();
 
                 notify = sendNotificacion(notify, inputLine, ip);
@@ -87,7 +85,6 @@ public class EjecutarPingHilo implements Runnable{
         }catch (IOException e){
             System.out.println("Error Run: " + e.getMessage());
         }
-
     }
 
     private  boolean sendNotificacion(boolean notify, String inputLine, String ip){

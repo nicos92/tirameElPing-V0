@@ -2,6 +2,7 @@ package com.example.tirameelping00;
 
 import com.dustinredmond.fxtrayicon.FXTrayIcon;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,13 +15,15 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.util.Objects;
 
-import static com.example.tirameelping00.TirameElPingController.closeThreadProcess;
-import static com.example.tirameelping00.TirameElPingController.exitButton;
+import static com.example.tirameelping00.TirameElPingController.processes;
+import static com.example.tirameelping00.TirameElPingController.threads;
+
 
 public class TirameElPingApp extends Application {
 
 
 
+    FXTrayIcon trayIcon;
     double yOffset;
     double xOffset;
     @Override
@@ -29,7 +32,7 @@ public class TirameElPingApp extends Application {
         //FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("design.fxml"));
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("desingTEP.fxml")));
 
-        FXTrayIcon trayIcon = new FXTrayIcon(stage, Objects.requireNonNull(getClass().getResource("imgs/rj45.png")));
+        trayIcon = new FXTrayIcon(stage, Objects.requireNonNull(getClass().getResource("imgs/rj45.png")));
         trayIcon.show();
 
 
@@ -40,14 +43,17 @@ public class TirameElPingApp extends Application {
         // We can also nest menus, below is an Options menu with sub-items
         //MenuItem menuOptions = new MenuItem("Options");
 
-        MenuItem iniciarTodo = new MenuItem("Iniciar Todo");
-        iniciarTodo.setOnAction(e -> System.out.println("nada por ahora"));
+        MenuItem iniciarTodo = new MenuItem("Iniciar ");
+        iniciarTodo.setOnAction(e -> {
+            System.out.println("nada por iniciar");
+
+        });
 
         MenuItem detenerTodo = new MenuItem("Detener Todo");
         detenerTodo.setOnAction(e -> closeThreadProcess());
 
-        MenuItem miOff = new MenuItem("Cerrar");
-        miOff.setOnAction(e -> exitButton());
+        MenuItem miOff = new MenuItem("Cerrar App");
+        miOff.setOnAction(e -> cerrarApp()) ;
 
 
 
@@ -85,6 +91,16 @@ public class TirameElPingApp extends Application {
 
     }
 
+    private static void cerrarApp() {
+        closeThreadProcess();
+        Platform.exit();
+        System.exit(0);
+    }
+
+    private static void closeThreadProcess() {
+        for (Thread t : threads) if (t !=  null && t.isAlive())t.interrupt();
+        for (Process p: processes) if (p != null)p.destroy();
+    }
 
     public static void main(String[] args) {
         launch();

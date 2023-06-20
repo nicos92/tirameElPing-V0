@@ -22,19 +22,19 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="683.0" prefWidth="700.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tirameelping00.TirameElPingController">
+<AnchorPane fx:id="mainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="683.0" prefWidth="700.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tirameelping00.TirameElPingController">
    <children>
       <MenuBar style="-fx-border-color: #000000;" AnchorPane.bottomAnchor="656.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem fx:id="menuItemClose" mnemonicParsing="false" text="Close" />
+              <MenuItem fx:id="menuItemClose" mnemonicParsing="false" onAction="#exitButton" text="Close" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Multi-Ping">
             <items>
               <MenuItem fx:id="menuItemInitTodo" mnemonicParsing="false" onAction="#iniciarTodoMultiPing" text="Iniciar Todo" />
-                  <MenuItem fx:id="menuItemDetenerTodo" mnemonicParsing="false" text="Detener Todo" />
+                  <MenuItem fx:id="menuItemDetenerTodo" mnemonicParsing="false" onAction="#closeThreadProcess" text="Detener Todo" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
@@ -44,7 +44,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <AnchorPane fx:id="base4" layoutX="11.0" layoutY="11.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f0f0f0; -fx-border-color: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+      <AnchorPane fx:id="base4" layoutX="11.0" layoutY="11.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
          <children>
             <HBox fx:id="hboxsup" alignment="CENTER" prefHeight="100.0" prefWidth="488.0" style="-fx-background-color: #f0f0f0;" AnchorPane.bottomAnchor="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
@@ -70,7 +70,7 @@
                      </cursor>
                   </JFXButton>
                   <Line endX="-100.0" endY="-40.0" startX="-100.0" startY="-12.0" stroke="#cdcdcd" />
-                  <JFXButton fx:id="btnIpInfo" onMouseClicked="#onVentIpInfo" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: TRANSPARENT;" text="IP Info" underline="true">
+                  <JFXButton fx:id="btnIpInfo" onMouseClicked="#onVentIpInfo" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: TRANSPARENT;" text="Mi IP Info" underline="true">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -96,7 +96,7 @@
                   <Line endX="-100.0" endY="-40.0" startX="-100.0" startY="-12.0" stroke="#cdcdcd" />
                </children>
             </HBox>
-            <AnchorPane fx:id="ventanaPing" layoutY="45.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f0f0f0;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+            <AnchorPane fx:id="ventanaPing" layoutY="45.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
                <children>
                   <Text layoutX="270.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ejecutar Ping">
                      <font>
@@ -186,23 +186,23 @@
                   </Text>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="ventanaTxtSalida" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f0f0f0; -fx-background-radius: 20;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+            <AnchorPane fx:id="ventanaTxtSalida" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
                <children>
                   <Text layoutX="244.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de Ping">
                      <font>
                         <Font name="Noto Sans SemiCondensed ExtraBold" size="27.0" />
                      </font>
                   </Text>
-                  <JFXTextArea fx:id="txtAreaSalida" editable="false" layoutX="55.0" layoutY="194.0" prefHeight="173.0" prefWidth="531.0" style="-fx-background-color: #f0f0f0; -fx-border-color: #Bace00; -fx-text-fill: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+                  <JFXTextArea fx:id="txtAreaSalida" editable="false" layoutX="55.0" layoutY="194.0" prefHeight="173.0" prefWidth="531.0" style="-fx-background-color: #f0f0f0; -fx-border-color: #Bace00; -fx-text-fill: #000000;" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </JFXTextArea>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="ventanaIpInfo" layoutX="20.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f0f0f0; -fx-background-radius: 20;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+            <AnchorPane fx:id="ventanaIpInfo" layoutX="20.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
                <children>
-                  <Text layoutX="305.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IP Info">
+                  <Text layoutX="305.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mi IP Info">
                      <font>
                         <Font name="Noto Sans SemiCondensed ExtraBold" size="27.0" />
                      </font>
@@ -214,7 +214,7 @@
                   </JFXTextArea>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="ventanaBienv" layoutX="30.0" layoutY="30.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f0f0f0; -fx-background-radius: 20;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+            <AnchorPane fx:id="ventanaBienv" layoutX="30.0" layoutY="30.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
                <children>
                   <Text fx:id="lblBienvenido" layoutX="105.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenido a Tirame el Ping!">
                      <font>
@@ -234,9 +234,29 @@
                   </JFXButton>
                </children>
             </AnchorPane>
-            <VBox fx:id="ventanaMultiPing" layoutX="278.0" layoutY="197.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #f0f0f0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+            <VBox fx:id="ventanaMultiPing" layoutX="278.0" layoutY="197.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
                <children>
-                  <Line endX="591.2929077148438" endY="0.2928932309150696" startX="-100.0" stroke="#cdcdcd" />
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <JFXButton fx:id="btnIniciarTodo" onMouseClicked="#iniciarTodoMultiPing" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar Todo" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <Separator prefWidth="10.0" visible="false" />
+                        <JFXButton fx:id="btnDetenerTodo" onMouseClicked="#closeThreadProcess" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener Todo" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                     </children>
+                  </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <VBox alignment="CENTER" prefHeight="96.0" prefWidth="151.0">

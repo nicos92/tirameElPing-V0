@@ -7,20 +7,20 @@ public class Notificacion {
 
 
     public void sendNotifyFail(String ip,  String nomIp){
-        DesktopNotify.showDesktopMessage("Fallo en la Red de: " + nomIp.toUpperCase(), "revise la IP: " + ip, DesktopNotify.ERROR, 6000L);
+        DesktopNotify.showDesktopMessage("Fallo en la Red de: " + nomIp.toUpperCase(), "revise la IP: " + ip, DesktopNotify.FAIL, 5000L);
     }
 
     public void sendNotifyOk(String ip, String nomIp){
-        DesktopNotify.showDesktopMessage("Conexion establecida a: " + nomIp.toUpperCase(), "Con la IP: " + ip, DesktopNotify.SUCCESS, 6000L);
+        DesktopNotify.showDesktopMessage("Conexion establecida a: " + nomIp.toUpperCase(), "Con la IP: " + ip, DesktopNotify.SUCCESS, 5000L);
     }
 
     public void sendNotifyInsccesible(String ip, String nomIp){
         DesktopNotify.showDesktopMessage("Inaccesible a: " + nomIp.toUpperCase(), "No se Puede Acceder a la Direccion: " + ip,
-                DesktopNotify.WARNING, 6000L);
+                DesktopNotify.WARNING, 5000L);
     }
 
     public void sendEndNotify(String ip, String nomIp) {
-        DesktopNotify.showDesktopMessage("Fin de Ping a: " + nomIp.toUpperCase(), "Con la IP: " + ip, DesktopNotify.INFORMATION, 5000L);
+        DesktopNotify.showDesktopMessage("Fin de Ping a: " + nomIp.toUpperCase(), "Con la IP: " + ip, DesktopNotify.INFORMATION, 4000L);
     }
 
 }
