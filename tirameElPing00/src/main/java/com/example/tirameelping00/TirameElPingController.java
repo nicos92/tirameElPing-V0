@@ -22,8 +22,6 @@ import java.net.InetAddress;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -438,23 +436,21 @@ public class TirameElPingController implements Initializable {
 
         try {
             if (txtIpInfo.getText().equals("")){
-                List<String> miIpList  = new ArrayList<>();
 
-                miIpList.add("Dirección IPv4: " + InetAddress.getLocalHost().getHostAddress());
+                String[] miIpInfo = new String[4];
 
-            miIpList.add("Host Name: " + InetAddress.getLocalHost().getHostName());
-                miIpList.add("Canonical Host Name: " + InetAddress.getLocalHost().getCanonicalHostName());
+                miIpInfo[0] = ("Dirección IPv4: " + InetAddress.getLocalHost().getHostAddress());
 
+                miIpInfo[1] = ("Host Name: " + InetAddress.getLocalHost().getHostName());
+                miIpInfo[2] = ("Canonical Host Name: " + InetAddress.getLocalHost().getCanonicalHostName());
 
                 URL url_name = new URI("http://myexternalip.com/raw").toURL();
-                    BufferedReader sc =
-                            new BufferedReader(new InputStreamReader(url_name.openStream()));
-                    // reads system IPAddress
-                    miIpList.add("IP Publica: " + sc.readLine().trim());
+                BufferedReader sc = new BufferedReader(new InputStreamReader(url_name.openStream()));
+                // reads system IPAddress
+                miIpInfo[3] = ("IP Publica: " + sc.readLine().trim());
 
-
-                for (String data : miIpList) {
-                    txtIpInfo.setText( txtIpInfo.getText() + " \n "+ data);
+                for (String data : miIpInfo) {
+                txtIpInfo.appendText("\n" + data);
                 }
             }
         } catch (IOException | URISyntaxException e) {
