@@ -10,8 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da0e1111-269e-4332-9eaa-00729bcedd97" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/tirameElPing00_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/tirameElPing00_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/TirameElPingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/TirameElPingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/tirameElPing00.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/tirameElPing00.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/hilos/MiHilo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/hilos/MiHilo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/sonido/Sonido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/sonido/Sonido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/ventana/DesactVentPing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/ventana/DesactVentPing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,8 +53,9 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;P:/tirameElPing-V0/tirameElPing00/src/main/resources/META-INF/MANIFEST.MF&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Users/n.sandoval/Documents/tirameElPing-V0/tirameElPing00/src/main/resources/META-INF/MANIFEST.MF&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15963855&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.34418604&quot;,

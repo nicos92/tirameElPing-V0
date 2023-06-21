@@ -67,13 +67,13 @@ public class MiHilo implements Runnable{
 
         if (inputLine.contains("Error") || inputLine.contains("agotado")){
             notificacion.sendNotifyFail(ip, nomIp);
-
+            desactVentPing.rojoItems();
             sonido.reproducirError();
             return true;
         }
         if ( inputLine.contains("tiempo") && notify){
             notificacion.sendNotifyOk(ip, nomIp);
-
+            desactVentPing.normalItems();
             sonido.reproducirOk();
             return false;
         }
