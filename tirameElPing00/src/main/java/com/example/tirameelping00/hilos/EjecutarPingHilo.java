@@ -42,6 +42,7 @@ public class EjecutarPingHilo implements Runnable{
     @Override
     public void run() {
         try{
+            int i = 0;
             txtAreaSalida.setText("");
             BufferedReader lector = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String inputLine;
@@ -54,31 +55,35 @@ public class EjecutarPingHilo implements Runnable{
             }
 
             while ((inputLine = lector.readLine()) != null && !Thread.currentThread().isInterrupted()) {
+                i++;
 
+                FechaYhora fechaYhora = new FechaYhora();
+                String txt = fechaYhora + " " + inputLine + " \n ";
 
-                    FechaYhora fechaYhora = new FechaYhora();
-                    String txt = fechaYhora + " " + inputLine + " \n ";
-
-                    if (bool) {
-                        array.add(txt);
-                        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
-                        PrintWriter out = new PrintWriter(bw);
-                        for (String text : array) {
-                            out.write(text);
-                        }
-                        out.close();
+                if (bool) {
+                    array.add(txt);
+                    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
+                    PrintWriter out = new PrintWriter(bw);
+                    for (String text : array) {
+                        out.write(text);
                     }
+                    out.close();
+                }
 
-                    txtAreaSalida.setText(txtAreaSalida.getText() + txt);
-                    System.out.println(txtAreaSalida.getTooltip());
+                if (i > 100){
+                    i=0;
+                    txtAreaSalida.setText("");
+                }
+
+                txtAreaSalida.appendText( txt);
                 if (sonido.getSonido() != null)sonido.closeSonido();
-
                 notify = sendNotificacion(notify, inputLine, ip);
-
             }
+
             if (sonido.getSonido() != null){
                 sonido.closeSonido();
             }
+
             detener.sendBtnDetener();
             desactVentPing.desactItemsPing(false);
 
