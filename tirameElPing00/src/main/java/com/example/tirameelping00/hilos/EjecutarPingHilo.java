@@ -57,8 +57,7 @@ public class EjecutarPingHilo implements Runnable{
             while ((inputLine = lector.readLine()) != null && !Thread.currentThread().isInterrupted()) {
                 i++;
 
-                FechaYhora fechaYhora = new FechaYhora();
-                String txt = fechaYhora + " " + inputLine + " \n ";
+                String txt = FechaYhora.fechaYhoraNow() + "  " + inputLine + " \n ";
 
                 if (bool) {
                     array.add(txt);

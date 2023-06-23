@@ -25,7 +25,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-
 public class TirameElPingController implements Initializable {
 
     private Runtime r;
@@ -36,122 +35,29 @@ public class TirameElPingController implements Initializable {
     private static final Exit exit = new Exit( threads, processes);
 
 
-    @FXML
-    private ProgressIndicator progress;
 
 
     @FXML
-    private Button btnRegPing;
+    private Button btnMultiPing, btnRegPing, btnPing, btnIpInfo, btnIniciar;
 
     @FXML
-    private Button btnPing;
+    private TextField nomIp1, nomIp2, nomIp3, nomIp4, nomIp5, nomIp6;
 
     @FXML
-    private Button btnIpInfo;
+    private Button btnIniciar1, btnIniciar2, btnIniciar3, btnIniciar4,btnIniciar5, btnIniciar6;
 
     @FXML
-    private Button btnIniciar;
+    private Button btnDetener, btnDetener1, btnDetener2, btnDetener3, btnDetener4, btnDetener5, btnDetener6;
 
     @FXML
-    private TextField nomIp1;
+    private ProgressIndicator progress, progress1, progress2, progress3, progress4, progress5, progress6;
+    @FXML
+    private TextField txtIP1, txtIP2, txtIP3, txtIP4, txtIP5, txtIP6;
+    @FXML
+    private RadioButton radBtn_t1, radBtn_t2, radBtn_t3, radBtn_t4,radBtn_t5, radBtn_t6;
 
     @FXML
-    private TextField nomIp2;
-
-    @FXML
-    private TextField nomIp3;
-
-    @FXML
-    private TextField nomIp4;
-
-    @FXML
-    private TextField nomIp5;
-
-    @FXML
-    private TextField nomIp6;
-
-    @FXML
-    private Button btnIniciar1;
-
-    @FXML
-    private Button btnIniciar2;
-
-    @FXML
-    private Button btnIniciar3;
-
-    @FXML
-    private Button btnIniciar4;
-
-    @FXML
-    private Button btnIniciar5;
-
-    @FXML
-    private Button btnIniciar6;
-
-    @FXML
-    private Button btnDetener1;
-    @FXML
-    private Button btnDetener2;
-    @FXML
-    private Button btnDetener3;
-    @FXML
-    private Button btnDetener4;
-    @FXML
-    private Button btnDetener5;
-    @FXML
-    private Button btnDetener6;
-
-    @FXML
-    private ProgressIndicator progress1;
-    @FXML
-    private ProgressIndicator progress2;
-    @FXML
-    private ProgressIndicator progress3;
-    @FXML
-    private ProgressIndicator progress4;
-    @FXML
-    private ProgressIndicator progress5;
-    @FXML
-    private ProgressIndicator progress6;
-    @FXML
-    private TextField txtIP1;
-    @FXML
-    private TextField txtIP2;
-    @FXML
-    private TextField txtIP3;
-    @FXML
-    private TextField txtIP4;
-    @FXML
-    private TextField txtIP5;
-    @FXML
-    private TextField txtIP6;
-    @FXML
-    private RadioButton radBtn_t1;
-    @FXML
-    private RadioButton radBtn_t2;
-    @FXML
-    private RadioButton radBtn_t3;
-    @FXML
-    private RadioButton radBtn_t4;
-    @FXML
-    private RadioButton radBtn_t5;
-    @FXML
-    private RadioButton radBtn_t6;
-
-    @FXML
-    private Button btnDetener;
-
-    @FXML
-    private AnchorPane ventanaBienv;
-
-    @FXML
-    private AnchorPane ventanaPing;
-
-    @FXML
-    private AnchorPane ventanaTxtSalida;
-
-    @FXML
-    private AnchorPane ventanaIpInfo;
+    private AnchorPane ventanaBienv, ventanaPing, ventanaTxtSalida, ventanaIpInfo;
 
     @FXML
     private Label labelIp;
@@ -160,29 +66,16 @@ public class TirameElPingController implements Initializable {
     private TextField txtIP;
 
     @FXML
-    private RadioButton radBtn_Prueba;
-
-    @FXML
-    private RadioButton radBtn_t;
-
-    @FXML
-    private RadioButton radBtn_n;
+    private RadioButton radBtn_Prueba, radBtn_t, radBtn_n;
 
     @FXML
     private TextField txtCantPet;
 
     @FXML
-    private CheckBox host_a;
+    private CheckBox host_a, pingEnTxt;
 
     @FXML
-    private CheckBox pingEnTxt;
-
-    @FXML
-    private TextArea txtIpInfo;
-
-
-    @FXML
-    private TextArea txtAreaSalida;
+    private TextArea txtIpInfo, txtAreaSalida;
 
     @FXML
     private TextField txtRutaArchivo;
@@ -193,8 +86,7 @@ public class TirameElPingController implements Initializable {
     @FXML
     private VBox ventanaMultiPing;
 
-    @FXML
-    private Button btnMultiPing;
+
 
 
     /*    @FXML
@@ -358,6 +250,7 @@ public class TirameElPingController implements Initializable {
 
     public void iniciarTodoMultiPing() {
         try {
+
             for( int i = 1; i < threads.length; i++){
 
                 if (threads[i] == null || !threads[i].isAlive()){
@@ -369,6 +262,7 @@ public class TirameElPingController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
 
     public void altaHilos(int id){
         switch (id){
@@ -389,8 +283,6 @@ public class TirameElPingController implements Initializable {
         exit.closeThreadsProcesses();
     }
 
-
-
     public void radioButton(){
         txtCantPet.setDisable(radBtn_t.isSelected() || radBtn_Prueba.isSelected());
     }
@@ -407,16 +299,13 @@ public class TirameElPingController implements Initializable {
 
     public String cantPeticiones(){
         try{
+            if (txtCantPet.getText().hashCode() == 0)return  " ";
 
-            if (txtCantPet.getText().hashCode() == 0){
-                return  " ";
-            }
             int cant = Integer.parseInt(txtCantPet.getText());
             return " " + cant + " ";
         }catch (NumberFormatException n){
             txtError.setText("No es un numero entero");
         }
-
         return " ";
     }
 
@@ -437,27 +326,19 @@ public class TirameElPingController implements Initializable {
         try {
             if (txtIpInfo.getText().equals("")){
 
-                String[] miIpInfo = new String[4];
-
-                miIpInfo[0] = ("Dirección IPv4: " + InetAddress.getLocalHost().getHostAddress());
-
-                miIpInfo[1] = ("Host Name: " + InetAddress.getLocalHost().getHostName());
-                miIpInfo[2] = ("Canonical Host Name: " + InetAddress.getLocalHost().getCanonicalHostName());
+                txtIpInfo.appendText("\n Dirección IPv4: " + InetAddress.getLocalHost().getHostAddress());
+                txtIpInfo.appendText("\n Host Name: " + InetAddress.getLocalHost().getHostName());
+                txtIpInfo.appendText("\n Canonical Host Name: " + InetAddress.getLocalHost().getCanonicalHostName());
 
                 URL url_name = new URI("http://myexternalip.com/raw").toURL();
                 BufferedReader sc = new BufferedReader(new InputStreamReader(url_name.openStream()));
                 // reads system IPAddress
-                miIpInfo[3] = ("IP Publica: " + sc.readLine().trim());
+                txtIpInfo.appendText("\n IP Publica: " + sc.readLine().trim());
 
-                for (String data : miIpInfo) {
-                txtIpInfo.appendText("\n" + data);
-                }
             }
         } catch (IOException | URISyntaxException e) {
             throw new RuntimeException(e);
         }
-
-
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -466,6 +347,7 @@ public class TirameElPingController implements Initializable {
         btnMultiPing.setOnAction(a -> onVentMultiPing());
         btnIpInfo.setOnAction(a -> onVentIpInfo());
         btnRegPing.setOnAction(a -> onVentTxtSalida());
+        nomIp1.lengthProperty();
     }
 
     public void desactFilaMultiPing(TextField _nomIp, TextField _txtIP, RadioButton _radBtn, Button _btnIniciar, Button _btnDetener, ProgressIndicator _progress){

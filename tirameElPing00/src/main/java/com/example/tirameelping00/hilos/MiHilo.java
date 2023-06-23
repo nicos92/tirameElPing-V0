@@ -2,12 +2,17 @@ package com.example.tirameelping00.hilos;
 
 
 import com.example.tirameelping00.detencion.Detener;
+import com.example.tirameelping00.log.Log;
 import com.example.tirameelping00.notify.Notificacion;
 import com.example.tirameelping00.sonido.Sonido;
 import com.example.tirameelping00.ventana.DesactVentPing;
 import javafx.scene.control.TextField;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+
 
 
 public class MiHilo implements Runnable{
@@ -19,6 +24,7 @@ public class MiHilo implements Runnable{
 
     private final Sonido sonido;
 
+    private boolean bolLog;
     private final String nomIp;
 
     public MiHilo (Process process, String ip, Detener detener, DesactVentPing desactVentPing, TextField nomIp){
@@ -43,7 +49,7 @@ public class MiHilo implements Runnable{
 
                 if (sonido.getSonido() != null)sonido.closeSonido();
 
-                notify = sendNotificacion(notify, inputLine, ip);
+                notify = sendNotificacion(notify, inputLine);
 
             }
 
@@ -61,12 +67,14 @@ public class MiHilo implements Runnable{
 
     }
 
-    private  boolean sendNotificacion(boolean notify, String inputLine, String ip){
+    private  boolean sendNotificacion(boolean notify, String inputLine){
 
         Notificacion notificacion = new Notificacion();
 
         if (inputLine.contains("Error") || inputLine.contains("agotado")){
             notificacion.sendNotifyFail(ip, nomIp);
+            Log.crearArchivoLog("Fallo    " + inputLine , nomIp, ip);
+            bolLog = true;
             desactVentPing.rojoItems();
             sonido.reproducirError();
             return true;
@@ -75,16 +83,27 @@ public class MiHilo implements Runnable{
             notificacion.sendNotifyOk(ip, nomIp);
             desactVentPing.normalItems();
             sonido.reproducirOk();
+            if (bolLog){
+                bolLog = false;
+                Log.crearArchivoLog("Conexion " + inputLine, nomIp, ip);
+            }
             return false;
         }
         if( inputLine.contains("inaccesible")){
             notificacion.sendNotifyInsccesible(ip, nomIp);
 
             sonido.reproducirError();
+            Log.crearArchivoLog("Inacces. " + inputLine, nomIp, ip);
+            bolLog = true;
         }
         if (inputLine.contains("Paquetes")) {
             notificacion.sendEndNotify(ip, nomIp);
         }
         return notify;
     }
+
+
+
+
+
 }
