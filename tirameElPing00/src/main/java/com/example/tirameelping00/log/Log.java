@@ -14,20 +14,17 @@ public class Log {
 
         File rutaCarpetaLog = new File("LOG");
         if (rutaCarpetaLog.mkdir()) {
-            try (FileWriter log = new FileWriter(path, true)){
-                log.write("\n" + nomIp + " " + ip + " " + FechaYhora.fechaYhoraNow() + " " + inputLine);
-            }catch (IOException e){
-                throw new RuntimeException(e);
-            }
+            escribiendo(inputLine, nomIp, ip, path);
         }else{
-            try (FileWriter log = new FileWriter(path, true)){
-                log.write("\n" + nomIp + " " + ip + " " + FechaYhora.fechaYhoraNow() + " " + inputLine);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
+            escribiendo(inputLine, nomIp, ip, path);
         }
+    }
 
-
+    private static void escribiendo(String inputLine, String nomIp, String ip, String path) {
+        try (FileWriter log = new FileWriter(path, true)){
+            log.write("\n" + nomIp + " " + ip + " " + FechaYhora.fechaYhoraNow() + " " + inputLine);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

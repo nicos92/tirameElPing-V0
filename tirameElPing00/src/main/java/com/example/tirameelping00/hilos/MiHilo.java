@@ -3,9 +3,10 @@ package com.example.tirameelping00.hilos;
 
 import com.example.tirameelping00.detencion.Detener;
 import com.example.tirameelping00.log.Log;
-import com.example.tirameelping00.notify.Notificacion;
 import com.example.tirameelping00.sonido.Sonido;
 import com.example.tirameelping00.ventana.DesactVentPing;
+import ds.desktop.notify.DesktopNotify;
+import javafx.application.Platform;
 import javafx.scene.control.TextField;
 
 import java.io.BufferedReader;
@@ -58,8 +59,11 @@ public class MiHilo implements Runnable{
 
 
             }
-            detener.sendBtnDetenerMulti();
-            desactVentPing.desactItemsPingMulti(false);
+            Platform.runLater(() -> {
+                detener.sendBtnDetenerMulti();
+                desactVentPing.desactItemsPingMulti(false);
+            });
+
 
         }catch (IOException e){
             System.out.println("Error Run: " + e.getMessage());
@@ -69,19 +73,21 @@ public class MiHilo implements Runnable{
 
     private  boolean sendNotificacion(boolean notify, String inputLine){
 
-        Notificacion notificacion = new Notificacion();
+
 
         if (inputLine.contains("Error") || inputLine.contains("agotado")){
-            notificacion.sendNotifyFail(ip, nomIp);
+            DesktopNotify.showDesktopMessage("Fallo en la Red de: " + nomIp.toUpperCase(), "revise la IP: " + ip, DesktopNotify.FAIL, 5000L);
+
             Log.crearArchivoLog("Fallo    " + inputLine , nomIp, ip);
             bolLog = true;
-            desactVentPing.rojoItems();
+            //desactVentPing.rojoItems();
             sonido.reproducirError();
             return true;
         }
         if ( inputLine.contains("tiempo") && notify){
-            notificacion.sendNotifyOk(ip, nomIp);
-            desactVentPing.normalItems();
+            DesktopNotify.showDesktopMessage("Conexion establecida a: " + nomIp.toUpperCase(), "Con la IP: " + ip, DesktopNotify.SUCCESS, 5000L);
+
+            //desactVentPing.normalItems();
             sonido.reproducirOk();
             if (bolLog){
                 bolLog = false;
@@ -90,14 +96,16 @@ public class MiHilo implements Runnable{
             return false;
         }
         if( inputLine.contains("inaccesible")){
-            notificacion.sendNotifyInsccesible(ip, nomIp);
+            DesktopNotify.showDesktopMessage("Inaccesible a: " + nomIp.toUpperCase(), "No se Puede Acceder a la Direccion: " + ip,
+                    DesktopNotify.WARNING, 5000L);
 
             sonido.reproducirError();
             Log.crearArchivoLog("Inacces. " + inputLine, nomIp, ip);
             bolLog = true;
         }
         if (inputLine.contains("Paquetes")) {
-            notificacion.sendEndNotify(ip, nomIp);
+            DesktopNotify.showDesktopMessage("Fin de Ping a: " + nomIp.toUpperCase(), "Con la IP: " + ip, DesktopNotify.INFORMATION, 4000L);
+
         }
         return notify;
     }

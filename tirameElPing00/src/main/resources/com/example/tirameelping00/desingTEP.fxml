@@ -334,7 +334,7 @@
                                  </font>
                               </Label>
                               <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" />
-                              <JFXTextField fx:id="nomIp2" alignment="CENTER" focusColor="#129c00" prefHeight="30.0" prefWidth="138.0" style="-fx-text-fill: #000000; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="Despostada" unFocusColor="#129c00">
+                              <JFXTextField fx:id="nomIp2" alignment="CENTER" focusColor="#129c00" prefHeight="30.0" prefWidth="138.0" style="-fx-text-fill: #000000; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="Anto" unFocusColor="#129c00">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>
@@ -353,7 +353,7 @@
                                  </font>
                               </Label>
                               <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" />
-                              <JFXTextField fx:id="txtIP2" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="136.0" style="-fx-text-fill: #000000; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.44" unFocusColor="#c9c9c9">
+                              <JFXTextField fx:id="txtIP2" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="136.0" style="-fx-text-fill: #000000; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.111" unFocusColor="#c9c9c9">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>

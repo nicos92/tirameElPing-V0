@@ -1,12 +1,12 @@
 package com.example.tirameelping00;
 
 import com.example.tirameelping00.detencion.Detener;
-import com.example.tirameelping00.detencion.Exit;
 import com.example.tirameelping00.hilos.EjecutarPingHilo;
 import com.example.tirameelping00.hilos.MiHilo;
 import com.example.tirameelping00.ventana.DesactVentPing;
 import ds.desktop.notify.DesktopNotify;
 import ds.desktop.notify.NotifyTheme;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -27,27 +27,25 @@ import java.util.ResourceBundle;
 
 public class TirameElPingController implements Initializable {
 
+
     private Runtime r;
 
      static final Process[] processes = new Process[7];
      static final Thread[] threads = new Thread[7];
 
-    private static final Exit exit = new Exit( threads, processes);
-
-
-
-
     @FXML
-    private Button btnMultiPing, btnRegPing, btnPing, btnIpInfo, btnIniciar;
+    private Button btnMultiPing, btnRegPing, btnPing, btnIpInfo ;
 
     @FXML
     private TextField nomIp1, nomIp2, nomIp3, nomIp4, nomIp5, nomIp6;
 
     @FXML
-    private Button btnIniciar1, btnIniciar2, btnIniciar3, btnIniciar4,btnIniciar5, btnIniciar6;
+    private Button  btnIniciar, btnIniciar1, btnIniciar2, btnIniciar3, btnIniciar4,btnIniciar5, btnIniciar6, btnIniciarTodo;
+
+
 
     @FXML
-    private Button btnDetener, btnDetener1, btnDetener2, btnDetener3, btnDetener4, btnDetener5, btnDetener6;
+    private Button btnDetener, btnDetener1, btnDetener2, btnDetener3, btnDetener4, btnDetener5, btnDetener6, btnDetenerTodo;
 
     @FXML
     private ProgressIndicator progress, progress1, progress2, progress3, progress4, progress5, progress6;
@@ -220,9 +218,6 @@ public class TirameElPingController implements Initializable {
     public  void ejecutarMultiPing(int id, TextField _txtIP, Button _btnIniciar, Button _btnDetener,
                                    ProgressIndicator _progress, RadioButton _radBtn, TextField _nomIp) {
         try {
-
-            desactFilaMultiPing(_nomIp, _txtIP,_radBtn, _btnIniciar, _btnDetener, _progress);
-
             if (threads[id] != null) threads[id].interrupt();
             // prepara el comando CMD
             String cmd = "ping " + _txtIP.getText() + (_radBtn.isSelected() ? " -t " : " ");
@@ -233,34 +228,46 @@ public class TirameElPingController implements Initializable {
             /*Detener detener = new Detener(btnIniciar,btnDetener, progress, txtError);*/
             Detener detener = new Detener( _btnIniciar, _btnDetener, _progress);
             // desactiva los elementos
-            /*DesactVentPing desactPing = new DesactVentPing(labelIp,txtIP,radBtn_Prueba,radBtn_t,radBtn_n,txtCantPet, host_a,pingEnTxt);*/
             DesactVentPing desactVentPing = new DesactVentPing(_txtIP, _radBtn, _nomIp);
 
             // ejecuta el hilo
-            /*EjecutarPingHilo runClass = new EjecutarPingHilo(p, ip, pingEnTxt.isSelected(), txtAreaSalida,
-                    txtRutaArchivo, detener, desactPing);*/
             MiHilo miHilo = new MiHilo(processes[id], _txtIP.getText(), detener, desactVentPing, _nomIp);
             threads[id]= new Thread(miHilo);
             threads[id].start();
+            desactFilaMultiPing(_nomIp, _txtIP,_radBtn, _btnIniciar, _btnDetener, _progress);
 
         } catch (Exception n){
             System.out.println("ERROR ejecutar Multi Ping: " + n.getMessage());
         }
     }
 
-    public void iniciarTodoMultiPing() {
-        try {
+    public void desactFilaMultiPing(TextField _nomIp, TextField _txtIP, RadioButton _radBtn, Button _btnIniciar, Button _btnDetener, ProgressIndicator _progress){
+        _nomIp.setDisable(true);
+        _txtIP.setDisable(true);
+        _radBtn.setDisable(true);
+        _btnIniciar.setDisable(true);
+        _btnDetener.setDisable(false);
+        _progress.setVisible(true);
+    }
 
-            for( int i = 1; i < threads.length; i++){
+    public void iniciarTodoMultiPing(){
+        Platform.runLater(() -> btnTodos(true));
 
-                if (threads[i] == null || !threads[i].isAlive()){
-                    altaHilos(i);
-                    Thread.sleep(400);
-                }
+
+        for( int i = 1; i < threads.length; i++){
+            if (threads[i] == null || !threads[i].isAlive()){
+                //InitMultiPing init = new InitMultiPing(threads, processes);
+                altaHilos(i);
             }
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
         }
+        Platform.runLater(() -> btnTodos(false));
+
+
+    }
+
+    public void btnTodos(boolean b){
+        btnIniciarTodo.setDisable(b);
+        btnDetenerTodo.setDisable(b);
     }
 
 
@@ -276,11 +283,31 @@ public class TirameElPingController implements Initializable {
     }
 
      public void exitButton(){
-        exit.exit();
+         closeThreadProcess();
+         Platform.exit();
+         System.exit(0);
     }
 
+
+
      public void closeThreadProcess() {
-        exit.closeThreadsProcesses();
+         Platform.runLater(() -> btnTodos(true));
+
+
+         for (int i = 1 ; i < threads.length ; i++){
+             if (threads[i] !=  null && threads[i].isAlive()){
+                 threads[i].interrupt();
+
+             }
+         }
+         for (int i = 1 ; i< processes.length ; i++){
+             if (processes[i] != null){
+                 processes[i].destroy();
+             }
+         }
+
+         Platform.runLater(() -> btnTodos(false));
+
     }
 
     public void radioButton(){
@@ -350,14 +377,7 @@ public class TirameElPingController implements Initializable {
         nomIp1.lengthProperty();
     }
 
-    public void desactFilaMultiPing(TextField _nomIp, TextField _txtIP, RadioButton _radBtn, Button _btnIniciar, Button _btnDetener, ProgressIndicator _progress){
-        _nomIp.setDisable(true);
-        _txtIP.setDisable(true);
-        _radBtn.setDisable(true);
-        _btnIniciar.setDisable(true);
-        _btnDetener.setDisable(false);
-        _progress.setVisible(true);
-    }
+
 
 
     public void btnIniciarMultiPing(MouseEvent mouseEvent) {

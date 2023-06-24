@@ -2,9 +2,9 @@ package com.example.tirameelping00.hilos;
 
 import com.example.tirameelping00.detencion.Detener;
 import com.example.tirameelping00.fechaYhora.FechaYhora;
-import com.example.tirameelping00.notify.Notificacion;
 import com.example.tirameelping00.sonido.Sonido;
 import com.example.tirameelping00.ventana.DesactVentPing;
+import ds.desktop.notify.DesktopNotify;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextArea;
@@ -93,26 +93,28 @@ public class EjecutarPingHilo implements Runnable{
 
     private  boolean sendNotificacion(boolean notify, String inputLine, String ip){
 
-        Notificacion notificacion = new Notificacion();
-
         if (inputLine.contains("Error") || inputLine.contains("agotado")){
-            notificacion.sendNotifyFail(ip, "");
+            DesktopNotify.showDesktopMessage("Fallo en la Red", "revise la IP: " + ip, DesktopNotify.FAIL, 5000L);
+
             sonido.reproducirError();
             return true;
         }
         if ( inputLine.contains("tiempo") && notify){
-            notificacion.sendNotifyOk(ip, "");
+            DesktopNotify.showDesktopMessage("Conexion establecida", "Con la IP: " + ip, DesktopNotify.SUCCESS, 5000L);
+
 
             sonido.reproducirOk();
             return false;
         }
         if( inputLine.contains("inaccesible")){
-            notificacion.sendNotifyInsccesible(ip, "");
+            DesktopNotify.showDesktopMessage("Inaccesible", "No se Puede Acceder a la Direccion: " + ip,
+                    DesktopNotify.WARNING, 5000L);
 
             sonido.reproducirError();
         }
         if (inputLine.contains("Paquetes")) {
-            notificacion.sendEndNotify(ip, "");
+            DesktopNotify.showDesktopMessage("Fin de Ping", "Con la IP: " + ip, DesktopNotify.INFORMATION, 4000L);
+
         }
         return notify;
     }
