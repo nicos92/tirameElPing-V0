@@ -19,7 +19,7 @@ public class Sonido {
             sonido.start();
 
         } catch (Exception e) {
-            System.out.println("ERROR Sonido: " + e.getMessage());
+            System.out.println("ERROR Sonido alarma: " + e.getMessage());
         }
     }
     public void reproducirOk(){
@@ -38,7 +38,9 @@ public class Sonido {
             }
 
         } catch (Exception e) {
-            System.out.println("ERROR Sonido: " + e.getMessage());
+            System.out.println("ERROR Sonido OK: " + e.getMessage());
+            Thread.currentThread().interrupt();
+
         }
     }
 

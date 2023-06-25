@@ -1,6 +1,7 @@
 package com.example.tirameelping00;
 
 import com.example.tirameelping00.detencion.Detener;
+import com.example.tirameelping00.estilos.Style;
 import com.example.tirameelping00.hilos.EjecutarPingHilo;
 import com.example.tirameelping00.hilos.MiHilo;
 import com.example.tirameelping00.ventana.DesactVentPing;
@@ -115,7 +116,7 @@ public class TirameElPingController implements Initializable {
 
     public void onVentPing(){
         ventanaPing.setVisible(true);
-        btnPing.setStyle("-fx-background-color: #ffffff;  -fx-border-color: #00af13; -fx-border-width: 0px 0px 3px 0px;" );
+        btnPing.setStyle(Style.ventElegida());
         btnIpInfo.setStyle(" -fx-border-color: transparent; " );
         btnMultiPing.setStyle("  -fx-border-color: transparent;" );
         btnRegPing.setStyle("   -fx-border-color: transparent;" );
@@ -130,7 +131,7 @@ public class TirameElPingController implements Initializable {
     }
     public void onVentMultiPing(){
         ventanaPing.setVisible(false);
-        btnMultiPing.setStyle("-fx-background-color: #ffffff;   -fx-border-color: #00af13; -fx-border-width: 0px 0px 3px 0px;" );
+        btnMultiPing.setStyle(Style.ventElegida());
         btnIpInfo.setStyle("   -fx-border-color: transparent;" );
         btnPing.setStyle("   -fx-border-color: transparent;" );
         btnRegPing.setStyle("   -fx-border-color: transparent;" );
@@ -144,7 +145,7 @@ public class TirameElPingController implements Initializable {
 
     public void onVentTxtSalida(){
         ventanaTxtSalida.setVisible(true);
-        btnRegPing.setStyle("-fx-background-color: #ffffff;   -fx-border-color: #00af13; -fx-border-width: 0px 0px 3px 0px;" );
+        btnRegPing.setStyle(Style.ventElegida());
         btnPing.setStyle("  -fx-border-color: transparent;" );
         btnIpInfo.setStyle("   -fx-border-color: transparent;");
         btnMultiPing.setStyle("  -fx-border-color: transparent;" );
@@ -160,7 +161,7 @@ public class TirameElPingController implements Initializable {
         ventanaBienv.setVisible(false);
         ventanaMultiPing.setVisible(false);
         ventanaIpInfo.setVisible(true);
-        btnIpInfo.setStyle("-fx-background-color: #ffffff; -fx-border-color: #00af13; -fx-border-width: 0px 0px 3px 0px;");
+        btnIpInfo.setStyle(Style.ventElegida());
         btnPing.setStyle("  -fx-border-color: transparent;" );
         btnMultiPing.setStyle(" -fx-border-color: transparent;" );
         btnRegPing.setStyle(" -fx-border-color: transparent;" );
@@ -252,8 +253,6 @@ public class TirameElPingController implements Initializable {
 
     public void iniciarTodoMultiPing(){
         Platform.runLater(() -> btnTodos(true));
-
-
         for( int i = 1; i < threads.length; i++){
             if (threads[i] == null || !threads[i].isAlive()){
                 //InitMultiPing init = new InitMultiPing(threads, processes);
@@ -261,8 +260,6 @@ public class TirameElPingController implements Initializable {
             }
         }
         Platform.runLater(() -> btnTodos(false));
-
-
     }
 
     public void btnTodos(boolean b){
@@ -293,18 +290,8 @@ public class TirameElPingController implements Initializable {
      public void closeThreadProcess() {
          Platform.runLater(() -> btnTodos(true));
 
-
-         for (int i = 1 ; i < threads.length ; i++){
-             if (threads[i] !=  null && threads[i].isAlive()){
-                 threads[i].interrupt();
-
-             }
-         }
-         for (int i = 1 ; i< processes.length ; i++){
-             if (processes[i] != null){
-                 processes[i].destroy();
-             }
-         }
+         for (Thread t : threads) if (t !=  null && t.isAlive())t.interrupt();
+         for (Process p: processes) if (p != null)p.destroy();
 
          Platform.runLater(() -> btnTodos(false));
 

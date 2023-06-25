@@ -54,15 +54,5 @@ public class DesactVentPing {
         nomIp.setDisable(b);
     }
 
-    public void rojoItems(){
-        txtIP.setStyle("-fx-text-fill: #ffffff; -jfx-unfocus-color:  #d7d3d3; -jfx-focus-color:  #ffd400; " +
-                "-fx-background-color: #Ff0003");
-        nomIp.setStyle("-fx-text-fill: #ffffff; -jfx-unfocus-color:  #d7d3d3; -jfx-focus-color:  #ffd400; " +
-                "-fx-background-color: #Ff0003");
-    }
-    
-    public void normalItems(){
-        txtIP.setStyle("-fx-text-fill: #000000; -jfx-unfocus-color:  #d7d3d3; -jfx-focus-color:  #ffd400; ");
-        nomIp.setStyle("-fx-text-fill: #000000; -jfx-unfocus-color:  #d7d3d3; -jfx-focus-color:  #ffd400;");
-    }
+
 }

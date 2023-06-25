@@ -2,9 +2,11 @@ package com.example.tirameelping00.hilos;
 
 import com.example.tirameelping00.detencion.Detener;
 import com.example.tirameelping00.fechaYhora.FechaYhora;
+import com.example.tirameelping00.log.Log;
 import com.example.tirameelping00.sonido.Sonido;
 import com.example.tirameelping00.ventana.DesactVentPing;
 import ds.desktop.notify.DesktopNotify;
+import javafx.application.Platform;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextArea;
@@ -27,6 +29,7 @@ public class EjecutarPingHilo implements Runnable{
     private final Sonido sonido;
     private final Detener detener;
     private final DesactVentPing desactVentPing;
+    private boolean bolLog;
 
     public EjecutarPingHilo(Process p, String ip, boolean selected, TextArea txtAreaSalida, TextField txtRutaArchivo, DesactVentPing desactVentPing, Button btnIniciar, Button btnDetener, ProgressIndicator progress, Text txtError){
         this.process = p;
@@ -73,10 +76,17 @@ public class EjecutarPingHilo implements Runnable{
                     i=0;
                     txtAreaSalida.setText("");
                 }
+                Platform.runLater(() -> txtAreaSalida.appendText( txt));
 
-                txtAreaSalida.appendText( txt);
                 if (sonido.getSonido() != null)sonido.closeSonido();
-                notify = sendNotificacion(notify, inputLine, ip);
+                try {
+                    notify = sendNotificacion(notify, inputLine, ip);
+
+                }catch (Exception e){
+                    System.out.println("ERROR Desktop Notify: " + e.getMessage());
+                    Thread.currentThread().interrupt();
+                    Thread.currentThread().start();
+                }
             }
 
             if (sonido.getSonido() != null){
@@ -95,13 +105,18 @@ public class EjecutarPingHilo implements Runnable{
 
         if (inputLine.contains("Error") || inputLine.contains("agotado")){
             DesktopNotify.showDesktopMessage("Fallo en la Red", "revise la IP: " + ip, DesktopNotify.FAIL, 5000L);
-
+            Log.crearArchivoLog("Fallo    " + inputLine , "Ping: ", ip);
+            bolLog = true;
             sonido.reproducirError();
             return true;
         }
         if ( inputLine.contains("tiempo") && notify){
             DesktopNotify.showDesktopMessage("Conexion establecida", "Con la IP: " + ip, DesktopNotify.SUCCESS, 5000L);
 
+            if (bolLog){
+                bolLog = false;
+                Log.crearArchivoLog("Conexion " + inputLine, "Ping: ", ip);
+            }
 
             sonido.reproducirOk();
             return false;
@@ -111,6 +126,8 @@ public class EjecutarPingHilo implements Runnable{
                     DesktopNotify.WARNING, 5000L);
 
             sonido.reproducirError();
+            Log.crearArchivoLog("Inacces. " + inputLine, "Ping: ", ip);
+            bolLog = true;
         }
         if (inputLine.contains("Paquetes")) {
             DesktopNotify.showDesktopMessage("Fin de Ping", "Con la IP: " + ip, DesktopNotify.INFORMATION, 4000L);
