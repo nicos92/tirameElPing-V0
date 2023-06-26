@@ -84,8 +84,9 @@ public class EjecutarPingHilo implements Runnable{
 
                 }catch (Exception e){
                     System.out.println("ERROR Desktop Notify: " + e.getMessage());
+                    process.destroy();
                     Thread.currentThread().interrupt();
-                    Thread.currentThread().start();
+
                 }
             }
 

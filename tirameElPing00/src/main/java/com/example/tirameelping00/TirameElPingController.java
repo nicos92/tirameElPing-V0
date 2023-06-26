@@ -80,7 +80,7 @@ public class TirameElPingController implements Initializable {
     private TextField txtRutaArchivo;
 
     @FXML
-    private Text txtError;
+    private Text txtError, txtError1, txtError2, txtError3, txtError4, txtError5, txtError6;
 
     @FXML
     private VBox ventanaMultiPing;
@@ -217,7 +217,7 @@ public class TirameElPingController implements Initializable {
     }
 
     public  void ejecutarMultiPing(int id, TextField _txtIP, Button _btnIniciar, Button _btnDetener,
-                                   ProgressIndicator _progress, RadioButton _radBtn, TextField _nomIp) {
+                                   ProgressIndicator _progress, RadioButton _radBtn, TextField _nomIp, Text _txtError) {
         try {
             if (threads[id] != null) threads[id].interrupt();
             // prepara el comando CMD
@@ -232,7 +232,7 @@ public class TirameElPingController implements Initializable {
             DesactVentPing desactVentPing = new DesactVentPing(_txtIP, _radBtn, _nomIp);
 
             // ejecuta el hilo
-            MiHilo miHilo = new MiHilo(processes[id], _txtIP.getText(), detener, desactVentPing, _nomIp);
+            MiHilo miHilo = new MiHilo(processes[id], _txtIP.getText(), detener, desactVentPing, _nomIp, _txtError);
             threads[id]= new Thread(miHilo);
             threads[id].start();
             desactFilaMultiPing(_nomIp, _txtIP,_radBtn, _btnIniciar, _btnDetener, _progress);
@@ -270,12 +270,12 @@ public class TirameElPingController implements Initializable {
 
     public void altaHilos(int id){
         switch (id){
-            case 1 -> ejecutarMultiPing(id, txtIP1, btnIniciar1, btnDetener1, progress1, radBtn_t1, nomIp1);
-            case 2 -> ejecutarMultiPing(id, txtIP2, btnIniciar2, btnDetener2, progress2, radBtn_t2, nomIp2);
-            case 3 -> ejecutarMultiPing(id, txtIP3, btnIniciar3, btnDetener3, progress3, radBtn_t3, nomIp3);
-            case 4 -> ejecutarMultiPing(id, txtIP4, btnIniciar4, btnDetener4, progress4, radBtn_t4, nomIp4);
-            case 5 -> ejecutarMultiPing(id, txtIP5, btnIniciar5, btnDetener5, progress5, radBtn_t5, nomIp5);
-            case 6 -> ejecutarMultiPing(id, txtIP6, btnIniciar6, btnDetener6, progress6, radBtn_t6, nomIp6);
+            case 1 -> ejecutarMultiPing(id, txtIP1, btnIniciar1, btnDetener1, progress1, radBtn_t1, nomIp1, txtError1);
+            case 2 -> ejecutarMultiPing(id, txtIP2, btnIniciar2, btnDetener2, progress2, radBtn_t2, nomIp2, txtError2);
+            case 3 -> ejecutarMultiPing(id, txtIP3, btnIniciar3, btnDetener3, progress3, radBtn_t3, nomIp3, txtError3);
+            case 4 -> ejecutarMultiPing(id, txtIP4, btnIniciar4, btnDetener4, progress4, radBtn_t4, nomIp4, txtError4);
+            case 5 -> ejecutarMultiPing(id, txtIP5, btnIniciar5, btnDetener5, progress5, radBtn_t5, nomIp5, txtError5);
+            case 6 -> ejecutarMultiPing(id, txtIP6, btnIniciar6, btnDetener6, progress6, radBtn_t6, nomIp6, txtError6);
         }
     }
 

@@ -9,6 +9,7 @@ import com.example.tirameelping00.ventana.DesactVentPing;
 import ds.desktop.notify.DesktopNotify;
 import javafx.application.Platform;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -29,19 +30,24 @@ public class MiHilo implements Runnable{
     private boolean bolLog;
     private final TextField nomIp;
 
-    public MiHilo (Process process, String ip, Detener detener, DesactVentPing desactVentPing, TextField nomIp){
+    private final Text txtError;
+
+    public MiHilo (Process process, String ip, Detener detener, DesactVentPing desactVentPing, TextField nomIp,
+                   Text txtError){
         this.process = process;
         this.ip = ip;
         this.detener = detener;
         this.desactVentPing = desactVentPing;
         this.sonido = new Sonido();
         this.nomIp = nomIp;
+        this.txtError = txtError;
     }
 
     @Override
     public void run() {
 
         try{
+            txtError.setVisible(false);
             BufferedReader lector = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String inputLine;
             boolean notify = true;
@@ -52,9 +58,14 @@ public class MiHilo implements Runnable{
 
                 try{
 
+                    
                     notify = sendNotificacion(notify, inputLine);
                 }catch (Exception e){
-                    System.out.println("ERROR Desktop Notify: " + nomIp.getText() + " " + ip + " - " +  e.getMessage());
+                    Platform.runLater(() -> {
+                        txtError.setText("ERROR Desktop Notify: " + nomIp.getText() + " " + ip + ". Intente Nuevamente");
+                        txtError.setVisible(true);
+                    });
+                    process.destroy();
                     Thread.currentThread().interrupt();
                 }
             }
@@ -82,7 +93,7 @@ public class MiHilo implements Runnable{
             DesktopNotify.showDesktopMessage("Fallo en la Red de: " + nomIp.getText().toUpperCase(), "revise la IP: " + ip, DesktopNotify.FAIL, 5000L);
             sonido.reproducirError();
             styleNomIP(Style.rojoItems());
-            Log.crearArchivoLog("Fallo    " + inputLine , nomIp.getText(), ip);
+            Log.crearArchivoLog("Fallo        -    " + inputLine , nomIp.getText(), ip);
             bolLog = true;
             return true;
         }
@@ -90,13 +101,12 @@ public class MiHilo implements Runnable{
             DesktopNotify.showDesktopMessage("Conexion establecida a: " + nomIp.getText()
                     .toUpperCase(), "Con la IP: " + ip, DesktopNotify.SUCCESS, 5000L);
 
-
             sonido.reproducirOk();
 
             if (bolLog){
                 bolLog = false;
                 styleNomIP(Style.normalItems());
-                Log.crearArchivoLog("Conexion " + inputLine, nomIp.getText(), ip);
+                Log.crearArchivoLog("Conexion     -    " + inputLine, nomIp.getText(), ip);
             }
 
             return false;
@@ -107,7 +117,7 @@ public class MiHilo implements Runnable{
 
             sonido.reproducirError();
             styleNomIP(Style.rojoItems());
-            Log.crearArchivoLog("Inacces. " + inputLine, nomIp.getText(), ip);
+            Log.crearArchivoLog("Inacces.     -    " + inputLine, nomIp.getText(), ip);
             bolLog = true;
 
         }

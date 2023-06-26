@@ -22,7 +22,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="683.0" prefWidth="700.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tirameelping00.TirameElPingController">
+<AnchorPane fx:id="mainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="683.0" prefWidth="700.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19.0.2.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tirameelping00.TirameElPingController">
    <children>
       <MenuBar style="-fx-border-color: #000000;" AnchorPane.bottomAnchor="656.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
@@ -267,7 +267,7 @@
                                  </font>
                               </Label>
                               <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" />
-                              <JFXTextField fx:id="nomIp1" alignment="CENTER" focusColor="#129c00" prefHeight="30.0" prefWidth="138.0" style="-fx-text-fill: #000000; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="Nico" unFocusColor="#129c00">
+                              <JFXTextField fx:id="nomIp1" alignment="CENTER" focusColor="#129c00" prefHeight="30.0" prefWidth="138.0" style="-fx-text-fill: #000000; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="Faena" unFocusColor="#129c00">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>
@@ -286,7 +286,7 @@
                                  </font>
                               </Label>
                               <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" />
-                              <JFXTextField fx:id="txtIP1" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="136.0" style="-fx-text-fill: #000000; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.182" unFocusColor="#c9c9c9">
+                              <JFXTextField fx:id="txtIP1" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="136.0" style="-fx-text-fill: #000000; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.40" unFocusColor="#c9c9c9">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>
@@ -323,6 +323,11 @@
                         <ProgressIndicator fx:id="progress1" prefHeight="40.0" prefWidth="40.0" visible="false" />
                      </children>
                   </HBox>
+                  <Text fx:id="txtError1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Text>
                   <Line endX="591.2929077148438" endY="0.2928932309150696" startX="-100.0" stroke="#cdcdcd" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
@@ -334,7 +339,7 @@
                                  </font>
                               </Label>
                               <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" />
-                              <JFXTextField fx:id="nomIp2" alignment="CENTER" focusColor="#129c00" prefHeight="30.0" prefWidth="138.0" style="-fx-text-fill: #000000; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="Anto" unFocusColor="#129c00">
+                              <JFXTextField fx:id="nomIp2" alignment="CENTER" focusColor="#129c00" prefHeight="30.0" prefWidth="138.0" style="-fx-text-fill: #000000; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="Despostada" unFocusColor="#129c00">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>
@@ -353,7 +358,7 @@
                                  </font>
                               </Label>
                               <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" />
-                              <JFXTextField fx:id="txtIP2" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="136.0" style="-fx-text-fill: #000000; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.111" unFocusColor="#c9c9c9">
+                              <JFXTextField fx:id="txtIP2" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="136.0" style="-fx-text-fill: #000000; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.44" unFocusColor="#c9c9c9">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>
@@ -390,6 +395,11 @@
                         <ProgressIndicator fx:id="progress2" prefHeight="40.0" prefWidth="40.0" visible="false" />
                      </children>
                   </HBox>
+                  <Text fx:id="txtError2" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Text>
                   <Line endX="591.2929077148438" endY="0.2928932309150696" startX="-100.0" stroke="#cdcdcd" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
@@ -420,7 +430,7 @@
                                  </font>
                               </Label>
                               <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" />
-                              <JFXTextField fx:id="txtIP3" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="136.0" style="-fx-text-fill: #000000; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="8.8.8.8" unFocusColor="#c9c9c9">
+                              <JFXTextField fx:id="txtIP3" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="136.0" style="-fx-text-fill: #000000; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.47" unFocusColor="#c9c9c9">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>
@@ -457,6 +467,11 @@
                         <ProgressIndicator fx:id="progress3" prefHeight="40.0" prefWidth="40.0" visible="false" />
                      </children>
                   </HBox>
+                  <Text fx:id="txtError3" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Text>
                   <Line endX="591.2929077148438" endY="0.2928932309150696" startX="-100.0" stroke="#cdcdcd" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
@@ -487,7 +502,7 @@
                                  </font>
                               </Label>
                               <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" />
-                              <JFXTextField fx:id="txtIP4" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="136.0" style="-fx-text-fill: #000000; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="8.8.4.4" unFocusColor="#c9c9c9">
+                              <JFXTextField fx:id="txtIP4" alignment="CENTER" focusColor="#018001" prefHeight="30.0" prefWidth="136.0" style="-fx-text-fill: #000000; -jfx-unfocus-color: #d7d3d3; -jfx-focus-color: #ffd400;" text="192.168.0.49" unFocusColor="#c9c9c9">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>
@@ -524,6 +539,11 @@
                         <ProgressIndicator fx:id="progress4" prefHeight="40.0" prefWidth="40.0" visible="false" />
                      </children>
                   </HBox>
+                  <Text fx:id="txtError4" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Text>
                   <Line endX="591.2929077148438" endY="0.2928932309150696" startX="-100.0" stroke="#cdcdcd" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
@@ -591,6 +611,11 @@
                         <ProgressIndicator fx:id="progress5" prefHeight="40.0" prefWidth="40.0" visible="false" />
                      </children>
                   </HBox>
+                  <Text fx:id="txtError5" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Text>
                   <Line endX="591.2929077148438" endY="0.2928932309150696" startX="-100.0" stroke="#cdcdcd" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
@@ -658,6 +683,11 @@
                         <ProgressIndicator fx:id="progress6" prefHeight="40.0" prefWidth="40.0" visible="false" />
                      </children>
                   </HBox>
+                  <Text fx:id="txtError6" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Text>
                </children>
             </VBox>
          </children>

@@ -22,7 +22,7 @@ public class Log {
 
     private static void escribiendo(String inputLine, String nomIp, String ip, String path) {
         try (FileWriter log = new FileWriter(path, true)){
-            log.write("\n" + nomIp + " " + ip + " " + FechaYhora.fechaYhoraNow() + " " + inputLine);
+            log.write("\n" + nomIp + "    -    " + ip + "    -    [" + FechaYhora.fechaYhoraNow() + "]    -    " + inputLine);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

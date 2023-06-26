@@ -15,7 +15,7 @@ public class Sonido {
         try {
 
             String path = new File("error.wav").getAbsolutePath();
-            System.out.println("error.wav: " + path);
+
            // Se obtiene un Clip de sonido
            sonido = AudioSystem.getClip();
 
@@ -26,13 +26,13 @@ public class Sonido {
             sonido.start();
 
         } catch (Exception e) {
-            System.out.println("ERROR Sonido alarma: " + e.getMessage());
+
         }
     }
     public void reproducirOk(){
         try {
             String path = new File("ok.wav").getAbsolutePath();
-            System.out.println("ok.wav: " + path);
+
             // Se obtiene un Clip de sonido
             sonido = AudioSystem.getClip();
 
@@ -42,12 +42,12 @@ public class Sonido {
             // Comienza la reproducción
             sonido.start();
             if (sonido.isOpen()) {
-                Thread.sleep(1050);
+                Thread.sleep(1100);
                 sonido.close();
             }
 
         } catch (Exception e) {
-            System.out.println("ERROR Sonido OK: " + e.getMessage());
+
             Thread.currentThread().interrupt();
         }
     }
