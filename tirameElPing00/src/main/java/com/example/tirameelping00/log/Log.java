@@ -10,7 +10,7 @@ import java.time.LocalDate;
 public class Log {
     public static void crearArchivoLog(String inputLine, String nomIp, String ip){
         String path =
-                "LOG\\TEP " + LocalDate.now().getYear() + " " +  LocalDate.now().getMonth() + " " +  LocalDate.now().getDayOfMonth() + ".txt";
+                "LOG\\TEP " + LocalDate.now().getYear() + " " +  LocalDate.now().getMonth() + " " +  LocalDate.now().getDayOfMonth() + ".log";
 
         File rutaCarpetaLog = new File("LOG");
         if (rutaCarpetaLog.mkdir()) {

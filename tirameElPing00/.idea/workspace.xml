@@ -10,21 +10,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da0e1111-269e-4332-9eaa-00729bcedd97" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/LOG/TEP 2023 JUNE 25.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/estilos/Style.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/tirameElPing00_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LOG/TEP 2023 JUNE 25.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/error.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ok.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sonidos/error.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sonidos/ok.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/Sounds/error.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/TirameElPingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/TirameElPingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/hilos/EjecutarPingHilo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/hilos/EjecutarPingHilo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/DS-Desktop-Notify-0.91.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/DS-Desktop-Notify.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/FXTrayIcon-4.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/javafx-base-19.0.2.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/javafx-base-19.0.2.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/javafx-controls-19.0.2.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/javafx-controls-19.0.2.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/javafx-fxml-19.0.2.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/javafx-fxml-19.0.2.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/javafx-graphics-19.0.2.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/javafx-graphics-19.0.2.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/javafx-swing-19-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/javafx-swing-19.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/jfoenix-9.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/tirameElPing00.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/hilos/MiHilo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/hilos/MiHilo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/log/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/log/Log.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/sonido/Sonido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/sonido/Sonido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/ventana/DesactVentPing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/ventana/DesactVentPing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/desingTEP.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/desingTEP.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/Sounds/alarma.wav" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -53,18 +75,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;P:/tirameElPing-V0/tirameElPing00/jfoenix-9.0.0.jar&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15963855&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.34418604&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "P:/tirameElPing-V0/tirameElPing00/src/main/resources/META-INF/MANIFEST.MF",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.1640625",
+    "project.structure.side.proportion": "0.34418604",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="appMian" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.example.tirameelping00.TirameElPingApp" />

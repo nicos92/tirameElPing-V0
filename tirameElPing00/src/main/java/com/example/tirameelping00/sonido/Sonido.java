@@ -5,15 +5,22 @@ import javax.sound.sampled.Clip;
 import java.io.File;
 
 public class Sonido {
+
+
+
+
     private Clip sonido;
-    private final String pathCorto = "..\\tirameElPing00\\src\\main\\resources\\com\\example\\tirameelping00\\Sounds";
+
     public void reproducirError(){
         try {
-            // Se obtiene un Clip de sonido
+
+            String path = new File("error.wav").getAbsolutePath();
+            System.out.println("error.wav: " + path);
+           // Se obtiene un Clip de sonido
            sonido = AudioSystem.getClip();
 
             // Se carga con un fichero wav
-            sonido.open(AudioSystem.getAudioInputStream(new File(pathCorto + "\\alarma.wav")));
+            sonido.open(AudioSystem.getAudioInputStream(new File(path)));
 
             // Comienza la reproducción
             sonido.start();
@@ -24,11 +31,13 @@ public class Sonido {
     }
     public void reproducirOk(){
         try {
+            String path = new File("ok.wav").getAbsolutePath();
+            System.out.println("ok.wav: " + path);
             // Se obtiene un Clip de sonido
             sonido = AudioSystem.getClip();
 
             // Se carga con un fichero wav
-            sonido.open(AudioSystem.getAudioInputStream(new File(pathCorto + "\\ok.wav")));
+            sonido.open(AudioSystem.getAudioInputStream(new File(path)));
 
             // Comienza la reproducción
             sonido.start();
@@ -40,7 +49,6 @@ public class Sonido {
         } catch (Exception e) {
             System.out.println("ERROR Sonido OK: " + e.getMessage());
             Thread.currentThread().interrupt();
-
         }
     }
 

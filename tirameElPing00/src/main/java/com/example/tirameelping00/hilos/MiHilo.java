@@ -45,16 +45,16 @@ public class MiHilo implements Runnable{
             BufferedReader lector = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String inputLine;
             boolean notify = true;
-            //int i = 0;
 
             while ((inputLine = lector.readLine()) != null && !Thread.currentThread().isInterrupted()) {
 
                 if (sonido.getSonido() != null)sonido.closeSonido();
 
                 try{
+
                     notify = sendNotificacion(notify, inputLine);
                 }catch (Exception e){
-                    System.out.println("ERROR Desktop Notify: " + nomIp + " " + ip + " - " +  e.getMessage());
+                    System.out.println("ERROR Desktop Notify: " + nomIp.getText() + " " + ip + " - " +  e.getMessage());
                     Thread.currentThread().interrupt();
                 }
             }
@@ -92,9 +92,10 @@ public class MiHilo implements Runnable{
 
 
             sonido.reproducirOk();
-            styleNomIP(Style.normalItems());
+
             if (bolLog){
                 bolLog = false;
+                styleNomIP(Style.normalItems());
                 Log.crearArchivoLog("Conexion " + inputLine, nomIp.getText(), ip);
             }
 
