@@ -10,19 +10,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da0e1111-269e-4332-9eaa-00729bcedd97" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/tirameElPing00_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LOG/Nuevo Hoja de cálculo de Microsoft Excel.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LOG/TEP 2023 JUNE 26.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LOG/TEP 2023 JUNE 27.log" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/annotations-24.0.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/tirameElPing00_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/tirameElPing00_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/DS-Desktop-Notify.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/error.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ok.wav" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/tirameElPing00.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/tirameElPing00.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/TirameElPingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/TirameElPingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/hilos/EjecutarPingHilo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/hilos/EjecutarPingHilo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/hilos/MiHilo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/hilos/MiHilo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/log/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/log/Log.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/sonido/Sonido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/sonido/Sonido.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/Sounds/error.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/Sounds/ok.wav" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/desingTEP.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/desingTEP.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -8,20 +8,20 @@
           <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
         </element>
       </element>
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:win:19.0.2.1" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:win:19.0.2.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:19.0.2.1" />
       <element id="library" level="project" name="DS-Desktop-Notify-0.91" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-swing:19" />
-      <element id="library" level="project" name="Maven: org.jetbrains:annotations:24.0.1" />
-      <element id="library" level="project" name="Maven: com.dustinredmond.fxtrayicon:FXTrayIcon:4.0.1" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-swing:win:19" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:19.0.2.1" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:19.0.2.1" />
       <element id="library" level="project" name="jfoenix-9.0.0" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:win:19.0.2.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:19.0.2.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-swing:win:19" />
       <element id="library" level="project" name="Maven: org.openjfx:javafx-base:19.0.2.1" />
       <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:win:19.0.2.1" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:19.0.2.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:19.0.2.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-swing:19" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:win:19.0.2.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:win:19.0.2.1" />
+      <element id="library" level="project" name="Maven: org.jetbrains:annotations:24.0.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:win:19.0.2.1" />
+      <element id="library" level="project" name="Maven: com.dustinredmond.fxtrayicon:FXTrayIcon:4.0.1" />
     </root>
   </artifact>
 </component>

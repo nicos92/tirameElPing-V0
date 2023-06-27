@@ -14,7 +14,7 @@ public class Sonido {
     public void reproducirError(){
         try {
 
-            String path = new File("error.wav").getAbsolutePath();
+            String path = new File("sonidos\\error.wav").getAbsolutePath();
 
            // Se obtiene un Clip de sonido
            sonido = AudioSystem.getClip();
@@ -31,7 +31,7 @@ public class Sonido {
     }
     public void reproducirOk(){
         try {
-            String path = new File("ok.wav").getAbsolutePath();
+            String path = new File("sonidos\\ok.wav").getAbsolutePath();
 
             // Se obtiene un Clip de sonido
             sonido = AudioSystem.getClip();
