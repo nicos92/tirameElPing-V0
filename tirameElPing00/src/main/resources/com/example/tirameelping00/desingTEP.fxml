@@ -323,7 +323,6 @@
                                  </cursor>
                               </JFXButton>
                               <Separator prefWidth="10.0" visible="false" />
-                              <ProgressIndicator fx:id="progress1" prefHeight="40.0" prefWidth="40.0" visible="false" />
                            </children>
                         </HBox>
                         <Text fx:id="txtError1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false">
@@ -395,7 +394,6 @@
                                  </cursor>
                               </JFXButton>
                               <Separator prefWidth="10.0" visible="false" />
-                              <ProgressIndicator fx:id="progress2" prefHeight="40.0" prefWidth="40.0" visible="false" />
                            </children>
                         </HBox>
                         <Text fx:id="txtError2" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false">
@@ -467,7 +465,6 @@
                                  </cursor>
                               </JFXButton>
                               <Separator prefWidth="10.0" visible="false" />
-                              <ProgressIndicator fx:id="progress3" prefHeight="40.0" prefWidth="40.0" visible="false" />
                            </children>
                         </HBox>
                         <Text fx:id="txtError3" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false">
@@ -539,7 +536,6 @@
                                  </cursor>
                               </JFXButton>
                               <Separator prefWidth="10.0" visible="false" />
-                              <ProgressIndicator fx:id="progress4" prefHeight="40.0" prefWidth="40.0" visible="false" />
                            </children>
                         </HBox>
                         <Text fx:id="txtError4" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false">
@@ -611,7 +607,6 @@
                                  </cursor>
                               </JFXButton>
                               <Separator prefWidth="10.0" visible="false" />
-                              <ProgressIndicator fx:id="progress5" prefHeight="40.0" prefWidth="40.0" visible="false" />
                            </children>
                         </HBox>
                         <Text fx:id="txtError5" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false">
@@ -683,7 +678,6 @@
                                  </cursor>
                               </JFXButton>
                               <Separator prefWidth="10.0" visible="false" />
-                              <ProgressIndicator fx:id="progress6" prefHeight="40.0" prefWidth="40.0" visible="false" />
                            </children>
                         </HBox>
                         <Text fx:id="txtError6" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false">
@@ -691,6 +685,7 @@
                               <Font name="System Bold" size="10.0" />
                            </font>
                         </Text>
+                        <Line endX="591.2929077148438" endY="0.2928932309150696" startX="-100.0" stroke="#cdcdcd" />
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <VBox alignment="CENTER" prefHeight="96.0" prefWidth="151.0">
@@ -754,7 +749,6 @@
                                  </cursor>
                               </JFXButton>
                               <Separator prefWidth="10.0" visible="false" />
-                              <ProgressIndicator fx:id="progress7" prefHeight="40.0" prefWidth="40.0" visible="false" />
                            </children>
                         </HBox>
                         <Text fx:id="txtError7" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false">
@@ -762,6 +756,7 @@
                               <Font name="System Bold" size="10.0" />
                            </font>
                         </Text>
+                        <Line endX="591.2929077148438" endY="0.2928932309150696" startX="-100.0" stroke="#cdcdcd" />
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <VBox alignment="CENTER" prefHeight="96.0" prefWidth="151.0">
@@ -825,7 +820,6 @@
                                  </cursor>
                               </JFXButton>
                               <Separator prefWidth="10.0" visible="false" />
-                              <ProgressIndicator fx:id="progress8" prefHeight="40.0" prefWidth="40.0" visible="false" />
                            </children>
                         </HBox>
                         <Text fx:id="txtError8" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false">
@@ -833,6 +827,7 @@
                               <Font name="System Bold" size="10.0" />
                            </font>
                         </Text>
+                        <Line endX="591.2929077148438" endY="0.2928932309150696" startX="-100.0" stroke="#cdcdcd" />
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <VBox alignment="CENTER" prefHeight="96.0" prefWidth="151.0">
@@ -896,7 +891,6 @@
                                  </cursor>
                               </JFXButton>
                               <Separator prefWidth="10.0" visible="false" />
-                              <ProgressIndicator fx:id="progress9" prefHeight="40.0" prefWidth="40.0" visible="false" />
                            </children>
                         </HBox>
                         <Text fx:id="txtError9" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false">
@@ -904,6 +898,7 @@
                               <Font name="System Bold" size="10.0" />
                            </font>
                         </Text>
+                        <Line endX="591.2929077148438" endY="0.2928932309150696" startX="-100.0" stroke="#cdcdcd" />
                      </children>
                   </VBox>
                </content>

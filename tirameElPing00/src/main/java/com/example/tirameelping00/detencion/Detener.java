@@ -8,7 +8,7 @@ public class Detener {
 
     private final Button btnIniciar;
     private final Button btnDetener;
-    private final ProgressIndicator progressIndicator;
+    private  ProgressIndicator progressIndicator;
     private Text txtError;
 
     public Detener(Button btnIniciar, Button btnDetener, ProgressIndicator progressIndicator, Text txtError) {
@@ -19,10 +19,10 @@ public class Detener {
 
 
     }
-    public Detener(Button btnIniciar, Button btnDetener, ProgressIndicator progressIndicator) {
+    public Detener(Button btnIniciar, Button btnDetener) {
         this.btnIniciar = btnIniciar;
         this.btnDetener = btnDetener;
-        this.progressIndicator = progressIndicator;
+        //this.progressIndicator = progressIndicator;
 
     }
 
@@ -37,7 +37,7 @@ public class Detener {
     public void sendBtnDetenerMulti(){
         btnIniciar.setDisable(false);
         btnDetener.setDisable(true);
-        progressIndicator.setVisible(false);
+        //progressIndicator.setVisible(false);
 
     }
 
