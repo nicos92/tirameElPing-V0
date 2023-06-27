@@ -22,7 +22,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="700.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tirameelping00.TirameElPingController">
+<AnchorPane fx:id="mainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="850.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tirameelping00.TirameElPingController">
    <children>
       <MenuBar style="-fx-border-color: #000000;" AnchorPane.bottomAnchor="656.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
@@ -46,45 +46,7 @@
       </MenuBar>
       <AnchorPane fx:id="base4" layoutX="11.0" layoutY="11.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
          <children>
-            <HBox fx:id="hboxsup" alignment="CENTER" layoutX="2.0" layoutY="2.0" prefHeight="40.0" prefWidth="698.0" style="-fx-background-color: #f0f0f0;" AnchorPane.bottomAnchor="680.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <Line endX="-100.0" endY="-40.0" startX="-100.0" startY="-12.0" stroke="#cdcdcd" />
-                  <JFXButton fx:id="btnPing" onMouseClicked="#onVentPing" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: TRANSPARENT; -fx-border-color: TRANSPARENT;" text="Ping" underline="true">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </JFXButton>
-                  <Line endX="-100.0" endY="-40.0" startX="-100.0" startY="-12.0" stroke="#cdcdcd" />
-                  <JFXButton fx:id="btnRegPing" onMouseClicked="#onVentTxtSalida" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: TRANSPARENT; -fx-border-color: TRANSPARENT;" text="Reg. Ping" underline="true">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </JFXButton>
-                  <Line endX="-100.0" endY="-40.0" startX="-100.0" startY="-12.0" stroke="#cdcdcd" />
-                  <JFXButton fx:id="btnMultiPing" onMouseClicked="#onVentMultiPing" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: TRANSPARENT; -fx-border-color: #00af13; -fx-border-width: 0px 0px 3px 0px;" text="Multi-Ping" underline="true">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </JFXButton>
-                  <Line endX="-100.0" endY="-40.0" startX="-100.0" startY="-12.0" stroke="#cdcdcd" />
-               </children>
-            </HBox>
-            <AnchorPane fx:id="ventanaPing" layoutY="45.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+            <AnchorPane fx:id="ventanaPing" layoutY="45.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Text layoutX="270.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ejecutar Ping">
                      <font>
@@ -231,7 +193,7 @@
                   </JFXTextField>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="ventanaTxtSalida" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+            <AnchorPane fx:id="ventanaTxtSalida" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Text layoutX="244.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de Ping">
                      <font>
@@ -245,7 +207,7 @@
                   </JFXTextArea>
                </children>
             </AnchorPane>
-            <ScrollPane fx:id="scrollMultiPing" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+            <ScrollPane fx:id="scrollMultiPing" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
                <content>
                   <VBox fx:id="ventanaMultiPing" prefHeight="603.0" prefWidth="693.0" style="-fx-background-color: #ffffff;">
                      <children>
@@ -914,6 +876,34 @@
                   </VBox>
                </content>
             </ScrollPane>
+            <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #f0f0f0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="700.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <JFXButton fx:id="btnPing" onMouseClicked="#onVentPing" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: TRANSPARENT; -fx-border-color: TRANSPARENT;" text="Ping" underline="true">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <JFXButton fx:id="btnRegPing" onMouseClicked="#onVentTxtSalida" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: TRANSPARENT; -fx-border-color: TRANSPARENT;" text="Reg. Ping" underline="true">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <JFXButton fx:id="btnMultiPing" onMouseClicked="#onVentMultiPing" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: TRANSPARENT; -fx-border-color: #00af13; -fx-border-width: 0px 0px 3px 0px;" text="Multi-Ping" underline="true">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+               </children>
+            </VBox>
          </children>
       </AnchorPane>
    </children>
