@@ -34,7 +34,7 @@ public class TirameElPingController implements Initializable {
      static final Thread[] threads = new Thread[10];
 
     @FXML
-    private Button btnMultiPing, btnRegPing, btnPing, btnIpInfo ;
+    private Button btnMultiPing, btnRegPing, btnPing;
 
     @FXML
     private TextField nomIp1, nomIp2, nomIp3, nomIp4, nomIp5, nomIp6, nomIp7, nomIp8, nomIp9;
@@ -59,7 +59,7 @@ public class TirameElPingController implements Initializable {
             radBtn_t9;
 
     @FXML
-    private AnchorPane ventanaBienv, ventanaPing, ventanaTxtSalida, ventanaIpInfo;
+    private AnchorPane ventanaPing, ventanaTxtSalida;
 
     @FXML
     private ScrollPane scrollMultiPing;
@@ -68,7 +68,7 @@ public class TirameElPingController implements Initializable {
     private Label labelIp;
 
     @FXML
-    private TextField txtIP;
+    private TextField txtIP, txtIpv4, txtHostName, txtCanoHostName, txtIpPublic;
 
     @FXML
     private RadioButton radBtn_Prueba, radBtn_t, radBtn_n;
@@ -80,7 +80,7 @@ public class TirameElPingController implements Initializable {
     private CheckBox host_a, pingEnTxt;
 
     @FXML
-    private TextArea txtIpInfo, txtAreaSalida;
+    private TextArea  txtAreaSalida;
 
     @FXML
     private TextField txtRutaArchivo;
@@ -123,12 +123,11 @@ public class TirameElPingController implements Initializable {
     public void onVentPing(){
         ventanaPing.setVisible(true);
         btnPing.setStyle(Style.ventElegida());
-        btnIpInfo.setStyle(" -fx-border-color: transparent; " );
         btnMultiPing.setStyle("  -fx-border-color: transparent;" );
         btnRegPing.setStyle("   -fx-border-color: transparent;" );
-        ventanaBienv.setVisible(false);
+
         ventanaTxtSalida.setVisible(false);
-        ventanaIpInfo.setVisible(false);
+
         scrollMultiPing.setVisible(false);
         txtIP.toBack();
         radioButton();
@@ -138,12 +137,11 @@ public class TirameElPingController implements Initializable {
     public void onVentMultiPing(){
         ventanaPing.setVisible(false);
         btnMultiPing.setStyle(Style.ventElegida());
-        btnIpInfo.setStyle("   -fx-border-color: transparent;" );
         btnPing.setStyle("   -fx-border-color: transparent;" );
         btnRegPing.setStyle("   -fx-border-color: transparent;" );
-        ventanaBienv.setVisible(false);
+
         ventanaTxtSalida.setVisible(false);
-        ventanaIpInfo.setVisible(false);
+
         scrollMultiPing.setVisible(true);
 
 
@@ -153,25 +151,9 @@ public class TirameElPingController implements Initializable {
         ventanaTxtSalida.setVisible(true);
         btnRegPing.setStyle(Style.ventElegida());
         btnPing.setStyle("  -fx-border-color: transparent;" );
-        btnIpInfo.setStyle("   -fx-border-color: transparent;");
         btnMultiPing.setStyle("  -fx-border-color: transparent;" );
         ventanaPing.setVisible(false);
-        ventanaIpInfo.setVisible(false);
         scrollMultiPing.setVisible(false);
-        ventanaBienv.setVisible(false);
-    }
-
-    public void onVentIpInfo(){
-        ventanaPing.setVisible(false);
-        ventanaTxtSalida.setVisible(false);
-        ventanaBienv.setVisible(false);
-        scrollMultiPing.setVisible(false);
-        ventanaIpInfo.setVisible(true);
-        btnIpInfo.setStyle(Style.ventElegida());
-        btnPing.setStyle("  -fx-border-color: transparent;" );
-        btnMultiPing.setStyle(" -fx-border-color: transparent;" );
-        btnRegPing.setStyle(" -fx-border-color: transparent;" );
-        ipConfigAll();
     }
 
     public void onBtnIniciar(){
@@ -238,7 +220,7 @@ public class TirameElPingController implements Initializable {
             DesactVentPing desactVentPing = new DesactVentPing(_txtIP, _radBtn, _nomIp);
 
             // ejecuta el hilo
-            MiHilo miHilo = new MiHilo(processes[id], _txtIP.getText(), detener, desactVentPing, _nomIp, _txtError);
+            MiHilo miHilo = new MiHilo(processes[id], _txtIP, detener, desactVentPing, _nomIp, _txtError);
             threads[id]= new Thread(miHilo);
             threads[id].start();
             desactFilaMultiPing(_nomIp, _txtIP,_radBtn, _btnIniciar, _btnDetener);
@@ -347,16 +329,16 @@ public class TirameElPingController implements Initializable {
     public  void ipConfigAll() {
 
         try {
-            if (txtIpInfo.getText().equals("")){
+            if (txtIpv4.getText().equals("")){
 
-                txtIpInfo.appendText("\n Dirección IPv4: " + InetAddress.getLocalHost().getHostAddress());
-                txtIpInfo.appendText("\n Host Name: " + InetAddress.getLocalHost().getHostName());
-                txtIpInfo.appendText("\n Canonical Host Name: " + InetAddress.getLocalHost().getCanonicalHostName());
+                txtIpv4.setText( InetAddress.getLocalHost().getHostAddress());
+                txtHostName.setText( InetAddress.getLocalHost().getHostName());
+                txtCanoHostName.setText( InetAddress.getLocalHost().getCanonicalHostName());
 
                 URL url_name = new URI("http://myexternalip.com/raw").toURL();
                 BufferedReader sc = new BufferedReader(new InputStreamReader(url_name.openStream()));
                 // reads system IPAddress
-                txtIpInfo.appendText("\n IP Publica: " + sc.readLine().trim());
+                txtIpPublic.setText( sc.readLine().trim());
 
             }
         } catch (IOException | URISyntaxException e) {
@@ -365,12 +347,12 @@ public class TirameElPingController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ipConfigAll();
         DesktopNotify.setDefaultTheme(NotifyTheme.Light);
         btnPing.setOnAction(a -> onVentPing());
         btnMultiPing.setOnAction(a -> onVentMultiPing());
-        btnIpInfo.setOnAction(a -> onVentIpInfo());
         btnRegPing.setOnAction(a -> onVentTxtSalida());
-        nomIp1.lengthProperty();
+
     }
 
 

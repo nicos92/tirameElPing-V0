@@ -14,14 +14,14 @@ import javafx.scene.text.Text;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
-
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 
 public class MiHilo implements Runnable{
 
     private final Process process;
-    private  final String ip;
+    private  final TextField ip;
     private final Detener detener;
     private final DesactVentPing desactVentPing;
 
@@ -32,7 +32,11 @@ public class MiHilo implements Runnable{
 
     private final Text txtError;
 
-    public MiHilo (Process process, String ip, Detener detener, DesactVentPing desactVentPing, TextField nomIp,
+    private final Lock lock = new ReentrantLock();
+
+
+
+    public MiHilo (Process process, TextField ip, Detener detener, DesactVentPing desactVentPing, TextField nomIp,
                    Text txtError){
         this.process = process;
         this.ip = ip;
@@ -62,7 +66,8 @@ public class MiHilo implements Runnable{
                     notify = sendNotificacion(notify, inputLine);
                 }catch (Exception e){
                     Platform.runLater(() -> {
-                        txtError.setText("ERROR Desktop Notify: " + nomIp.getText() + " " + ip + ". Intente Nuevamente");
+                        txtError.setText("ERROR Desktop Notify: " + nomIp.getText() + " " + ip.getText() + ". Intente Nuevamente");
+                        System.out.println("ERROR Desktop Notify: " + nomIp.getText() + " " + ip.getText() + e.getMessage());
                         txtError.setVisible(true);
                     });
                     process.destroy();
@@ -87,50 +92,57 @@ public class MiHilo implements Runnable{
 
     private  boolean sendNotificacion(boolean notify, String inputLine){
 
+        lock.lock();
+        try {
 
 
-        if (inputLine.contains("Error") || inputLine.contains("agotado")){
-            DesktopNotify.showDesktopMessage("Fallo en la Red de: " + nomIp.getText().toUpperCase(), "revise la IP: " + ip, DesktopNotify.FAIL, 5000L);
-            sonido.reproducirError();
-            styleNomIP(Style.rojoItems());
-            Log.crearArchivoLog("Fallo        -    " + inputLine , nomIp.getText(), ip);
-            bolLog = true;
-            return true;
-        }
-        if ( inputLine.contains("tiempo") && notify){
-            DesktopNotify.showDesktopMessage("Conexion establecida a: " + nomIp.getText()
-                    .toUpperCase(), "Con la IP: " + ip, DesktopNotify.SUCCESS, 5000L);
+            if (inputLine.contains("Error") || inputLine.contains("agotado")) {
+                DesktopNotify.showDesktopMessage("Fallo en la Red de: " + nomIp.getText().toUpperCase(), "revise la IP: " + ip.getText(), DesktopNotify.FAIL, 5000L);
+                sonido.reproducirError();
+                styleNomIP(Style.rojoItems());
+                Log.crearArchivoLog("Fallo        -    " + inputLine, nomIp.getText(), ip.getText());
+                bolLog = true;
+                return true;
+            }
+            if (inputLine.contains("tiempo") && notify) {
+                DesktopNotify.showDesktopMessage("Conexion establecida a: " + nomIp.getText()
+                        .toUpperCase(), "Con la IP: " + ip.getText(), DesktopNotify.SUCCESS, 5000L);
 
-            sonido.reproducirOk();
-
-            if (bolLog){
-                bolLog = false;
+                sonido.reproducirOk();
                 styleNomIP(Style.normalItems());
-                Log.crearArchivoLog("Conexion     -    " + inputLine, nomIp.getText(), ip);
+                if (bolLog) {
+                    bolLog = false;
+
+                    Log.crearArchivoLog("Conexion     -    " + inputLine, nomIp.getText(), ip.getText());
+                }
+
+                return false;
+            }
+            if (inputLine.contains("inaccesible")) {
+                DesktopNotify.showDesktopMessage("Inaccesible a: " + nomIp.getText().toUpperCase(), "No se Puede Acceder a la Direccion: " + ip.getText(),
+                        DesktopNotify.WARNING, 5000L);
+
+                sonido.reproducirError();
+                styleNomIP(Style.rojoItems());
+                Log.crearArchivoLog("Inacces.     -    " + inputLine, nomIp.getText(), ip.getText());
+                bolLog = true;
+
+            }
+            if (inputLine.contains("Paquetes")) {
+                DesktopNotify.showDesktopMessage("Fin de Ping a: " + nomIp.getText().toUpperCase(), "Con la IP: " + ip.getText(), DesktopNotify.INFORMATION, 4000L);
+                styleNomIP(Style.normalItems());
             }
 
-            return false;
+        }finally {
+            lock.unlock();
         }
-        if( inputLine.contains("inaccesible")){
-            DesktopNotify.showDesktopMessage("Inaccesible a: " + nomIp.getText().toUpperCase(), "No se Puede Acceder a la Direccion: " + ip,
-                    DesktopNotify.WARNING, 5000L);
 
-            sonido.reproducirError();
-            styleNomIP(Style.rojoItems());
-            Log.crearArchivoLog("Inacces.     -    " + inputLine, nomIp.getText(), ip);
-            bolLog = true;
-
-        }
-        if (inputLine.contains("Paquetes")) {
-            DesktopNotify.showDesktopMessage("Fin de Ping a: " + nomIp.getText().toUpperCase(), "Con la IP: " + ip, DesktopNotify.INFORMATION, 4000L);
-            styleNomIP(Style.normalItems());
-        }
         return notify;
     }
 
     public void styleNomIP(String estilo){
         nomIp.setStyle(estilo);
-        nomIp.setStyle(estilo);
+        ip.setStyle(estilo);
     }
 
 
