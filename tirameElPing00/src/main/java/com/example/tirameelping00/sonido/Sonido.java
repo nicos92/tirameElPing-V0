@@ -47,7 +47,7 @@ public class Sonido {
             }
 
         } catch (Exception e) {
-
+            System.out.println("Error play ok.wav: " + e.getMessage());
             Thread.currentThread().interrupt();
         }
     }

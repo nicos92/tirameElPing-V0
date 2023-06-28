@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 import java.io.BufferedReader;
@@ -46,7 +47,7 @@ public class TirameElPingController implements Initializable {
 
 
     @FXML
-    private Button btnDetener, btnDetener1, btnDetener2, btnDetener3, btnDetener4, btnDetener5, btnDetener6,
+    private Button  btnDetener, btnDetener1, btnDetener2, btnDetener3, btnDetener4, btnDetener5, btnDetener6,
                     btnDetener7, btnDetener8, btnDetener9, btnDetenerTodo;
 
     @FXML
@@ -59,7 +60,10 @@ public class TirameElPingController implements Initializable {
             radBtn_t9;
 
     @FXML
-    private AnchorPane ventanaPing, ventanaTxtSalida;
+    private AnchorPane mainStage, ventanaPing, ventanaTxtSalida;
+
+    @FXML
+    private VBox ventMenu;
 
     @FXML
     private ScrollPane scrollMultiPing;
@@ -154,6 +158,20 @@ public class TirameElPingController implements Initializable {
         btnMultiPing.setStyle("  -fx-border-color: transparent;" );
         ventanaPing.setVisible(false);
         scrollMultiPing.setVisible(false);
+    }
+
+    public void cerrarVentMenu(){
+        btnPing.setVisible(false);
+        btnMultiPing.setVisible(false);
+        btnRegPing.setVisible(false);
+        ventMenu.prefWidthProperty().bind(mainStage.getScene().getWindow().widthProperty().multiply(0.05));
+    }
+
+    public void abrirVentMenu(){
+        btnPing.setVisible(true);
+        btnMultiPing.setVisible(true);
+        btnRegPing.setVisible(true);
+        ventMenu.prefWidthProperty().bind(mainStage.getScene().getWindow().widthProperty().multiply(0.15));
     }
 
     public void onBtnIniciar(){
@@ -329,7 +347,6 @@ public class TirameElPingController implements Initializable {
     public  void ipConfigAll() {
 
         try {
-            if (txtIpv4.getText().equals("")){
 
                 txtIpv4.setText( InetAddress.getLocalHost().getHostAddress());
                 txtHostName.setText( InetAddress.getLocalHost().getHostName());
@@ -340,7 +357,6 @@ public class TirameElPingController implements Initializable {
                 // reads system IPAddress
                 txtIpPublic.setText( sc.readLine().trim());
 
-            }
         } catch (IOException | URISyntaxException e) {
             throw new RuntimeException(e);
         }

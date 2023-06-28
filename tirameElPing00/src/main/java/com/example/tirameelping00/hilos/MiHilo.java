@@ -109,10 +109,10 @@ public class MiHilo implements Runnable{
                         .toUpperCase(), "Con la IP: " + ip.getText(), DesktopNotify.SUCCESS, 5000L);
 
                 sonido.reproducirOk();
-                styleNomIP(Style.normalItems());
-                if (bolLog) {
-                    bolLog = false;
 
+                if (bolLog) {
+                    styleNomIP(Style.normalItems());
+                    bolLog = false;
                     Log.crearArchivoLog("Conexion     -    " + inputLine, nomIp.getText(), ip.getText());
                 }
 
