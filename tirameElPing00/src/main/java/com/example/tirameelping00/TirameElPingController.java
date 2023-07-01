@@ -11,6 +11,8 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -23,6 +25,7 @@ import java.net.InetAddress;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 
@@ -34,6 +37,8 @@ public class TirameElPingController implements Initializable {
      static final Process[] processes = new Process[10];
      static final Thread[] threads = new Thread[10];
 
+     @FXML
+     private ImageView imgVol;
 
      @FXML
      private Slider volume;
@@ -73,7 +78,7 @@ public class TirameElPingController implements Initializable {
     private ScrollPane scrollMultiPing;
 
     @FXML
-    private Label labelIp, lblVolume;
+    private Label labelIp;
 
     @FXML
     private TextField txtIP, txtIpv4, txtHostName, txtCanoHostName, txtIpPublic;
@@ -169,8 +174,9 @@ public class TirameElPingController implements Initializable {
         btnPing.setVisible(false);
         btnMultiPing.setVisible(false);
         btnRegPing.setVisible(false);
-        lblVolume.setVisible(false);
+        //lblVolume.setVisible(false);
         volume.setVisible(false);
+        imgVol.setVisible(false);
         ventMenu.prefWidthProperty().bind(mainStage.getScene().getWindow().widthProperty().multiply(0.05));
     }
 
@@ -178,7 +184,8 @@ public class TirameElPingController implements Initializable {
         btnPing.setVisible(true);
         btnMultiPing.setVisible(true);
         btnRegPing.setVisible(true);
-        lblVolume.setVisible(true);
+        //lblVolume.setVisible(true);
+        imgVol.setVisible(true);
         volume.setVisible(true);
 
         ventMenu.prefWidthProperty().bind(mainStage.getScene().getWindow().widthProperty().multiply(0.15));
@@ -206,6 +213,17 @@ public class TirameElPingController implements Initializable {
         threads[0].interrupt();
         desactVentPing(false);
 
+    }
+
+    public void setImgMute(){
+        if (volume.getValue() == 0){
+            Image image1 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("imgs/mute.png")));
+            imgVol.setImage(image1);
+        }else {
+            Image image2 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("imgs/vol.png")));
+            imgVol.setImage(image2);
+
+        }
     }
 
     public  void ejecutarPing() {

@@ -16,6 +16,8 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -285,7 +287,7 @@
                                  </font>
                               </JFXRadioButton>
                               <Separator prefWidth="10.0" visible="false" />
-                              <JFXButton fx:id="btnIniciar1" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="65.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="#00c8ff">
+                              <JFXButton fx:id="btnIniciar1" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="65.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
@@ -925,8 +927,12 @@
                      </cursor>
                   </JFXButton>
                   <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" visible="false" />
-                  <Label fx:id="lblVolume" text="Volumen" visible="false" />
-                  <JFXSlider fx:id="volume" max="80.0" snapToTicks="true" visible="false" />
+                  <ImageView fx:id="imgVol" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@imgs/vol.png" />
+                     </image>
+                  </ImageView>
+                  <JFXSlider fx:id="volume" max="80.0" onMouseDragged="#setImgMute" snapToTicks="true" visible="false" />
                   <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" visible="false" />
                </children>
                <padding>

@@ -10,14 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da0e1111-269e-4332-9eaa-00729bcedd97" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/imgs/mute.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/imgs/vol.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LOG/TEP 2023 JULY 1.log" beforeDir="false" afterPath="$PROJECT_DIR$/LOG/TEP 2023 JULY 1.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/TirameElPingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/TirameElPingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/estilos/Style.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/estilos/Style.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/hilos/EjecutarPingHilo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/hilos/EjecutarPingHilo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/hilos/MiHilo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/hilos/MiHilo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/sonido/Sonido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/sonido/Sonido.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/desingTEP.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/desingTEP.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/imgs/icons8-minus-64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/imgs/icons8-minus-sign-96.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
