@@ -5,7 +5,6 @@
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
-<?import com.jfoenix.controls.JFXToolbar?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
@@ -25,35 +24,35 @@
 
 <AnchorPane fx:id="mainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="800.0" style="-fx-background-color: #fcfff1;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tirameelping00.TirameElPingController">
    <children>
-      <MenuBar style="-fx-border-color: #000000; -fx-background-color: #fff6fe;" visible="false" AnchorPane.bottomAnchor="656.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <MenuBar styleClass="barMenuBar" visible="true" AnchorPane.bottomAnchor="656.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
-          <Menu mnemonicParsing="false" style="-fx-text-fill: #ffffff;" styleClass="menuT" text="File">
+          <Menu id="file" mnemonicParsing="false" style="-fx-text-fill: #0d7f00;" styleClass="btnMenuBar" text="File">
             <items>
               <MenuItem fx:id="menuItemClose" mnemonicParsing="false" onAction="#exitButton" text="Close" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" styleClass="menuT" text="Ping">
+            <Menu mnemonicParsing="false" text="Ping">
                <items>
                   <MenuItem fx:id="menuPingInit" mnemonicParsing="false" onAction="#onBtnIniciar" text="Iniciar" />
                   <MenuItem fx:id="menuPingDetener" mnemonicParsing="false" onAction="#onBtnDetener" text="Detener" />
                </items>
             </Menu>
-          <Menu mnemonicParsing="false" styleClass="menuT" text="Multi-Ping">
+          <Menu mnemonicParsing="false" text="Multi-Ping">
             <items>
               <MenuItem fx:id="menuItemInitTodo" mnemonicParsing="false" onAction="#iniciarTodoMultiPing" text="Iniciar Todo" />
                   <MenuItem fx:id="menuItemDetenerTodo" mnemonicParsing="false" onAction="#closeThreadProcess" text="Detener Todo" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" styleClass="menuT" text="Help">
+          <Menu mnemonicParsing="false" text="Help">
             <items>
               <MenuItem mnemonicParsing="false" text="About" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
-      <AnchorPane fx:id="base4" layoutX="11.0" layoutY="11.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-border-color: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="base4" layoutX="11.0" layoutY="11.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-border-color: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
          <children>
-            <AnchorPane fx:id="ventanaPing" layoutX="57.0" layoutY="2.0" prefHeight="723.0" prefWidth="793.0" style="-fx-background-color: #fcfff1;" visible="false" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="56.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="30.0">
+            <AnchorPane fx:id="ventanaPing" layoutX="57.0" layoutY="2.0" prefHeight="723.0" prefWidth="793.0" style="-fx-background-color: #fcfff1;" visible="false" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="56.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Text layoutX="274.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ejecutar Ping">
                      <font>
@@ -200,21 +199,21 @@
                   </JFXTextField>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="ventanaTxtSalida" layoutX="59.0" layoutY="2.0" prefHeight="723.0" prefWidth="791.0" style="-fx-background-color: #fcfff1; -fx-background-radius: 20;" visible="false" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="58.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="30.0">
+            <AnchorPane fx:id="ventanaTxtSalida" layoutX="59.0" layoutY="2.0" prefHeight="723.0" prefWidth="791.0" style="-fx-background-color: #fcfff1; -fx-background-radius: 20;" visible="false" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="58.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Text layoutX="267.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de Ping">
                      <font>
                         <Font name="Noto Sans SemiCondensed ExtraBold" size="27.0" />
                      </font>
                   </Text>
-                  <JFXTextArea fx:id="txtAreaSalida" editable="false" layoutX="55.0" layoutY="194.0" prefHeight="173.0" prefWidth="531.0" style="-fx-background-color: #f0f0f0; -fx-border-color: #Bace00; -fx-text-fill: #000000;" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="100.0">
+                  <JFXTextArea fx:id="txtAreaSalida" editable="false" layoutX="55.0" layoutY="194.0" prefHeight="173.0" prefWidth="531.0" style="-fx-background-color: #f9f9f9; -fx-border-color: #Bace00; -fx-text-fill: #000000;" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="100.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </JFXTextArea>
                </children>
             </AnchorPane>
-            <ScrollPane fx:id="scrollMultiPing" layoutX="61.0" layoutY="12.0" prefHeight="713.0" prefWidth="789.0" style="-fx-background-color: #fcfff1;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="30.0">
+            <ScrollPane fx:id="scrollMultiPing" layoutX="61.0" layoutY="12.0" prefHeight="713.0" prefWidth="789.0" style="-fx-background-color: #fcfff1;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
                <content>
                   <VBox fx:id="ventanaMultiPing" alignment="TOP_CENTER" prefHeight="761.0" prefWidth="725.0" style="-fx-background-color: #fcfff1;">
                      <children>
@@ -285,7 +284,7 @@
                                  </font>
                               </JFXRadioButton>
                               <Separator prefWidth="10.0" visible="false" />
-                              <JFXButton fx:id="btnIniciar1" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="65.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="#393939">
+                              <JFXButton fx:id="btnIniciar1" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="65.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
@@ -886,10 +885,10 @@
                   <Insets top="5.0" />
                </padding>
             </ScrollPane>
-            <VBox fx:id="ventMenu" alignment="TOP_CENTER" layoutX="2.0" layoutY="2.0" onMouseEntered="#abrirVentMenu" onMouseExited="#cerrarVentMenu" prefWidth="50.0" style="-fx-background-color: #202020; -fx-border-color: #00af13; -fx-border-width: 2px 2px 2px 2px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="30.0">
+            <VBox fx:id="ventMenu" alignment="TOP_CENTER" layoutX="2.0" layoutY="2.0" nodeOrientation="LEFT_TO_RIGHT" onMouseEntered="#abrirVentMenu" onMouseExited="#cerrarVentMenu" prefWidth="50.0" style="-fx-border-color: #000000; -fx-border-width: 2px 2px 2px 2px; -fx-background-color: #f9f9f9; -fx-border-radius: 0 0 0 4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" visible="false" />
-                  <JFXButton fx:id="btnMenu" prefHeight="50.0" prefWidth="150.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" styleClass="btnMenu" text="Menú" textFill="WHITE">
+                  <JFXButton fx:id="btnMenu" prefHeight="50.0" prefWidth="150.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" styleClass="btnMenu" text="Menú">
                      <font>
                         <Font name="Arial Black" size="18.0" />
                      </font>
@@ -898,7 +897,7 @@
                      </cursor>
                   </JFXButton>
                   <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" visible="false" />
-                  <JFXButton fx:id="btnPing" onMouseClicked="#onVentPing" prefHeight="50.0" prefWidth="150.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" styleClass="btnMenu" stylesheets="@style.css" text="Ping" textAlignment="CENTER" textFill="WHITE" visible="false">
+                  <JFXButton fx:id="btnPing" onMouseClicked="#onVentPing" prefHeight="50.0" prefWidth="150.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" styleClass="btnMenu" stylesheets="@style.css" text="Ping" textAlignment="CENTER" visible="false">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -907,7 +906,7 @@
                      </cursor>
                   </JFXButton>
                   <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" visible="false" />
-                  <JFXButton fx:id="btnRegPing" onMouseClicked="#onVentTxtSalida" prefHeight="50.0" prefWidth="150.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" styleClass="btnMenu" stylesheets="@style.css" text="Reg. Ping" textFill="WHITE" visible="false">
+                  <JFXButton fx:id="btnRegPing" onMouseClicked="#onVentTxtSalida" prefHeight="50.0" prefWidth="150.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" styleClass="btnMenu" stylesheets="@style.css" text="Reg. Ping" visible="false">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -916,7 +915,7 @@
                      </cursor>
                   </JFXButton>
                   <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" visible="false" />
-                  <JFXButton fx:id="btnMultiPing" onMouseClicked="#onVentMultiPing" prefHeight="50.0" prefWidth="150.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" styleClass="btnMenu" stylesheets="@style.css" text="Multi-Ping" textFill="WHITE" visible="false">
+                  <JFXButton fx:id="btnMultiPing" onMouseClicked="#onVentMultiPing" prefHeight="50.0" prefWidth="150.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" styleClass="btnMenu" stylesheets="@style.css" text="Multi-Ping" visible="false">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -932,6 +931,5 @@
             </VBox>
          </children>
       </AnchorPane>
-      <JFXToolbar />
    </children>
 </AnchorPane>

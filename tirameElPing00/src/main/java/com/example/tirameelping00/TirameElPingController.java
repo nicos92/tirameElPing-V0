@@ -364,18 +364,21 @@ public class TirameElPingController implements Initializable {
 
     public  void saberIpPublic() {
 
-        try {
+
             if (txtIpPublic.getText().equals("")){
+
+                try {
+                txtError.setText("");
                 URL url_name = new URI("http://myexternalip.com/raw").toURL();
                 BufferedReader sc = new BufferedReader(new InputStreamReader(url_name.openStream()));
                 // reads system IPAddress
                 txtIpPublic.setText( sc.readLine().trim());
+                } catch (IOException | URISyntaxException e) {
+                    txtError.setText("No se obtener IP Publica: " + e.getMessage());
+                }
+
             }
 
-
-        } catch (IOException | URISyntaxException e) {
-            throw new RuntimeException(e);
-        }
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -386,9 +389,6 @@ public class TirameElPingController implements Initializable {
         btnRegPing.setOnAction(a -> onVentTxtSalida());
 
     }
-
-
-
 
     public void btnIniciarMultiPing(MouseEvent mouseEvent) {
 
