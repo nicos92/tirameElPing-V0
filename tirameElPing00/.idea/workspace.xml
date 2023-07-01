@@ -10,15 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da0e1111-269e-4332-9eaa-00729bcedd97" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/LOG/TEP 2023 JULY 1.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/annotations-24.0.1.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/DS-Desktop-Notify.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/tirameElPing00.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/tirameElPing00.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LOG/TEP 2023 JULY 1.log" beforeDir="false" afterPath="$PROJECT_DIR$/LOG/TEP 2023 JULY 1.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/TirameElPingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/TirameElPingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/estilos/Style.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/estilos/Style.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/hilos/EjecutarPingHilo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/hilos/EjecutarPingHilo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/hilos/MiHilo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/hilos/MiHilo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/sonido/Sonido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/sonido/Sonido.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/desingTEP.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/desingTEP.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

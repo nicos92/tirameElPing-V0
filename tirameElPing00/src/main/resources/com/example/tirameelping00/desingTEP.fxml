@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXSlider?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
@@ -284,7 +285,7 @@
                                  </font>
                               </JFXRadioButton>
                               <Separator prefWidth="10.0" visible="false" />
-                              <JFXButton fx:id="btnIniciar1" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="65.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">
+                              <JFXButton fx:id="btnIniciar1" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="65.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="#00c8ff">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
@@ -923,6 +924,9 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </JFXButton>
+                  <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" visible="false" />
+                  <Label fx:id="lblVolume" text="Volumen" visible="false" />
+                  <JFXSlider fx:id="volume" max="80.0" snapToTicks="true" visible="false" />
                   <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" visible="false" />
                </children>
                <padding>

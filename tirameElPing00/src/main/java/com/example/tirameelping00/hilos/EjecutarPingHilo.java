@@ -7,10 +7,7 @@ import com.example.tirameelping00.sonido.Sonido;
 import com.example.tirameelping00.ventana.DesactVentPing;
 import ds.desktop.notify.DesktopNotify;
 import javafx.application.Platform;
-import javafx.scene.control.Button;
-import javafx.scene.control.ProgressIndicator;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
 import java.io.*;
@@ -25,18 +22,24 @@ public class EjecutarPingHilo implements Runnable{
     private final Process process;
     private final String ip;
     private final TextField txtRutaArchivo;
+    private final Slider volume;
+
     private final boolean bool;
     private final Sonido sonido;
     private final Detener detener;
     private final DesactVentPing desactVentPing;
     private boolean bolLog;
 
-    public EjecutarPingHilo(Process p, String ip, boolean selected, TextArea txtAreaSalida, TextField txtRutaArchivo, DesactVentPing desactVentPing, Button btnIniciar, Button btnDetener, ProgressIndicator progress, Text txtError){
+
+
+    public EjecutarPingHilo(Process p, String ip, boolean selected, TextArea txtAreaSalida, TextField txtRutaArchivo, DesactVentPing desactVentPing, Button btnIniciar, Button btnDetener, ProgressIndicator progress, Text txtError, Slider volume){
         this.process = p;
         this.ip = ip;
         this.bool = selected;
         this.txtAreaSalida = txtAreaSalida;
         this.txtRutaArchivo = txtRutaArchivo;
+        this.volume = volume;
+
         this.detener = new Detener(btnIniciar,btnDetener,progress, txtError);
         this.desactVentPing = desactVentPing;
         sonido = new Sonido();
@@ -106,27 +109,28 @@ public class EjecutarPingHilo implements Runnable{
 
         if (inputLine.contains("Error") || inputLine.contains("agotado")){
             DesktopNotify.showDesktopMessage("Fallo en la Red", "revise la IP: " + ip, DesktopNotify.FAIL, 5000L);
+            sonido.reproducirError(volume);
             Log.crearArchivoLog("Fallo    " + inputLine , "Ping: ", ip);
             bolLog = true;
-            sonido.reproducirError();
+
             return true;
         }
         if ( inputLine.contains("tiempo") && notify){
             DesktopNotify.showDesktopMessage("Conexion establecida", "Con la IP: " + ip, DesktopNotify.SUCCESS, 5000L);
-
+            sonido.reproducirOk(volume);
             if (bolLog){
                 bolLog = false;
                 Log.crearArchivoLog("Conexion " + inputLine, "Ping: ", ip);
             }
 
-            sonido.reproducirOk();
+
             return false;
         }
         if( inputLine.contains("inaccesible")){
             DesktopNotify.showDesktopMessage("Inaccesible", "No se Puede Acceder a la Direccion: " + ip,
                     DesktopNotify.WARNING, 5000L);
 
-            sonido.reproducirError();
+            sonido.reproducirError(volume);
             Log.crearArchivoLog("Inacces. " + inputLine, "Ping: ", ip);
             bolLog = true;
         }

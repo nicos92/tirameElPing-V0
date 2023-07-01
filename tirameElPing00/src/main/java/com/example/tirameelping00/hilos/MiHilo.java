@@ -8,6 +8,7 @@ import com.example.tirameelping00.sonido.Sonido;
 import com.example.tirameelping00.ventana.DesactVentPing;
 import ds.desktop.notify.DesktopNotify;
 import javafx.application.Platform;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
@@ -24,6 +25,8 @@ public class MiHilo implements Runnable{
     private  final TextField ip;
     private final Detener detener;
     private final DesactVentPing desactVentPing;
+    private final Slider volume;
+
 
     private final Sonido sonido;
 
@@ -37,11 +40,13 @@ public class MiHilo implements Runnable{
 
 
     public MiHilo (Process process, TextField ip, Detener detener, DesactVentPing desactVentPing, TextField nomIp,
-                   Text txtError){
+                   Text txtError, Slider volume){
         this.process = process;
         this.ip = ip;
         this.detener = detener;
         this.desactVentPing = desactVentPing;
+        this.volume = volume;
+
         this.sonido = new Sonido();
         this.nomIp = nomIp;
         this.txtError = txtError;
@@ -98,7 +103,7 @@ public class MiHilo implements Runnable{
 
             if (inputLine.contains("Error") || inputLine.contains("agotado")) {
                 DesktopNotify.showDesktopMessage("Fallo en la Red de: " + nomIp.getText().toUpperCase(), "revise la IP: " + ip.getText(), DesktopNotify.FAIL, 5000L);
-                sonido.reproducirError();
+                sonido.reproducirError(volume);
                 styleNomIP(Style.rojoItems());
                 Log.crearArchivoLog("Fallo        -    " + inputLine, nomIp.getText(), ip.getText());
                 bolLog = true;
@@ -108,7 +113,7 @@ public class MiHilo implements Runnable{
                 DesktopNotify.showDesktopMessage("Conexion establecida a: " + nomIp.getText()
                         .toUpperCase(), "Con la IP: " + ip.getText(), DesktopNotify.SUCCESS, 5000L);
 
-                sonido.reproducirOk();
+                sonido.reproducirOk(volume);
 
                 if (bolLog) {
                     styleNomIP(Style.normalItems());
@@ -122,7 +127,7 @@ public class MiHilo implements Runnable{
                 DesktopNotify.showDesktopMessage("Inaccesible a: " + nomIp.getText().toUpperCase(), "No se Puede Acceder a la Direccion: " + ip.getText(),
                         DesktopNotify.WARNING, 5000L);
 
-                sonido.reproducirError();
+                sonido.reproducirError(volume);
                 styleNomIP(Style.rojoItems());
                 Log.crearArchivoLog("Inacces.     -    " + inputLine, nomIp.getText(), ip.getText());
                 bolLog = true;

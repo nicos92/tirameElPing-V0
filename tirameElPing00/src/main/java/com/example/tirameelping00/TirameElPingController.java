@@ -34,6 +34,10 @@ public class TirameElPingController implements Initializable {
      static final Process[] processes = new Process[10];
      static final Thread[] threads = new Thread[10];
 
+
+     @FXML
+     private Slider volume;
+
     @FXML
     private Button btnMultiPing, btnRegPing, btnPing;
 
@@ -69,7 +73,7 @@ public class TirameElPingController implements Initializable {
     private ScrollPane scrollMultiPing;
 
     @FXML
-    private Label labelIp;
+    private Label labelIp, lblVolume;
 
     @FXML
     private TextField txtIP, txtIpv4, txtHostName, txtCanoHostName, txtIpPublic;
@@ -165,6 +169,8 @@ public class TirameElPingController implements Initializable {
         btnPing.setVisible(false);
         btnMultiPing.setVisible(false);
         btnRegPing.setVisible(false);
+        lblVolume.setVisible(false);
+        volume.setVisible(false);
         ventMenu.prefWidthProperty().bind(mainStage.getScene().getWindow().widthProperty().multiply(0.05));
     }
 
@@ -172,6 +178,9 @@ public class TirameElPingController implements Initializable {
         btnPing.setVisible(true);
         btnMultiPing.setVisible(true);
         btnRegPing.setVisible(true);
+        lblVolume.setVisible(true);
+        volume.setVisible(true);
+
         ventMenu.prefWidthProperty().bind(mainStage.getScene().getWindow().widthProperty().multiply(0.15));
     }
 
@@ -212,7 +221,7 @@ public class TirameElPingController implements Initializable {
             //Detener detener = new Detener(btnIniciar,btnDetener, progress, txtError);
             DesactVentPing desactPing = new DesactVentPing(labelIp,txtIP,radBtn_Prueba,radBtn_t,radBtn_n,txtCantPet, host_a,pingEnTxt);
             EjecutarPingHilo runClass = new EjecutarPingHilo(processes[0], txtIP.getText(), pingEnTxt.isSelected(), txtAreaSalida,
-                    txtRutaArchivo, desactPing, btnIniciar, btnDetener, progress, txtError);
+                    txtRutaArchivo, desactPing, btnIniciar, btnDetener, progress, txtError, volume);
 
             //340480_ATf movistar club
             threads[0] = new Thread(runClass);
@@ -226,6 +235,7 @@ public class TirameElPingController implements Initializable {
     public  void ejecutarMultiPing(int id, TextField _txtIP, Button _btnIniciar, Button _btnDetener,
                                     RadioButton _radBtn, TextField _nomIp, Text _txtError) {
         try {
+
             if (threads[id] != null) threads[id].interrupt();
             // prepara el comando CMD
             String cmd = "ping " + _txtIP.getText() + (_radBtn.isSelected() ? " -t " : " ");
@@ -239,7 +249,7 @@ public class TirameElPingController implements Initializable {
             DesactVentPing desactVentPing = new DesactVentPing(_txtIP, _radBtn, _nomIp);
 
             // ejecuta el hilo
-            MiHilo miHilo = new MiHilo(processes[id], _txtIP, detener, desactVentPing, _nomIp, _txtError);
+            MiHilo miHilo = new MiHilo(processes[id], _txtIP, detener, desactVentPing, _nomIp, _txtError, volume);
             threads[id]= new Thread(miHilo);
             threads[id].start();
             desactFilaMultiPing(_nomIp, _txtIP,_radBtn, _btnIniciar, _btnDetener);
