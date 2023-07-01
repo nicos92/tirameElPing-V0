@@ -127,8 +127,9 @@ public class TirameElPingController implements Initializable {
     public void onVentPing(){
         ventanaPing.setVisible(true);
         btnPing.setStyle(Style.ventElegida());
-        btnMultiPing.setStyle("  -fx-border-color: transparent;" );
-        btnRegPing.setStyle("   -fx-border-color: transparent;" );
+        btnMultiPing.setStyle(Style.ventApagada() );
+        btnRegPing.setStyle(Style.ventApagada() );
+
 
         ventanaTxtSalida.setVisible(false);
 
@@ -141,8 +142,8 @@ public class TirameElPingController implements Initializable {
     public void onVentMultiPing(){
         ventanaPing.setVisible(false);
         btnMultiPing.setStyle(Style.ventElegida());
-        btnPing.setStyle("   -fx-border-color: transparent;" );
-        btnRegPing.setStyle("   -fx-border-color: transparent;" );
+        btnPing.setStyle(Style.ventApagada() );
+        btnRegPing.setStyle(Style.ventApagada() );
 
         ventanaTxtSalida.setVisible(false);
 
@@ -154,8 +155,8 @@ public class TirameElPingController implements Initializable {
     public void onVentTxtSalida(){
         ventanaTxtSalida.setVisible(true);
         btnRegPing.setStyle(Style.ventElegida());
-        btnPing.setStyle("  -fx-border-color: transparent;" );
-        btnMultiPing.setStyle("  -fx-border-color: transparent;" );
+        btnPing.setStyle(Style.ventApagada() );
+        btnMultiPing.setStyle(Style.ventApagada());
         ventanaPing.setVisible(false);
         scrollMultiPing.setVisible(false);
     }
@@ -299,8 +300,12 @@ public class TirameElPingController implements Initializable {
      public void closeThreadProcess() {
          Platform.runLater(() -> btnTodos(true));
 
-         for (Thread t : threads) if (t !=  null && t.isAlive())t.interrupt();
-         for (Process p: processes) if (p != null)p.destroy();
+         for( int i = 1; i < threads.length; i++){
+             if (threads[i] !=  null && threads[i].isAlive())threads[i].interrupt();
+         }
+         for( int i = 1; i < processes.length; i++){
+             if (processes[i] != null)processes[i].destroy();
+         }
 
          Platform.runLater(() -> btnTodos(false));
 
@@ -347,15 +352,26 @@ public class TirameElPingController implements Initializable {
     public  void ipConfigAll() {
 
         try {
+            txtIpv4.setText( InetAddress.getLocalHost().getHostAddress());
+            txtHostName.setText( InetAddress.getLocalHost().getHostName());
+            txtCanoHostName.setText( InetAddress.getLocalHost().getCanonicalHostName());
 
-                txtIpv4.setText( InetAddress.getLocalHost().getHostAddress());
-                txtHostName.setText( InetAddress.getLocalHost().getHostName());
-                txtCanoHostName.setText( InetAddress.getLocalHost().getCanonicalHostName());
+        } catch (IOException  e) {
+            throw new RuntimeException(e);
+        }
+    }
 
+
+    public  void saberIpPublic() {
+
+        try {
+            if (txtIpPublic.getText().equals("")){
                 URL url_name = new URI("http://myexternalip.com/raw").toURL();
                 BufferedReader sc = new BufferedReader(new InputStreamReader(url_name.openStream()));
                 // reads system IPAddress
                 txtIpPublic.setText( sc.readLine().trim());
+            }
+
 
         } catch (IOException | URISyntaxException e) {
             throw new RuntimeException(e);

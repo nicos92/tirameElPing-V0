@@ -11,7 +11,11 @@ public class Style {
     }
 
     public static String ventElegida(){
-        return "-fx-background-color: #ffffff; -fx-border-color: #00af13; -fx-border-width: 0px 0px 3px 0px;";
+        return "-fx-background-color: #393939; -fx-background-radius: 20; -fx-border-color: #00b7c3; -fx-border-width: 3px 3px 3px 3px; -fx-border-radius: 20";
+    }
+
+    public static String ventApagada(){
+        return " -fx-background-radius: 20; -fx-border-color: transparent; -fx-border-width: 0px 0px 3px 3px; -fx-border-radius: 20";
     }
 
 }
