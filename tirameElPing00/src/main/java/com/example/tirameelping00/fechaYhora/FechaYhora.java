@@ -7,7 +7,7 @@ public class FechaYhora {
 
     public static String fechaYhoraNow(){
         LocalDateTime fechaYhoraLog = LocalDateTime.now();
-        DateTimeFormatter fechaLog = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        DateTimeFormatter fechaLog = DateTimeFormatter.ofPattern("yyyy/MM/dd - HH:mm:ss");
         return fechaYhoraLog.format(fechaLog);
     }
 }

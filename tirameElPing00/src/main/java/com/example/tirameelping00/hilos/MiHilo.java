@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.concurrent.locks.Lock;
@@ -27,7 +28,6 @@ public class MiHilo implements Runnable{
     private final DesactVentPing desactVentPing;
     private final Slider volume;
 
-
     private final Sonido sonido;
 
     private boolean bolLog;
@@ -40,16 +40,17 @@ public class MiHilo implements Runnable{
 
 
     public MiHilo (Process process, TextField ip, Detener detener, DesactVentPing desactVentPing, TextField nomIp,
-                   Text txtError, Slider volume){
+                   Text txtError, Slider volume, Sonido sonido){
         this.process = process;
         this.ip = ip;
         this.detener = detener;
         this.desactVentPing = desactVentPing;
         this.volume = volume;
 
-        this.sonido = new Sonido();
+        this.sonido = sonido;
         this.nomIp = nomIp;
         this.txtError = txtError;
+
     }
 
     @Override
@@ -67,7 +68,7 @@ public class MiHilo implements Runnable{
 
                 try{
 
-                    
+
                     notify = sendNotificacion(notify, inputLine);
                 }catch (Exception e){
                     Platform.runLater(() -> {
@@ -103,7 +104,7 @@ public class MiHilo implements Runnable{
 
             if (inputLine.contains("Error") || inputLine.contains("agotado")) {
                 DesktopNotify.showDesktopMessage("Fallo en la Red de: " + nomIp.getText().toUpperCase(), "revise la IP: " + ip.getText(), DesktopNotify.FAIL, 5000L);
-                sonido.reproducirError(volume);
+                reprodicirSonido("sonidos\\error.wav", false);
                 styleNomIP(Style.rojoItems());
                 Log.crearArchivoLog("Fallo        -    " + inputLine, nomIp.getText(), ip.getText());
                 bolLog = true;
@@ -113,7 +114,7 @@ public class MiHilo implements Runnable{
                 DesktopNotify.showDesktopMessage("Conexion establecida a: " + nomIp.getText()
                         .toUpperCase(), "Con la IP: " + ip.getText(), DesktopNotify.SUCCESS, 5000L);
 
-                sonido.reproducirOk(volume);
+                reprodicirSonido("sonidos\\ok.wav", true);
 
                 if (bolLog) {
                     styleNomIP(Style.normalItems());
@@ -127,7 +128,7 @@ public class MiHilo implements Runnable{
                 DesktopNotify.showDesktopMessage("Inaccesible a: " + nomIp.getText().toUpperCase(), "No se Puede Acceder a la Direccion: " + ip.getText(),
                         DesktopNotify.WARNING, 5000L);
 
-                sonido.reproducirError(volume);
+                reprodicirSonido("sonidos\\error.wav", false);
                 styleNomIP(Style.rojoItems());
                 Log.crearArchivoLog("Inacces.     -    " + inputLine, nomIp.getText(), ip.getText());
                 bolLog = true;
@@ -148,6 +149,14 @@ public class MiHilo implements Runnable{
     public void styleNomIP(String estilo){
         nomIp.setStyle(estilo);
         ip.setStyle(estilo);
+    }
+
+    private void reprodicirSonido(String pathname, boolean bol) {
+        sonido.selectSonido(new File(pathname));
+        sonido.setGainControl(volume.getValue());
+
+
+        sonido.play(bol);
     }
 
 

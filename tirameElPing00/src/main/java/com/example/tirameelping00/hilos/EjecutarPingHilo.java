@@ -28,11 +28,13 @@ public class EjecutarPingHilo implements Runnable{
     private final Sonido sonido;
     private final Detener detener;
     private final DesactVentPing desactVentPing;
+
     private boolean bolLog;
 
 
 
-    public EjecutarPingHilo(Process p, String ip, boolean selected, TextArea txtAreaSalida, TextField txtRutaArchivo, DesactVentPing desactVentPing, Button btnIniciar, Button btnDetener, ProgressIndicator progress, Text txtError, Slider volume){
+
+    public EjecutarPingHilo(Process p, String ip, boolean selected, TextArea txtAreaSalida, TextField txtRutaArchivo, DesactVentPing desactVentPing, Button btnIniciar, Button btnDetener, ProgressIndicator progress, Text txtError, Slider volume, Sonido sonido){
         this.process = p;
         this.ip = ip;
         this.bool = selected;
@@ -42,12 +44,16 @@ public class EjecutarPingHilo implements Runnable{
 
         this.detener = new Detener(btnIniciar,btnDetener,progress, txtError);
         this.desactVentPing = desactVentPing;
-        sonido = new Sonido();
+        this.sonido = sonido;
+
     }
 
     @Override
     public void run() {
         try{
+
+
+
             int i = 0;
             txtAreaSalida.setText("");
             BufferedReader lector = new BufferedReader(new InputStreamReader(process.getInputStream()));
@@ -93,9 +99,8 @@ public class EjecutarPingHilo implements Runnable{
                 }
             }
 
-            if (sonido.getSonido() != null){
-                sonido.closeSonido();
-            }
+            if (sonido.getSonido() != null)sonido.closeSonido();
+
 
             detener.sendBtnDetener();
             desactVentPing.desactItemsPing(false);
@@ -109,7 +114,8 @@ public class EjecutarPingHilo implements Runnable{
 
         if (inputLine.contains("Error") || inputLine.contains("agotado")){
             DesktopNotify.showDesktopMessage("Fallo en la Red", "revise la IP: " + ip, DesktopNotify.FAIL, 5000L);
-            sonido.reproducirError(volume);
+            reprodicirSonido("sonidos\\error.wav", false);
+            //sonido.loop(new File("sonidos\\error.wav"));
             Log.crearArchivoLog("Fallo    " + inputLine , "Ping: ", ip);
             bolLog = true;
 
@@ -117,7 +123,8 @@ public class EjecutarPingHilo implements Runnable{
         }
         if ( inputLine.contains("tiempo") && notify){
             DesktopNotify.showDesktopMessage("Conexion establecida", "Con la IP: " + ip, DesktopNotify.SUCCESS, 5000L);
-            sonido.reproducirOk(volume);
+            reprodicirSonido("sonidos\\ok.wav", true);
+
             if (bolLog){
                 bolLog = false;
                 Log.crearArchivoLog("Conexion " + inputLine, "Ping: ", ip);
@@ -130,7 +137,8 @@ public class EjecutarPingHilo implements Runnable{
             DesktopNotify.showDesktopMessage("Inaccesible", "No se Puede Acceder a la Direccion: " + ip,
                     DesktopNotify.WARNING, 5000L);
 
-            sonido.reproducirError(volume);
+            reprodicirSonido("sonidos\\error.wav", false);
+            //sonido.loop(new File("sonidos\\error.wav"));
             Log.crearArchivoLog("Inacces. " + inputLine, "Ping: ", ip);
             bolLog = true;
         }
@@ -139,6 +147,12 @@ public class EjecutarPingHilo implements Runnable{
 
         }
         return notify;
+    }
+
+    private void reprodicirSonido(String pathname, boolean bol) {
+        sonido.selectSonido(new File(pathname));
+        sonido.setGainControl(volume.getValue());
+        sonido.play(bol);
     }
 
     private  String getNameFile(){

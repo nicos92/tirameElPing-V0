@@ -4,6 +4,7 @@ import com.example.tirameelping00.detencion.Detener;
 import com.example.tirameelping00.estilos.Style;
 import com.example.tirameelping00.hilos.EjecutarPingHilo;
 import com.example.tirameelping00.hilos.MiHilo;
+import com.example.tirameelping00.sonido.Sonido;
 import com.example.tirameelping00.ventana.DesactVentPing;
 import ds.desktop.notify.DesktopNotify;
 import ds.desktop.notify.NotifyTheme;
@@ -33,6 +34,8 @@ public class TirameElPingController implements Initializable {
 
 
     private Runtime r;
+
+    private final Sonido[] sonidos = new Sonido[10];
 
      static final Process[] processes = new Process[10];
      static final Thread[] threads = new Thread[10];
@@ -216,6 +219,7 @@ public class TirameElPingController implements Initializable {
     }
 
     public void setImgMute(){
+        //Sonido.setGainControl(volume.getValue());
         if (volume.getValue() == 0){
             Image image1 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("imgs/mute.png")));
             imgVol.setImage(image1);
@@ -231,7 +235,7 @@ public class TirameElPingController implements Initializable {
 
             if (threads[0] != null) threads[0].interrupt();
 
-
+            sonidos[0] = new Sonido();
             String pingCmd = "ping " +  txtIP.getText() + selectRadioBtn();
             r = Runtime.getRuntime();
             processes[0] = r.exec(pingCmd);
@@ -239,7 +243,7 @@ public class TirameElPingController implements Initializable {
             //Detener detener = new Detener(btnIniciar,btnDetener, progress, txtError);
             DesactVentPing desactPing = new DesactVentPing(labelIp,txtIP,radBtn_Prueba,radBtn_t,radBtn_n,txtCantPet, host_a,pingEnTxt);
             EjecutarPingHilo runClass = new EjecutarPingHilo(processes[0], txtIP.getText(), pingEnTxt.isSelected(), txtAreaSalida,
-                    txtRutaArchivo, desactPing, btnIniciar, btnDetener, progress, txtError, volume);
+                    txtRutaArchivo, desactPing, btnIniciar, btnDetener, progress, txtError, volume, sonidos[0]);
 
             //340480_ATf movistar club
             threads[0] = new Thread(runClass);
@@ -260,6 +264,8 @@ public class TirameElPingController implements Initializable {
              r = Runtime.getRuntime();
              processes[id] = r.exec(cmd);
 
+            sonidos[id] = new Sonido();
+
             // detiene el proceso
             /*Detener detener = new Detener(btnIniciar,btnDetener, progress, txtError);*/
             Detener detener = new Detener( _btnIniciar, _btnDetener);
@@ -267,7 +273,7 @@ public class TirameElPingController implements Initializable {
             DesactVentPing desactVentPing = new DesactVentPing(_txtIP, _radBtn, _nomIp);
 
             // ejecuta el hilo
-            MiHilo miHilo = new MiHilo(processes[id], _txtIP, detener, desactVentPing, _nomIp, _txtError, volume);
+            MiHilo miHilo = new MiHilo(processes[id], _txtIP, detener, desactVentPing, _nomIp, _txtError, volume, sonidos[id]);
             threads[id]= new Thread(miHilo);
             threads[id].start();
             desactFilaMultiPing(_nomIp, _txtIP,_radBtn, _btnIniciar, _btnDetener);
@@ -415,6 +421,13 @@ public class TirameElPingController implements Initializable {
         btnPing.setOnAction(a -> onVentPing());
         btnMultiPing.setOnAction(a -> onVentMultiPing());
         btnRegPing.setOnAction(a -> onVentTxtSalida());
+        volume.addEventHandler(MouseEvent.MOUSE_DRAGGED, (e) ->{
+            //sonido.setGainControl(volume.getValue());
+            for (Sonido son : sonidos){
+                if (son != null)son.setGainControl(volume.getValue());
+            }
+        } );
+
 
     }
 

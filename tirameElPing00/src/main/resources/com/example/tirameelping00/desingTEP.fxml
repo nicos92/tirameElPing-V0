@@ -55,7 +55,7 @@
       </MenuBar>
       <AnchorPane fx:id="base4" layoutX="11.0" layoutY="11.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-border-color: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
          <children>
-            <AnchorPane fx:id="ventanaPing" layoutX="57.0" layoutY="2.0" prefHeight="723.0" prefWidth="793.0" style="-fx-background-color: #fcfff1;" visible="false" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="56.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="ventanaPing" layoutX="57.0" layoutY="2.0" prefHeight="723.0" prefWidth="793.0" style="-fx-background-color: #fcfff1;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="56.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Text layoutX="274.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ejecutar Ping">
                      <font>
@@ -137,13 +137,13 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </JFXButton>
-                  <ProgressIndicator fx:id="progress" layoutX="455.0" layoutY="169.0" visible="false" />
+                  <ProgressIndicator fx:id="progress" layoutX="465.0" layoutY="190.0" visible="false" />
                   <Text fx:id="txtError" fill="#ff2121" layoutX="24.0" layoutY="572.0" strokeType="OUTSIDE" strokeWidth="0.0" textOrigin="CENTER" wrappingWidth="645.9830722808838" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="28.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Text>
-                  <Text layoutX="293.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mi IP Info">
+                  <Text layoutX="314.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mi IP">
                      <font>
                         <Font name="Noto Sans SemiCondensed ExtraBold" size="24.0" />
                      </font>
@@ -216,7 +216,7 @@
                   </JFXTextArea>
                </children>
             </AnchorPane>
-            <ScrollPane fx:id="scrollMultiPing" layoutX="61.0" layoutY="12.0" prefHeight="713.0" prefWidth="789.0" style="-fx-background-color: #fcfff1;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
+            <ScrollPane fx:id="scrollMultiPing" layoutX="61.0" layoutY="12.0" prefHeight="713.0" prefWidth="789.0" style="-fx-background-color: #fcfff1;" visible="false" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
                <content>
                   <VBox fx:id="ventanaMultiPing" alignment="TOP_CENTER" prefHeight="761.0" prefWidth="725.0" style="-fx-background-color: #fcfff1;">
                      <children>
@@ -932,7 +932,7 @@
                         <Image url="@imgs/vol.png" />
                      </image>
                   </ImageView>
-                  <JFXSlider fx:id="volume" max="80.0" onMouseDragged="#setImgMute" snapToTicks="true" visible="false" />
+                  <JFXSlider fx:id="volume" max="80.0" onMouseDragged="#setImgMute" />
                   <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" visible="false" />
                </children>
                <padding>

@@ -1,65 +1,34 @@
 package com.example.tirameelping00.sonido;
 
-import javafx.scene.control.Slider;
-
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.FloatControl;
+import javax.sound.sampled.*;
 import java.io.File;
+
 
 public class Sonido {
 
-
-
-
     private  Clip sonido;
+    private FloatControl gainControl;
 
-    public  void reproducirError(Slider volume){
+    public void selectSonido(File url){
         try {
-
-            String path = new File("sonidos\\error.wav").getAbsolutePath();
-
-           // Se obtiene un Clip de sonido
-           sonido = AudioSystem.getClip();
-
-
-
-            // Se carga con un fichero wav
-            sonido.open(AudioSystem.getAudioInputStream(new File(path)));
-            FloatControl gainControl =
-                    (FloatControl) sonido.getControl(FloatControl.Type.MASTER_GAIN);
-            gainControl.setValue((float) (-80 + volume.getValue()));
-            System.out.println(-80 + volume.getValue());
-            // Comienza la reproducción
-            sonido.start();
-
+            AudioInputStream audio = AudioSystem.getAudioInputStream(url);
+            sonido = AudioSystem.getClip();
+            sonido.open(audio);
+            gainControl= (FloatControl) sonido.getControl(FloatControl.Type.MASTER_GAIN);
         } catch (Exception e) {
-            System.out.println("Error play error.wav: " + e.getMessage());
+            System.out.println("Error selectSonido: " + e.getMessage());
         }
     }
-    public  void reproducirOk(Slider volume){
-        try {
-            String path = new File("sonidos\\ok.wav").getAbsolutePath();
 
-            // Se obtiene un Clip de sonido
-            sonido = AudioSystem.getClip();
-            System.out.println(-80 + volume.getValue());
-            // Se carga con un fichero wav
-            sonido.open(AudioSystem.getAudioInputStream(new File(path)));
-            FloatControl gainControl =
-                    (FloatControl) sonido.getControl(FloatControl.Type.MASTER_GAIN);
-            gainControl.setValue((float) (-80 + volume.getValue()));
-
-            // Comienza la reproducción
-            sonido.start();
-            if (sonido.isOpen()) {
+    public void play(boolean bol){
+        sonido.setFramePosition(0);
+        sonido.start();
+        if (bol) {
+            try {
                 Thread.sleep(1100);
-                sonido.close();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
-
-        } catch (Exception e) {
-            System.out.println("Error play ok.wav: " + e.getMessage());
-            Thread.currentThread().interrupt();
         }
     }
 
@@ -69,5 +38,9 @@ public class Sonido {
 
     public  Clip getSonido() {
         return sonido;
+    }
+
+   public  void setGainControl(double volume){
+        gainControl.setValue(-80 + (float) volume);
     }
 }
