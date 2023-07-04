@@ -27,7 +27,7 @@
 
 <AnchorPane fx:id="mainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="800.0" style="-fx-background-color: #fcfff1;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tirameelping00.TirameElPingController">
    <children>
-      <MenuBar styleClass="barMenuBar" visible="true" AnchorPane.bottomAnchor="656.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <MenuBar prefHeight="25.0" prefWidth="800.0" styleClass="barMenuBar" visible="true" AnchorPane.bottomAnchor="725.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu id="file" mnemonicParsing="false" style="-fx-text-fill: #0d7f00;" styleClass="btnMenuBar" text="File">
             <items>
@@ -55,7 +55,7 @@
       </MenuBar>
       <AnchorPane fx:id="base4" layoutX="11.0" layoutY="11.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-border-color: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
          <children>
-            <AnchorPane fx:id="ventanaPing" layoutX="57.0" layoutY="2.0" prefHeight="723.0" prefWidth="793.0" style="-fx-background-color: #fcfff1;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="56.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="ventanaPing" layoutX="57.0" layoutY="2.0" prefHeight="723.0" prefWidth="793.0" style="-fx-background-color: #fcfff1;" visible="false" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="56.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Text layoutX="274.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ejecutar Ping">
                      <font>
@@ -216,31 +216,10 @@
                   </JFXTextArea>
                </children>
             </AnchorPane>
-            <ScrollPane fx:id="scrollMultiPing" layoutX="61.0" layoutY="12.0" prefHeight="713.0" prefWidth="789.0" style="-fx-background-color: #fcfff1;" visible="false" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
+            <ScrollPane fx:id="scrollMultiPing" layoutX="61.0" layoutY="12.0" prefHeight="713.0" prefWidth="789.0" style="-fx-background-color: #fcfff1;" visible="false" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="60.0">
                <content>
                   <VBox fx:id="ventanaMultiPing" alignment="TOP_CENTER" prefHeight="761.0" prefWidth="725.0" style="-fx-background-color: #fcfff1;">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
-                           <children>
-                              <JFXButton fx:id="btnIniciarTodo" onMouseClicked="#iniciarTodoMultiPing" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar Todo" textFill="WHITE">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </JFXButton>
-                              <Separator prefWidth="10.0" visible="false" />
-                              <JFXButton fx:id="btnDetenerTodo" onMouseClicked="#closeThreadProcess" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener Todo" textFill="WHITE">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </JFXButton>
-                           </children>
-                        </HBox>
                         <Separator orientation="VERTICAL" prefHeight="19.0" prefWidth="686.0" visible="false" />
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
@@ -932,13 +911,34 @@
                         <Image url="@imgs/vol.png" />
                      </image>
                   </ImageView>
-                  <JFXSlider fx:id="volume" max="80.0" onMouseDragged="#setImgMute" />
+                  <JFXSlider fx:id="volume" max="80.0" onMouseDragged="#setImgMute" visible="false" />
                   <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="82.0" visible="false" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </VBox>
+            <HBox fx:id="ventBtnsTodo" alignment="CENTER" layoutX="20.0" layoutY="20.0" prefHeight="50.0" prefWidth="200.0" visible="false" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <JFXButton fx:id="btnIniciarTodo" onMouseClicked="#iniciarTodoMultiPing" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar Todo" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <Separator prefWidth="10.0" visible="false" />
+                  <JFXButton fx:id="btnDetenerTodo" onMouseClicked="#closeThreadProcess" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="Detener Todo" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+               </children>
+            </HBox>
          </children>
       </AnchorPane>
    </children>

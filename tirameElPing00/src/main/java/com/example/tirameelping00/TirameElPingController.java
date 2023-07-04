@@ -16,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
@@ -39,6 +40,9 @@ public class TirameElPingController implements Initializable {
 
      static final Process[] processes = new Process[10];
      static final Thread[] threads = new Thread[10];
+
+     @FXML
+     private HBox ventBtnsTodo;
 
      @FXML
      private ImageView imgVol;
@@ -145,6 +149,7 @@ public class TirameElPingController implements Initializable {
 
         ventanaTxtSalida.setVisible(false);
 
+        ventBtnsTodo.setVisible(false);
         scrollMultiPing.setVisible(false);
         txtIP.toBack();
         radioButton();
@@ -158,6 +163,7 @@ public class TirameElPingController implements Initializable {
         btnRegPing.setStyle(Style.ventApagada() );
 
         ventanaTxtSalida.setVisible(false);
+        ventBtnsTodo.setVisible(true);
 
         scrollMultiPing.setVisible(true);
 
@@ -170,6 +176,8 @@ public class TirameElPingController implements Initializable {
         btnPing.setStyle(Style.ventApagada() );
         btnMultiPing.setStyle(Style.ventApagada());
         ventanaPing.setVisible(false);
+        ventBtnsTodo.setVisible(false);
+
         scrollMultiPing.setVisible(false);
     }
 
