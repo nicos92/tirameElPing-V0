@@ -3,9 +3,9 @@ package com.example.tirameelping00.hilos;
 import com.example.tirameelping00.detencion.Detener;
 import com.example.tirameelping00.fechaYhora.FechaYhora;
 import com.example.tirameelping00.log.Log;
+import com.example.tirameelping00.notificacion.Notificacion;
 import com.example.tirameelping00.sonido.Sonido;
 import com.example.tirameelping00.ventana.DesactVentPing;
-import ds.desktop.notify.DesktopNotify;
 import javafx.application.Platform;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
@@ -113,7 +113,9 @@ public class EjecutarPingHilo implements Runnable{
     private  boolean sendNotificacion(boolean notify, String inputLine, String ip){
 
         if (inputLine.contains("Error") || inputLine.contains("agotado")){
-            DesktopNotify.showDesktopMessage("Fallo en la Red", "revise la IP: " + ip, DesktopNotify.FAIL, 5000L);
+            //DesktopNotify.showDesktopMessage("Fallo en la Red", "revise la IP: " + ip, DesktopNotify.FAIL, 5000L);
+            Platform.runLater(()-> Notificacion.enviarNoti("ERROR EN PING " , "revise la IP: " + ip, "ERROR", "SLIDE", 5));
+
             reprodicirSonido("sonidos\\error.wav", false);
             //sonido.loop(new File("sonidos\\error.wav"));
             Log.crearArchivoLog("Fallo    " + inputLine , "Ping: ", ip);
@@ -122,7 +124,9 @@ public class EjecutarPingHilo implements Runnable{
             return true;
         }
         if ( inputLine.contains("tiempo") && notify){
-            DesktopNotify.showDesktopMessage("Conexion establecida", "Con la IP: " + ip, DesktopNotify.SUCCESS, 5000L);
+            //DesktopNotify.showDesktopMessage("Conexion establecida", "Con la IP: " + ip, DesktopNotify.SUCCESS, 5000L);
+            Platform.runLater(() -> Notificacion.enviarNoti("Conexion establecida", "Con la IP: " + ip, "SUCCESS", "POPUP", 4));
+
             reprodicirSonido("sonidos\\ok.wav", true);
 
             if (bolLog){
@@ -134,8 +138,9 @@ public class EjecutarPingHilo implements Runnable{
             return false;
         }
         if( inputLine.contains("inaccesible")){
-            DesktopNotify.showDesktopMessage("Inaccesible", "No se Puede Acceder a la Direccion: " + ip,
-                    DesktopNotify.WARNING, 5000L);
+            //DesktopNotify.showDesktopMessage("Inaccesible", "No se Puede Acceder a la Direccion: " + ip, DesktopNotify.WARNING, 5000L);
+
+            Platform.runLater(() -> Notificacion.enviarNoti("INACCESIBLE A PING ", "No se Puede Acceder a la Direccion: " + ip, "WARNING", "SLIDE", 5));
 
             reprodicirSonido("sonidos\\error.wav", false);
             //sonido.loop(new File("sonidos\\error.wav"));
@@ -143,7 +148,9 @@ public class EjecutarPingHilo implements Runnable{
             bolLog = true;
         }
         if (inputLine.contains("Paquetes")) {
-            DesktopNotify.showDesktopMessage("Fin de Ping", "Con la IP: " + ip, DesktopNotify.INFORMATION, 4000L);
+            //DesktopNotify.showDesktopMessage("Fin de Ping", "Con la IP: " + ip, DesktopNotify.INFORMATION, 4000L);
+
+            Platform.runLater(() -> Notificacion.enviarNoti("Fin de Ping", "Con la IP: " + ip, "INFORMATION", "FADE", 2));
 
         }
         return notify;

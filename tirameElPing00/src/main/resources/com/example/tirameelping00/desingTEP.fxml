@@ -216,7 +216,7 @@
                   </JFXTextArea>
                </children>
             </AnchorPane>
-            <ScrollPane fx:id="scrollMultiPing" layoutX="61.0" layoutY="12.0" prefHeight="713.0" prefWidth="789.0" style="-fx-background-color: #fcfff1;" visible="false" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="60.0">
+            <ScrollPane fx:id="scrollMultiPing" layoutX="61.0" layoutY="12.0" prefHeight="713.0" prefWidth="789.0" style="-fx-background-color: #fcfff1;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="60.0">
                <content>
                   <VBox fx:id="ventanaMultiPing" alignment="TOP_CENTER" prefHeight="761.0" prefWidth="725.0" style="-fx-background-color: #fcfff1;">
                      <children>
@@ -918,7 +918,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </VBox>
-            <HBox fx:id="ventBtnsTodo" alignment="CENTER" layoutX="20.0" layoutY="20.0" prefHeight="50.0" prefWidth="200.0" visible="false" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <HBox fx:id="ventBtnsTodo" alignment="CENTER" layoutX="20.0" layoutY="20.0" prefHeight="50.0" prefWidth="200.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <JFXButton fx:id="btnIniciarTodo" onMouseClicked="#iniciarTodoMultiPing" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar Todo" textFill="WHITE">
                      <font>
@@ -938,6 +938,9 @@
                      </cursor>
                   </JFXButton>
                </children>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
             </HBox>
          </children>
       </AnchorPane>

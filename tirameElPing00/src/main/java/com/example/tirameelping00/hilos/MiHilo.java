@@ -4,9 +4,9 @@ package com.example.tirameelping00.hilos;
 import com.example.tirameelping00.detencion.Detener;
 import com.example.tirameelping00.estilos.Style;
 import com.example.tirameelping00.log.Log;
+import com.example.tirameelping00.notificacion.Notificacion;
 import com.example.tirameelping00.sonido.Sonido;
 import com.example.tirameelping00.ventana.DesactVentPing;
-import ds.desktop.notify.DesktopNotify;
 import javafx.application.Platform;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
@@ -68,12 +68,12 @@ public class MiHilo implements Runnable{
 
                 try{
 
+                     notify = sendNotificacion(notify, inputLine);
 
-                    notify = sendNotificacion(notify, inputLine);
                 }catch (Exception e){
                     Platform.runLater(() -> {
                         txtError.setText("ERROR Desktop Notify: " + nomIp.getText() + " " + ip.getText() + ". Intente Nuevamente");
-                        System.out.println("ERROR Desktop Notify: " + nomIp.getText() + " " + ip.getText() + e.getMessage());
+                        System.out.println("ERROR Desktop Notify: " + nomIp.getText() + " " + ip.getText() + " " + e.getMessage());
                         txtError.setVisible(true);
                     });
                     process.destroy();
@@ -103,7 +103,9 @@ public class MiHilo implements Runnable{
 
 
             if (inputLine.contains("Error") || inputLine.contains("agotado")) {
-                DesktopNotify.showDesktopMessage("Fallo en la Red de: " + nomIp.getText().toUpperCase(), "revise la IP: " + ip.getText(), DesktopNotify.FAIL, 5000L);
+                //DesktopNotify.showDesktopMessage("Fallo en la Red de: " + nomIp.getText().toUpperCase(), "revise la IP: " + ip.getText(), DesktopNotify.FAIL, 5000L);
+                Platform.runLater(()-> Notificacion.enviarNoti("ERROR: " + nomIp.getText().toUpperCase(), "Con la IP: " + ip.getText(), "ERROR", "SLIDE", 5));
+
                 reprodicirSonido("sonidos\\error.wav", false);
                 styleNomIP(Style.rojoItems());
                 Log.crearArchivoLog("Fallo        -    " + inputLine, nomIp.getText(), ip.getText());
@@ -111,9 +113,9 @@ public class MiHilo implements Runnable{
                 return true;
             }
             if (inputLine.contains("tiempo") && notify) {
-                DesktopNotify.showDesktopMessage("Conexion establecida a: " + nomIp.getText()
-                        .toUpperCase(), "Con la IP: " + ip.getText(), DesktopNotify.SUCCESS, 5000L);
+                //DesktopNotify.showDesktopMessage("Conexion establecida a: " + nomIp.getText().toUpperCase(), "Con la IP: " + ip.getText(), DesktopNotify.SUCCESS, 5000L);
 
+                Platform.runLater(() -> Notificacion.enviarNoti("Conexion establecida a: " + nomIp.getText().toUpperCase(), "Con la IP: " + ip.getText(), "SUCCESS", "POPUP", 4));
                 reprodicirSonido("sonidos\\ok.wav", true);
 
                 if (bolLog) {
@@ -125,8 +127,9 @@ public class MiHilo implements Runnable{
                 return false;
             }
             if (inputLine.contains("inaccesible")) {
-                DesktopNotify.showDesktopMessage("Inaccesible a: " + nomIp.getText().toUpperCase(), "No se Puede Acceder a la Direccion: " + ip.getText(),
-                        DesktopNotify.WARNING, 5000L);
+                //DesktopNotify.showDesktopMessage("Inaccesible a: " + nomIp.getText().toUpperCase(), "No se Puede Acceder a la Direccion: " + ip.getText(),DesktopNotify.WARNING, 5000L);
+
+                Platform.runLater(() -> Notificacion.enviarNoti("INACCESIBLE: " + nomIp.getText().toUpperCase(), "Con la IP: " + ip.getText(), "WARNING", "SLIDE", 5));
 
                 reprodicirSonido("sonidos\\error.wav", false);
                 styleNomIP(Style.rojoItems());
@@ -135,7 +138,9 @@ public class MiHilo implements Runnable{
 
             }
             if (inputLine.contains("Paquetes")) {
-                DesktopNotify.showDesktopMessage("Fin de Ping a: " + nomIp.getText().toUpperCase(), "Con la IP: " + ip.getText(), DesktopNotify.INFORMATION, 4000L);
+                //DesktopNotify.showDesktopMessage("Fin de Ping a: " + nomIp.getText().toUpperCase(), "Con la IP: " + ip.getText(), DesktopNotify.INFORMATION, 4000L);
+                Platform.runLater(() -> Notificacion.enviarNoti("Fin de Ping a: " + nomIp.getText().toUpperCase(), "Con la IP: " + ip.getText(), "INFORMATION", "FADE", 2));
+
                 styleNomIP(Style.normalItems());
             }
 

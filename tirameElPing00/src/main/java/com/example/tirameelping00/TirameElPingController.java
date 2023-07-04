@@ -6,8 +6,6 @@ import com.example.tirameelping00.hilos.EjecutarPingHilo;
 import com.example.tirameelping00.hilos.MiHilo;
 import com.example.tirameelping00.sonido.Sonido;
 import com.example.tirameelping00.ventana.DesactVentPing;
-import ds.desktop.notify.DesktopNotify;
-import ds.desktop.notify.NotifyTheme;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -425,7 +423,7 @@ public class TirameElPingController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ipConfigAll();
-        DesktopNotify.setDefaultTheme(NotifyTheme.Light);
+        //DesktopNotify.setDefaultTheme(NotifyTheme.Light);
         btnPing.setOnAction(a -> onVentPing());
         btnMultiPing.setOnAction(a -> onVentMultiPing());
         btnRegPing.setOnAction(a -> onVentTxtSalida());
@@ -435,6 +433,7 @@ public class TirameElPingController implements Initializable {
                 if (son != null)son.setGainControl(volume.getValue());
             }
         } );
+        Platform.setImplicitExit(false);
 
 
     }
