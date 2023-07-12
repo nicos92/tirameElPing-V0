@@ -8,21 +8,22 @@ public class Detener {
 
     private final Button btnIniciar;
     private final Button btnDetener;
+    private Button pos;
     private  ProgressIndicator progressIndicator;
-    private Text txtError;
 
-    public Detener(Button btnIniciar, Button btnDetener, ProgressIndicator progressIndicator, Text txtError) {
+
+    public Detener(Button btnIniciar, Button btnDetener, ProgressIndicator progressIndicator) {
         this.btnIniciar = btnIniciar;
         this.btnDetener = btnDetener;
         this.progressIndicator = progressIndicator;
-        this.txtError = txtError;
+
 
 
     }
-    public Detener(Button btnIniciar, Button btnDetener) {
+    public Detener(Button btnIniciar, Button btnDetener, Button pos) {
         this.btnIniciar = btnIniciar;
         this.btnDetener = btnDetener;
-        //this.progressIndicator = progressIndicator;
+        this.pos = pos;
 
     }
 
@@ -30,14 +31,14 @@ public class Detener {
         btnIniciar.setDisable(false);
         btnDetener.setDisable(true);
         progressIndicator.setVisible(false);
-        txtError.setText("");
+
 
     }
 
     public void sendBtnDetenerMulti(){
         btnIniciar.setDisable(false);
         btnDetener.setDisable(true);
-        //progressIndicator.setVisible(false);
+        pos.setDisable(false);
 
     }
 

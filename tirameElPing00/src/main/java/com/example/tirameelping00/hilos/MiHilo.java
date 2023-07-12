@@ -4,10 +4,11 @@ package com.example.tirameelping00.hilos;
 import com.example.tirameelping00.detencion.Detener;
 import com.example.tirameelping00.estilos.Style;
 import com.example.tirameelping00.log.Log;
-import com.example.tirameelping00.notificacion.Notificacion;
 import com.example.tirameelping00.sonido.Sonido;
 import com.example.tirameelping00.ventana.DesactVentPing;
+import ds.desktop.notify.DesktopNotify;
 import javafx.application.Platform;
+import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -36,21 +37,21 @@ public class MiHilo implements Runnable{
     private final Text txtError;
 
     private final Lock lock = new ReentrantLock();
-
+    private final Button btnCont;
+    private int cont;
 
 
     public MiHilo (Process process, TextField ip, Detener detener, DesactVentPing desactVentPing, TextField nomIp,
-                   Text txtError, Slider volume, Sonido sonido){
+                   Text txtError, Slider volume, Sonido sonido, Button btnCont){
         this.process = process;
         this.ip = ip;
         this.detener = detener;
         this.desactVentPing = desactVentPing;
         this.volume = volume;
-
+        this.btnCont = btnCont;
         this.sonido = sonido;
         this.nomIp = nomIp;
         this.txtError = txtError;
-
     }
 
     @Override
@@ -88,6 +89,8 @@ public class MiHilo implements Runnable{
                 detener.sendBtnDetenerMulti();
                 desactVentPing.desactItemsPingMulti(false);
                 styleNomIP(Style.normalItems());
+                btnCont.setVisible(false);
+
                 //new Alert(Alert.AlertType.INFORMATION, "We just ran some JavaFX code from an AWT MenuItem!").showAndWait();
             });
 
@@ -104,18 +107,29 @@ public class MiHilo implements Runnable{
 
             if (inputLine.contains("Error") || inputLine.contains("agotado")) {
                 //DesktopNotify.showDesktopMessage("Fallo en la Red de: " + nomIp.getText().toUpperCase(), "revise la IP: " + ip.getText(), DesktopNotify.FAIL, 5000L);
-                Platform.runLater(()-> Notificacion.enviarNoti("ERROR: " + nomIp.getText().toUpperCase(), "Con la IP: " + ip.getText(), "ERROR", "SLIDE", 5));
+                //notificacion.envNoti("ERROR: " + nomIp.getText().toUpperCase(), "Con la IP: " + ip.getText(), "ERROR", "CENTER")
+                Platform.runLater(()-> {
+                    styleNomIP(Style.rojoItems());
+
+                    cont++;
+                    btnCont.setText(String.valueOf(cont));
+                    btnCont.setVisible(true);
+                    DesktopNotify.showDesktopMessage("Inaccesible a: " + nomIp.getText().toUpperCase(), "No se Puede Acceder a la Direccion: " + ip.getText(),DesktopNotify.WARNING, 5000L);
+                });
 
                 reprodicirSonido("sonidos\\error.wav", false);
-                styleNomIP(Style.rojoItems());
                 Log.crearArchivoLog("Fallo        -    " + inputLine, nomIp.getText(), ip.getText());
                 bolLog = true;
                 return true;
             }
             if (inputLine.contains("tiempo") && notify) {
                 //DesktopNotify.showDesktopMessage("Conexion establecida a: " + nomIp.getText().toUpperCase(), "Con la IP: " + ip.getText(), DesktopNotify.SUCCESS, 5000L);
+                //notificacion.envNoti("Conexion establecida a: " + nomIp.getText().toUpperCase(), "Con la IP: " + ip.getText(), "OK", "TOP_RIGHT")
 
-                Platform.runLater(() -> Notificacion.enviarNoti("Conexion establecida a: " + nomIp.getText().toUpperCase(), "Con la IP: " + ip.getText(), "SUCCESS", "POPUP", 4));
+                Platform.runLater(() ->{
+                    System.out.println();
+                    DesktopNotify.showDesktopMessage("Conexion establecida a: " + nomIp.getText().toUpperCase(), "Con la IP: " + ip.getText(), DesktopNotify.SUCCESS, 5000L);
+                } );
                 reprodicirSonido("sonidos\\ok.wav", true);
 
                 if (bolLog) {
@@ -129,19 +143,33 @@ public class MiHilo implements Runnable{
             if (inputLine.contains("inaccesible")) {
                 //DesktopNotify.showDesktopMessage("Inaccesible a: " + nomIp.getText().toUpperCase(), "No se Puede Acceder a la Direccion: " + ip.getText(),DesktopNotify.WARNING, 5000L);
 
-                Platform.runLater(() -> Notificacion.enviarNoti("INACCESIBLE: " + nomIp.getText().toUpperCase(), "Con la IP: " + ip.getText(), "WARNING", "SLIDE", 5));
+                //notificacion.envNoti("INACCESIBLE: " + nomIp.getText().toUpperCase(), "Con la IP: " + ip.getText(), "WARNING", "CENTER")
+                Platform.runLater(() -> {
+                    styleNomIP(Style.rojoItems());
+
+                    cont++;
+                    btnCont.setText(String.valueOf(cont));
+                    btnCont.setVisible(true);
+                    DesktopNotify.showDesktopMessage("Inaccesible a: " + nomIp.getText().toUpperCase(), "No se Puede Acceder a la Direccion: " + ip.getText(),DesktopNotify.WARNING, 5000L);
+                });
 
                 reprodicirSonido("sonidos\\error.wav", false);
-                styleNomIP(Style.rojoItems());
                 Log.crearArchivoLog("Inacces.     -    " + inputLine, nomIp.getText(), ip.getText());
                 bolLog = true;
+
+
+
 
             }
             if (inputLine.contains("Paquetes")) {
                 //DesktopNotify.showDesktopMessage("Fin de Ping a: " + nomIp.getText().toUpperCase(), "Con la IP: " + ip.getText(), DesktopNotify.INFORMATION, 4000L);
-                Platform.runLater(() -> Notificacion.enviarNoti("Fin de Ping a: " + nomIp.getText().toUpperCase(), "Con la IP: " + ip.getText(), "INFORMATION", "FADE", 2));
+                //notificacion.envNoti("Fin de Ping a: " + nomIp.getText().toUpperCase(), "Con la IP: " + ip.getText(), "INFO", "TOP_RIGHT")
+                Platform.runLater(() ->{
+                    DesktopNotify.showDesktopMessage("Fin de Ping a: " + nomIp.getText().toUpperCase(), "Con la IP: " + ip.getText(), DesktopNotify.INFORMATION, 4000L);
+                    styleNomIP(Style.normalItems());
 
-                styleNomIP(Style.normalItems());
+                });
+
             }
 
         }finally {

@@ -8,7 +8,6 @@ import com.example.tirameelping00.sonido.Sonido;
 import com.example.tirameelping00.ventana.DesactVentPing;
 import javafx.application.Platform;
 import javafx.scene.control.*;
-import javafx.scene.text.Text;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -34,7 +33,7 @@ public class EjecutarPingHilo implements Runnable{
 
 
 
-    public EjecutarPingHilo(Process p, String ip, boolean selected, TextArea txtAreaSalida, TextField txtRutaArchivo, DesactVentPing desactVentPing, Button btnIniciar, Button btnDetener, ProgressIndicator progress, Text txtError, Slider volume, Sonido sonido){
+    public EjecutarPingHilo(Process p, String ip, boolean selected, TextArea txtAreaSalida, TextField txtRutaArchivo, DesactVentPing desactVentPing, Button btnIniciar, Button btnDetener, ProgressIndicator progress, Slider volume, Sonido sonido){
         this.process = p;
         this.ip = ip;
         this.bool = selected;
@@ -42,7 +41,7 @@ public class EjecutarPingHilo implements Runnable{
         this.txtRutaArchivo = txtRutaArchivo;
         this.volume = volume;
 
-        this.detener = new Detener(btnIniciar,btnDetener,progress, txtError);
+        this.detener = new Detener(btnIniciar,btnDetener,progress);
         this.desactVentPing = desactVentPing;
         this.sonido = sonido;
 

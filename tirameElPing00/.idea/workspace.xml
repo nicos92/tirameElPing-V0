@@ -9,16 +9,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98ca1fcf-593e-47af-a9a5-1ea9468e1f46" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/tirameElPing00_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LOG/TEP 2023 JULY 4.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrayTester.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/notificacion/Notificacion.java" afterDir="false" />
+    <list default="true" id="3e3a9b27-18ff-40b5-92a5-b0010f782e78" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BD/TEP.accdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BD/commons-lang-2.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BD/commons-logging-1.1.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BD/hsqldb.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BD/jackcess-2.1.9.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BD/ucanaccess-4.0.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LOG/2023JULY/TEP 2023 JULY 11.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LOG/2023JULYTEP 2023 JULY 11.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LOG/TEP 2023 JULY 10.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LOG/TEP 2023 JULY 11.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LOG/TEP 2023 JULY 5.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LOG/TEP 2023 JULY 9.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controlsfx-11.0.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgs/ERROR.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgs/INFO.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgs/OK.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgs/WARNING.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgs/close1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgs/close2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgs/mute.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgs/rj45.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgs/vol.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/Launcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/baseDatos/Basesita.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/baseDatos/NomNumIp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/imgs/ERROR.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/imgs/INFO.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/imgs/OK.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/imgs/WARNING.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/imgs/icons8-notification-50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/imgs/icons8-notification.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/tirameElPing00_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/tirameElPing00_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS-Desktop-Notify-0.91.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/error.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ok.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/DS-Desktop-Notify-0.91.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/DS-Desktop-Notify-0.91.jar" beforeDir="false" afterPath="$PROJECT_DIR$/DS-Desktop-Notify-0.91.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/FXTrayIcon-4.0.1.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/annotations-24.0.1.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/javafx-base-19.0.2.1-win.jar" beforeDir="false" />
@@ -35,8 +61,11 @@
       <change beforePath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/tirameElPing00.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/tirameElPing00_jar/tirameElPing00.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/TirameElPingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/TirameElPingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/detencion/Detener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/detencion/Detener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/hilos/EjecutarPingHilo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/hilos/EjecutarPingHilo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/hilos/MiHilo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/hilos/MiHilo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/log/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/log/Log.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/notificacion/Notificacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tirameelping00/notificacion/Notificacion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/desingTEP.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/tirameelping00/desingTEP.fxml" afterDir="false" />
@@ -45,6 +74,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -56,7 +92,7 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2S7UlSYT0yM0VxMjuw438Gql1uX" />
+  <component name="ProjectId" id="2SD8ApaCW7zkCE4omHC3m1pWHsm" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -70,16 +106,16 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "P:/tirameElPing-V0/tirameElPing00/TrayTester.jar",
+    "last_opened_file_path": "P:/tirameElPing-V0/tirameElPing00/BD/ucanaccess-4.0.3.jar",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.1640625",
     "project.structure.side.proportion": "0.34418604",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RunManager">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.tirameelping00.TirameElPingApp" />
+      <option name="MAIN_CLASS_NAME" value="com.example.tirameelping00.Launcher" />
       <module name="tirameElPing00" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -89,11 +125,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="98ca1fcf-593e-47af-a9a5-1ea9468e1f46" name="Changes" comment="" />
-      <created>1688497265285</created>
+      <changelist id="3e3a9b27-18ff-40b5-92a5-b0010f782e78" name="Changes" comment="" />
+      <created>1688669651810</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1688497265285</updated>
+      <updated>1688669651810</updated>
     </task>
     <servers />
   </component>

@@ -9,10 +9,9 @@ import java.time.LocalDate;
 
 public class Log {
     public static void crearArchivoLog(String inputLine, String nomIp, String ip){
-        String path =
-                "LOG\\TEP " + LocalDate.now().getYear() + " " +  LocalDate.now().getMonth() + " " +  LocalDate.now().getDayOfMonth() + ".log";
+        String path = "LOG\\" + LocalDate.now().getYear()  +  LocalDate.now().getMonth() + "\\TEP " + LocalDate.now().getYear() + " " +  LocalDate.now().getMonth() + " " +  LocalDate.now().getDayOfMonth() + ".log";
 
-        File rutaCarpetaLog = new File("LOG");
+        File rutaCarpetaLog = new File("LOG\\" + LocalDate.now().getYear()  +  LocalDate.now().getMonth());
         if (rutaCarpetaLog.mkdir()) {
             escribiendo(inputLine, nomIp, ip, path);
         }else{
