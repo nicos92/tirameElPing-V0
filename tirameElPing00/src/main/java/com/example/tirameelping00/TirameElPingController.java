@@ -473,10 +473,21 @@ public class TirameElPingController implements Initializable {
     public void abrirLog(){
         Desktop dt = Desktop.getDesktop();
         try {
-            dt.open(new File( "LOG\\" + LocalDate.now().getYear()  +  LocalDate.now().getMonth() + "\\TEP " + LocalDate.now().getYear() + " " +  LocalDate.now().getMonth() + " " +  LocalDate.now().getDayOfMonth() + ".log"));
-        } catch (IOException e) {
-            sendAlert("ERROR Archivo", "No se encuentra archivo");
+            dt.open(new File( "LOG\\" + LocalDate.now().getYear()  + " " + LocalDate.now().getMonth() + "\\TEP " + LocalDate.now().getYear() + " " +  LocalDate.now().getMonth() + " " +  LocalDate.now().getDayOfMonth() + ".log"));
+        } catch (IOException | IllegalArgumentException e) {
+            sendAlert("ERROR Archivo", "No se encuentra archivo: " + e.getMessage());
         }
+    }
+
+    public void abrirCarpetaLog(){
+        File rutaCarpetaLog = new File("LOG");
+        Desktop dt = Desktop.getDesktop();
+        try {
+            dt.open(rutaCarpetaLog);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     public void sendAlert(String title, String cont){
@@ -533,7 +544,7 @@ public class TirameElPingController implements Initializable {
                     if (basesita.updateIps( nomIp1.getText(), txtIP1.getText(), 1)){
                         txtError1.setVisible(true);
                         txtError1.setText("guardado Correctamente");
-                    }else txtError1.setText("No se Guardo");
+                    }
 
                 }else sendAlert("ERROR Dir IPv4","Formato de Direccion IPV4 no valida");
 
@@ -547,7 +558,7 @@ public class TirameElPingController implements Initializable {
                         txtError2.setVisible(true);
                         txtError2.setText("guardado Correctamente");
 
-                    } else txtError2.setText("No se Guardo");
+                    }
                 }else sendAlert("ERROR Dir IPv4","Formato de Direccion IPV4 no valida");
             });
         }
@@ -557,7 +568,7 @@ public class TirameElPingController implements Initializable {
                     if (basesita.updateIps(nomIp3.getText(), txtIP3.getText(), 2)) {
                         txtError3.setVisible(true);
                         txtError3.setText("guardado Correctamente");
-                    } else txtError3.setText("No se Guardo");
+                    }
                 }else sendAlert("ERROR Dir IPv4","Formato de Direccion IPV4 no valida");
             });
         }
@@ -567,7 +578,7 @@ public class TirameElPingController implements Initializable {
                     if (basesita.updateIps(nomIp4.getText(), txtIP4.getText(), 4)) {
                         txtError4.setVisible(true);
                         txtError4.setText("guardado Correctamente");
-                    } else txtError4.setText("No se Guardo");
+                    }
                 }else sendAlert("ERROR Dir IPv4","Formato de Direccion IPV4 no valida");
             });
         }
@@ -578,7 +589,7 @@ public class TirameElPingController implements Initializable {
                         txtError5.setVisible(true);
 
                         txtError5.setText("guardado Correctamente");
-                    } else txtError5.setText("No se Guardo");
+                    }
                 }else sendAlert("ERROR Dir IPv4","Formato de Direccion IPV4 no valida");
             });
         }
@@ -589,7 +600,7 @@ public class TirameElPingController implements Initializable {
                         txtError6.setVisible(true);
 
                         txtError6.setText("guardado Correctamente");
-                    } else txtError6.setText("No se Guardo");
+                    }
                 }else sendAlert("ERROR Dir IPv4","Formato de Direccion IPV4 no valida");
             });
         }
@@ -600,7 +611,7 @@ public class TirameElPingController implements Initializable {
                         txtError7.setVisible(true);
 
                         txtError7.setText("guardado Correctamente");
-                    } else txtError7.setText("No se Guardo");
+                    }
                 }else sendAlert("ERROR Dir IPv4","Formato de Direccion IPV4 no valida");
             });
         }
@@ -611,7 +622,7 @@ public class TirameElPingController implements Initializable {
                         txtError8.setVisible(true);
 
                         txtError8.setText("guardado Correctamente");
-                    } else txtError8.setText("No se Guardo");
+                    }
                 }else sendAlert("ERROR Dir IPv4","Formato de Direccion IPV4 no valida");
             });
         }
@@ -622,7 +633,7 @@ public class TirameElPingController implements Initializable {
                         txtError9.setVisible(true);
 
                         txtError9.setText("guardado Correctamente");
-                    } else txtError9.setText("No se Guardo");
+                    }
                 }else sendAlert("ERROR Dir IPv4","Formato de Direccion IPV4 no valida");
             });
         }
@@ -633,7 +644,7 @@ public class TirameElPingController implements Initializable {
                         txtError10.setVisible(true);
 
                         txtError10.setText("guardado Correctamente");
-                    } else txtError10.setText("No se Guardo");
+                    }
                 }else sendAlert("ERROR Dir IPv4","Formato de Direccion IPV4 no valida");
             });
         }
@@ -671,7 +682,7 @@ public class TirameElPingController implements Initializable {
         if (event.contains("btnIniciar9")){
             altaHilos(9);
         }
-        if (event.contains("btnIniciar9")){
+        if (event.contains("btnIniciar10")){
             altaHilos(10);
         }
 
