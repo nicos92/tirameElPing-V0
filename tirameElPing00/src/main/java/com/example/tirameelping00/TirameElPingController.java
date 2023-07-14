@@ -77,17 +77,17 @@ public class TirameElPingController implements Initializable {
     private TextField nomIp1, nomIp2, nomIp3, nomIp4, nomIp5, nomIp6, nomIp7, nomIp8, nomIp9, nomIp10;
 
     @FXML
-    private Button pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9, pos10;
+    private Button pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9, posD10;
 
     @FXML
     private Button  btnIniciar, btnIniciar1, btnIniciar2, btnIniciar3, btnIniciar4,btnIniciar5, btnIniciar6,
-                    btnIniciar7, btnIniciar8, btnIniciar9, btnIniciar10, btnIniciarTodo;
+                    btnIniciar7, btnIniciar8, btnIniciar9, btnIniciarD10, btnIniciarTodo;
 
 
 
     @FXML
     private Button  btnDetener, btnDetener1, btnDetener2, btnDetener3, btnDetener4, btnDetener5, btnDetener6,
-                    btnDetener7, btnDetener8, btnDetener9, btnDetener10, btnDetenerTodo;
+                    btnDetener7, btnDetener8, btnDetener9, btnDetenerD10, btnDetenerTodo;
 
     @FXML
     private Button cont1, cont2, cont3, cont4, cont5, cont6, cont7, cont8, cont9, cont10;
@@ -332,6 +332,7 @@ public class TirameElPingController implements Initializable {
         for( int i = 1; i < threads.length; i++){
             if (threads[i] == null || !threads[i].isAlive()){
                 altaHilos(i);
+
             }
         }
         Platform.runLater(() -> btnTodos(false));
@@ -354,7 +355,7 @@ public class TirameElPingController implements Initializable {
             case 7 -> ejecutarMultiPing(id, txtIP7, btnIniciar7, btnDetener7,  radBtn_t7, nomIp7, txtError7, pos7, cont7);
             case 8 -> ejecutarMultiPing(id, txtIP8, btnIniciar8, btnDetener8,  radBtn_t8, nomIp8, txtError8, pos8, cont8);
             case 9 -> ejecutarMultiPing(id, txtIP9, btnIniciar9, btnDetener9,  radBtn_t9, nomIp9, txtError9, pos9, cont9);
-            case 10 -> ejecutarMultiPing(id, txtIP10, btnIniciar10, btnDetener10, radBtn_t10, nomIp10, txtError10, pos10, cont10);
+            case 10 -> ejecutarMultiPing(id, txtIP10, btnIniciarD10, btnDetenerD10, radBtn_t10, nomIp10, txtError10, posD10, cont10);
         }
     }
 
@@ -637,7 +638,7 @@ public class TirameElPingController implements Initializable {
                 }else sendAlert("ERROR Dir IPv4","Formato de Direccion IPV4 no valida");
             });
         }
-        if (event.contains("pos10")){
+        if (event.contains("posD10")){
             Platform.runLater(()-> {
                 if (isValidIp(txtIP10.getText())){
                     if (basesita.updateIps(nomIp10.getText(), txtIP10.getText(), 10)) {
@@ -682,7 +683,7 @@ public class TirameElPingController implements Initializable {
         if (event.contains("btnIniciar9")){
             altaHilos(9);
         }
-        if (event.contains("btnIniciar10")){
+        if (event.contains("btnIniciarD10")){
             altaHilos(10);
         }
 
@@ -757,9 +758,9 @@ public class TirameElPingController implements Initializable {
             threads[9].interrupt();
             processes[9].destroy();
         }
-        if (event.contains("btnDetener10")){
-            btnIniciar10.setDisable(false);
-            btnDetener10.setDisable(true);
+        if (event.contains("btnDetenerD10")){
+            btnIniciarD10.setDisable(false);
+            btnDetenerD10.setDisable(true);
             //progress9.setVisible(false);
             threads[10].interrupt();
             processes[10].destroy();

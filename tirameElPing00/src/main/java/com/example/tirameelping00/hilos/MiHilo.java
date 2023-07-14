@@ -127,7 +127,6 @@ public class MiHilo implements Runnable{
                 //notificacion.envNoti("Conexion establecida a: " + nomIp.getText().toUpperCase(), "Con la IP: " + ip.getText(), "OK", "TOP_RIGHT")
 
                 Platform.runLater(() ->{
-                    System.out.println();
                     DesktopNotify.showDesktopMessage("Conexion establecida a: " + nomIp.getText().toUpperCase(), "Con la IP: " + ip.getText(), DesktopNotify.SUCCESS, 5000L);
                 } );
                 reprodicirSonido("sonidos\\ok.wav", true);

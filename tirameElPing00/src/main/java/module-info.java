@@ -4,7 +4,6 @@ module com.example.tirameelping {
     requires java.desktop;
     requires com.dustinredmond.fxtrayicon;
     requires TrayTester;
-    requires org.controlsfx.controls;
     requires DS.Desktop.Notify;
     requires java.logging;
     requires java.sql;

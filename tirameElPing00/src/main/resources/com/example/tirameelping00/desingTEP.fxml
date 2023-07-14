@@ -1073,13 +1073,13 @@
                                  </font>
                               </JFXRadioButton>
                               <Separator prefWidth="10.0" visible="false" />
-                              <JFXButton fx:id="pos10" onMouseClicked="#guardaIP" prefHeight="50.0" prefWidth="65.0" style="-fx-background-color: #0044ff; -fx-background-radius: 10;" text="Guardar" textFill="WHITE">
+                              <JFXButton fx:id="posD10" onMouseClicked="#guardaIP" prefHeight="50.0" prefWidth="65.0" style="-fx-background-color: #0044ff; -fx-background-radius: 10;" text="Guardar" textFill="WHITE">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </JFXButton>
                               <Separator prefWidth="10.0" visible="false" />
-                              <JFXButton fx:id="btnIniciar10" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="65.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">
+                              <JFXButton fx:id="btnIniciarD10" onMouseClicked="#btnIniciarMultiPing" prefHeight="50.0" prefWidth="65.0" style="-fx-background-color: #008302; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
@@ -1088,7 +1088,7 @@
                                  </cursor>
                               </JFXButton>
                               <Separator prefWidth="10.0" visible="false" />
-                              <JFXButton fx:id="btnDetener10" disable="true" onMouseClicked="#onBtnDetenerMulti" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="X" textFill="WHITE">
+                              <JFXButton fx:id="btnDetenerD10" disable="true" onMouseClicked="#onBtnDetenerMulti" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #e10000; -fx-background-radius: 10;" text="X" textFill="WHITE">
                                  <font>
                                     <Font name="Arial Black" size="18.0" />
                                  </font>
